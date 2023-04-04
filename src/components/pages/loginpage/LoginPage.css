@@ -1,0 +1,31 @@
+@import '../../assets/fonts/Fonts.css';
+
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.login-input {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+}
+
+.login-input:hover {
+  background-color: #e0e0e0;
+}
+
+.login-input-label {
+  color: #555;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.login-input-field {
+  font-size: 1.1rem;
+  color: #333;
+}
