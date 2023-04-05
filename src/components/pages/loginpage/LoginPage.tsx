@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField } from '@mui/material';
 import '../loginpage/LoginPage.css';
+import CommonButton from '../../common/button/Button';
 
 // Define Material UI theme
 const theme = createTheme();
@@ -48,9 +49,7 @@ function LoginPage() {
                   }}
                 />
               </Form.Group>
-              <Button variant="contained" type="submit">
-                Submit
-              </Button>
+                < CommonButton />
             </Form>
           </Col>
         </Row>

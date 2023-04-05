@@ -1,1 +1,65 @@
 @import '../../assets/fonts/Fonts.css';
+
+.parent-bg {
+    background-color: #F7F0E8;
+    min-height: 800px;
+}
+.my-tbl {
+    border-collapse: collapse;
+    display: table;
+  }
+  .my-tbl th,
+.my-tbl td {
+  padding: 8px;
+  text-align: left;
+}
+thead {
+    font-family: PoppinsRegular;
+    font-size: 32px;
+    text-align: left;
+    
+}
+tbody {
+    background-color: #F2C1BC;
+    font-family: PoppinsLight;
+    font-size: 12px;
+}
+/* .my-tbl td {
+} */
+.my-tbl td {
+      border: 1px solid black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+.my-tbl th {
+    background-color: transparent !important;
+}  
+.tables-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.horizontal-tbl {
+    background-color: #F2C1BC;
+    border-collapse: collapse;
+  }
+  
+  .horizontal-tbl th,
+  .horizontal-tbl td {
+    border: 1px solid black;
+    padding: 8px;
+
+  }
+  
+  .horizontal-tbl th {
+    text-align: left;
+    font-family: PoppinsRegular;
+
+  }
+  
+  .horizontal-tbl td {
+    font-family: PoppinsLight;
+
+  }
