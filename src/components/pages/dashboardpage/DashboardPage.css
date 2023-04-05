@@ -1,6 +1,6 @@
 @import '../../assets/fonts/Fonts.css';
 
-.parent-bg {
+.parent-bg,html {
     background-color: #F7F0E8;
     min-height: 800px;
 }
@@ -17,7 +17,7 @@ thead {
     font-family: PoppinsRegular;
     font-size: 32px;
     text-align: left;
-    
+    border: none !important;
 }
 tbody {
     background-color: #F2C1BC;
@@ -42,24 +42,54 @@ tbody {
     justify-content: space-evenly;
 }
 .horizontal-tbl {
-    background-color: #F2C1BC;
     border-collapse: collapse;
+    width: 80%;
   }
   
   .horizontal-tbl th,
   .horizontal-tbl td {
-    border: 1px solid black;
     padding: 8px;
+    border-collapse: collapse;
 
   }
   
   .horizontal-tbl th {
     text-align: left;
     font-family: PoppinsRegular;
-
+    border: 1px solid black;
+    
   }
   
   .horizontal-tbl td {
     font-family: PoppinsLight;
+    background-color: #F2C1BC;
+    border: 1px solid black;
+  }
+  .horizontal-tbl thead th {
+    border: none;
+  }
+  
+  
+  .active-meds-area {
+    justify-content: center;
+    display: flex;
+  }
 
+  .profile-info p{
+    font-family: PoppinsRegular;
+  }
+  .profile-info {
+    font-family: PoppinsMedium;
+    font-size: 24px;
+  }
+  .profile-picture-info img{
+    background-color: black;
+    height: 120px;
+    width: 120px;
+    border: 1px solid black;
+  }
+  .profile-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }

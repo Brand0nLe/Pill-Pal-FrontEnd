@@ -9,7 +9,25 @@ export default function DashboardPage() {
             < Container >
                 < Row className='justify-content-md-center mt-5' >
                     < Col md={6}>
-                        < CommonButton />
+                        <div className="profile-area">
+                
+                        <div className="profile-picture-container">
+
+                            <img id='profile-picture' src="" alt="" />
+                            <input type="file" name="profile-picture" id="profile-picture" />
+                            <label htmlFor="profile-picture"></label>
+
+                        </div>
+                        <div className="profile-info">
+
+                            <h3 className='profileName'>Brandon Nguyen</h3>
+                            <p className='profileDate'>01-01-1993</p>
+                            <p className='profileAddressLine1'>4321 Eureka Ct,</p>
+                            <p className='profileAddressLine2'>Stockton Ca, 95212.</p>
+                            < CommonButton />
+
+                        </div>
+                        </div>
                     </Col>
                     < div className='tables-area'>
 
@@ -102,19 +120,25 @@ export default function DashboardPage() {
                         </table>
                     </div>
                     <div className='active-meds-area'>
-                        <table className='horizontal-tbl'>
-                            <tr>
-                                <th>table</th>
-                                <td>content</td>
-                                <td>content</td>
-                            </tr>
-                            <tr>
-                                <th>table</th>
-                                <td>content</td>
-                                <td>content</td>
-                            </tr>
+                        <table id='pharmacyHours' className='horizontal-tbl'>
+                            <thead>
+                                <tr>
+                                    <th>Current Active Meds</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Losartan 25 mg</th>
+                                    <td>Take 1 tablet everyday.</td>
+                                    <td>Harpreet Singh</td>
+                                </tr>
+                                <tr>
+                                    <th>Alprazolam 1 mg</th>
+                                    <td>Take 1 tablet daily as needed.</td>
+                                    <td>Harpreet Singh</td>
+                                </tr>
+                            </tbody>
                         </table>
-
                     </div>
                 </Row>
             </Container>
