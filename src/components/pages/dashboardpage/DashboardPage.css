@@ -82,14 +82,14 @@ tbody {
     font-family: PoppinsMedium;
     font-size: 24px;
   }
-  .profile-picture-info img{
-    background-color: black;
-    height: 120px;
-    width: 120px;
-    border: 1px solid black;
+  .profile-picture-container img{
+    height: 215px;
+    border: 2px inset black ; border-radius: 4px;
   }
+
   .profile-area{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
   }

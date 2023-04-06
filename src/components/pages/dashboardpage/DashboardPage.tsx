@@ -1,7 +1,10 @@
-import React from 'react'
+
+import React, { useState } from 'react';
+
 import { Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button'
 import './DashboardPage.css'
+import  defaultProfilePicture  from '../../assets/images/default-profile-picture.png'
 
 export default function DashboardPage() {
     return (
@@ -13,10 +16,8 @@ export default function DashboardPage() {
                 
                         <div className="profile-picture-container">
 
-                            <img id='profile-picture' src="" alt="" />
-                            <input type="file" name="profile-picture" id="profile-picture" />
-                            <label htmlFor="profile-picture"></label>
-
+                            <img id='profile-picture' src={defaultProfilePicture} alt="" />
+                        
                         </div>
                         <div className="profile-info">
 
