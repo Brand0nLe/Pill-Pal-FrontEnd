@@ -1,1 +1,32 @@
 @import '../../assets/fonts/Fonts.css';
+
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+  }
+  
+  .registration-input {
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f0f0f0;
+    padding: 0.5rem;
+  }
+  
+  .registration-input:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .registration-input-label {
+    color: #555;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .registration-input-field {
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
