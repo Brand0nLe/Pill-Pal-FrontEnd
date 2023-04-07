@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
+import { Link } from 'react-router-dom';
 
 // Define Material UI theme
 const theme = createTheme();
@@ -48,10 +49,15 @@ function LoginPage() {
                   }}
                 />
               </Form.Group>
-              <Button variant="contained" type="submit">
+              <Button variant="contained" type="submit" color="primary">
                 Submit
               </Button>
             </Form>
+            <div className="text-center mt-3">
+              <p>
+                Don't have an account? <Link to="/register">Registration</Link>
+              </p>
+            </div>
           </Col>
         </Row>
       </Container>
