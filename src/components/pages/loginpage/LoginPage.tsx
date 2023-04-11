@@ -1,17 +1,44 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import React, {useState}  from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
+import { Link } from 'react-router-dom';
+import { Col, Container, Row, Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+import { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService'
+
+export default function Login() {
+    let navigate = useNavigate();
+
+    const [Username, setUsername] = useState('');
+    const [Password, setPassword] = useState('');
+
+    const handleSubmit = async () => {
+        let userData: any = {
+            Username: String,
+            Password: String
+        }
+        console.log(userData);
+        let token =  login(userData);
+        if(token != null){
+            localStorage.setItem("Token", token);
+            await GetLoggedInUserData(Username);
+            navigate("/Dashboard");
+        }
+    }
+  
+
+
 
 // Define Material UI theme
 const theme = createTheme();
 
-function LoginPage() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle login form submit logic here
-  };
+// function LoginPage() {
+//   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+//     event.preventDefault();
+//     // Handle login form submit logic here
+//   };
 
   return (
     <ThemeProvider theme={theme}>
@@ -34,24 +61,40 @@ function LoginPage() {
                   }}
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="password">
-                <TextField
-                  label="Password"
-                  type="password"
-                  fullWidth
-                  className="login-input"
-                  InputLabelProps={{
-                    className: 'login-input-label'
-                  }}
-                  InputProps={{
-                    className: 'login-input-field'
-                  }}
-                />
-              </Form.Group>
-              <Button variant="contained" type="submit">
+              <Form>
+                        <Form.Group className="mb-3" controlId="Username">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control 
+                            type="text" 
+                            placeholder="Enter username" 
+                            onChange={({target: {value}}) => setUsername(value)}
+                            />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="Password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control 
+                            type="password" 
+                            placeholder="Password"
+                            onChange={({target: {value}}) => setPassword(value)} 
+                            />
+                        </Form.Group>
+                        <Button 
+                        // variant="primary" 
+                        onClick={handleSubmit}
+                        >
+                            Login
+                            </Button>
+                    </Form>
+              <Button variant="contained" type="submit" color="primary">
                 Submit
               </Button>
             </Form>
+            <div className="text-center mt-3">
+              <p>
+                Don't have an account? <Link to="/register">Registration</Link>
+              </p>
+            </div>
           </Col>
         </Row>
       </Container>
@@ -59,4 +102,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+// export LoginPage;
