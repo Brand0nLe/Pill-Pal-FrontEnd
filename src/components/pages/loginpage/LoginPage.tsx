@@ -20,7 +20,7 @@ export default function Login() {
             Password: String
         }
         console.log(userData);
-        let token =  login(userData);
+        let token =  await login(userData);
         if(token != null){
             localStorage.setItem("Token", token);
             await GetLoggedInUserData(Username);
@@ -46,7 +46,7 @@ const theme = createTheme();
         <Row className="justify-content-md-center mt-5">
           <Col md={6}>
             <h2>Login</h2>
-            <Form className="login-form" onSubmit={handleSubmit}>
+            <Form className="login-form">
               <Form.Group className="mb-3" controlId="email">
                 <TextField
                   label="Email"
