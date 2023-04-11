@@ -1,7 +1,7 @@
 let userData: any;
 
 async function createAccount(createdUser: string){
-    const res = await fetch('Https://pillpalapi.azurewebsites.net/AddUser',{
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/user/AddUser',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"
@@ -16,7 +16,7 @@ async function createAccount(createdUser: string){
     console.log(data);
 }
 async function login(loginUser: string){
-    const res = await fetch('Https://pillpalapi.azurewebsites.net/User/AddUser',{
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/User/login',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"
@@ -35,7 +35,7 @@ async function login(loginUser: string){
 
 //Create endpoint for this
 async function GetLoggedInUserData(username: string){
-    let res= await fetch(`Https://pillpalapi.azurewebsites.net/User/userbyusername/${username}`)
+    let res= await fetch(`Https://pillpalapi.azurewebsites.net/AddUserazurewebsites.net/User/userbyusername/${username}`)
     let data = await res.json();
     userData = data;
     console.log(userData);
