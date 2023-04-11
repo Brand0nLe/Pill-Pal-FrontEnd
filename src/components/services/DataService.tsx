@@ -18,8 +18,9 @@ async function createAccount(createdUser: string){
     let data = await res.json();
     console.log(data);
 }
-async function login(loginUser: string){
-    const res = await fetch('https://griffinblogapi.azurewebsites.net/user/login',{
+async function login(loginUser: object){
+    console.log(loginUser)
+    const res = await fetch('https://pillpalapi.azurewebsites.net/user/login',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"

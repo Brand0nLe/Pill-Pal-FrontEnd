@@ -16,16 +16,17 @@ export default function Login() {
 
     const handleSubmit = async () => {
         let userData: any = {
-            Username: String,
-            Password: String
+            Username,
+            Password
         }
         console.log(userData);
         let token = await login(userData);
-        if(token.token !== null){
-            localStorage.setItem("token", token.token);
-            await GetLoggedInUserData(Username);
-            navigate("/Dashboard");
+        if(token.token != null){
+          localStorage.setItem("token", token.token);
+          // await GetLoggedInUserData(Username);
+          navigate("/Dashboard");
         }
+        console.log(userData);
     }
   
 
