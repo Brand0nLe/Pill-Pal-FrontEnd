@@ -5,6 +5,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button'
 import './DashboardPage.css'
 import  defaultProfilePicture  from '../../assets/images/default-profile-picture.png'
+import defaultMedCardFront from '../../assets/images/Med-card-template.webp'
+import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg'
 
 export default function DashboardPage() {
     return (
@@ -28,6 +30,8 @@ export default function DashboardPage() {
                             < CommonButton />
 
                         </div>
+                        <img src={defaultMedCardFront} alt="" id="medCardFront" />
+                        <img src={defaultMedCardBack} alt="" id="medCardBack" />
                         </div>
                     </Col>
                     < div className='tables-area'>

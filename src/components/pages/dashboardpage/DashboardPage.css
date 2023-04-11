@@ -83,7 +83,7 @@ tbody {
     font-size: 24px;
   }
   .profile-picture-container img{
-    height: 215px;
+    
     border: 2px inset black ; border-radius: 4px;
   }
 
@@ -92,4 +92,8 @@ tbody {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+  }
+
+  .profile-area img {
+    width: 363px;
   }
