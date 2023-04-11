@@ -20,9 +20,9 @@ export default function Login() {
             Password: String
         }
         console.log(userData);
-        let token =  login(userData);
-        if(token != null){
-            localStorage.setItem("Token", token);
+        let token = await login(userData);
+        if(token.token !== null){
+            localStorage.setItem("yoken", token.token);
             await GetLoggedInUserData(Username);
             navigate("/Dashboard");
         }
