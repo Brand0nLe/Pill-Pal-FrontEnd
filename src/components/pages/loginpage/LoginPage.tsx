@@ -16,11 +16,25 @@ function LoginPage() {
 
   return (
     <ThemeProvider theme={theme}>
+
+<p>
+Login Page
+</p>
+
+
       <Container>
-        <Row className="justify-content-md-center mt-5">
-          <Col md={6}>
-            <h2>Login</h2>
-            <Form className="login-form" onSubmit={handleSubmit}>
+        <Row className="mt-5">
+          <Col md={12}>
+            <Form className="login-form" onSubmit={handleSubmit} >
+
+
+            <p className="registrationText">
+                Don't have an account?{'  '}
+                <Link to="/register">Registration</Link>
+              </p>
+            
+
+
               <Form.Group className="mb-3" controlId="email">
                 <TextField
                   label="Email"
@@ -28,36 +42,36 @@ function LoginPage() {
                   fullWidth
                   className="login-input"
                   InputLabelProps={{
-                    className: 'login-input-label'
+                    className: 'login-input-label, borderRadius'
                   }}
                   InputProps={{
-                    className: 'login-input-field'
+                    className: 'login-input-field, borderRadius'
                   }}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="password">
+
+              <p className="registrationText">
+                <Link to="forgotpasswordlinkgoeshere">Forgot Password?</Link>
+              </p>
+
                 <TextField
                   label="Password"
                   type="password"
                   fullWidth
                   className="login-input"
                   InputLabelProps={{
-                    className: 'login-input-label'
+                    className: 'login-input-label, borderRadius'
                   }}
                   InputProps={{
-                    className: 'login-input-field'
+                    className: 'login-input-field, borderRadius'
                   }}
                 />
               </Form.Group>
-              <Button variant="contained" type="submit" color="primary">
-                Submit
+              <Button variant="contained" type="submit" className="loginBtn">
+                Log In
               </Button>
             </Form>
-            <div className="text-center mt-3">
-              <p>
-                Don't have an account? <Link to="/register">Registration</Link>
-              </p>
-            </div>
           </Col>
         </Row>
       </Container>

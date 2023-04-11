@@ -22,10 +22,10 @@ function RegistrationPage() {
                 fullWidth
                 className="registration-input mr-2"
                 InputLabelProps={{
-                  className: 'registration-input-label'
+                  className: 'registration-input-label, borderRadius'
                 }}
                 InputProps={{
-                  className: 'registration-input-field'
+                  className: 'registration-input-field, borderRadius'
                 }}
               />
               <TextField
@@ -33,10 +33,10 @@ function RegistrationPage() {
                 fullWidth
                 className="registration-input"
                 InputLabelProps={{
-                  className: 'registration-input-label'
+                  className: 'registration-input-label, borderRadius'
                 }}
                 InputProps={{
-                  className: 'registration-input-field'
+                  className: 'registration-input-field, borderRadius'
                 }}
               />
             </Form.Group>
@@ -47,10 +47,10 @@ function RegistrationPage() {
                 fullWidth
                 className="registration-input"
                 InputLabelProps={{
-                  className: 'registration-input-label'
+                  className: 'registration-input-label, borderRadius'
                 }}
                 InputProps={{
-                  className: 'registration-input-field'
+                  className: 'registration-input-field, borderRadius'
                 }}
               />
             </Form.Group>
@@ -61,10 +61,10 @@ function RegistrationPage() {
                 fullWidth
                 className="registration-input"
                 InputLabelProps={{
-                  className: 'registration-input-label'
+                  className: 'registration-input-label, borderRadius'
                 }}
                 InputProps={{
-                  className: 'registration-input-field'
+                  className: 'registration-input-field, borderRadius'
                 }}
               />
             </Form.Group>
@@ -75,15 +75,15 @@ function RegistrationPage() {
                 fullWidth
                 className="registration-input"
                 InputLabelProps={{
-                  className: 'registration-input-label'
+                  className: 'registration-input-label, borderRadius'
                 }}
                 InputProps={{
-                  className: 'registration-input-field'
+                  className: 'registration-input-field, borderRadius'
                 }}
               />
             </Form.Group>
-            <Button variant="contained" type="submit" color="primary">
-              Submit
+            <Button variant="contained" type="submit" className='signupBtn'>
+              Sign Up
             </Button>
             <div className="text-center mt-3">
               <p>
