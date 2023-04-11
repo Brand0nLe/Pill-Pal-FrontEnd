@@ -15,14 +15,14 @@ export default function Login() {
     const [Password, setPassword] = useState('');
 
     const handleSubmit = async () => {
-        let userData = {
-            Username,
-            Password
+        let userData: any = {
+            Username: String,
+            Password: String
         }
         console.log(userData);
         let token =  login(userData);
-        if(token.token != null){
-            localStorage.setItem("Token", token.token);
+        if(token != null){
+            localStorage.setItem("Token", token);
             await GetLoggedInUserData(Username);
             navigate("/Dashboard");
         }
