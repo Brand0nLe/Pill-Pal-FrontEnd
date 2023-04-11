@@ -22,7 +22,7 @@ export default function Login() {
         console.log(userData);
         let token = await login(userData);
         if(token.token !== null){
-            localStorage.setItem("yoken", token.token);
+            localStorage.setItem("token", token.token);
             await GetLoggedInUserData(Username);
             navigate("/Dashboard");
         }
