@@ -4,7 +4,7 @@
 let userData: any;
 
 async function createAccount(createdUser: string){
-    const res = await fetch('griffinblogapi.azurewebsites.net/AddUser',{
+    const res = await fetch('https://pillpalapi.azurewebsites.net/User/AddUser',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"
@@ -18,8 +18,9 @@ async function createAccount(createdUser: string){
     let data = await res.json();
     console.log(data);
 }
-async function login(loginUser: any){
-    const res = await fetch('griffinblogapi.azurewebsites.net/User/AddUser',{
+async function login(loginUser: object){
+    console.log(loginUser)
+    const res = await fetch('https://pillpalapi.azurewebsites.net/user/login',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"
@@ -38,14 +39,14 @@ async function login(loginUser: any){
 
 //Create endpoint for this
 async function GetLoggedInUserData(username: string){
-    let res= await fetch(`pillpalapi.azurewebsites.net/User/userbyusername/${username}`)
+    let res= await fetch(`Https://pillpalapi.azurewebsites.net/User/userbyusername/${username}`)
     let data = await res.json();
     userData = data;
     console.log(userData);
 }
 
 async function GetPublishedBlogItems(){
-    let res = await fetch('pillpalapi.azurewebsites.net/blog/GetPublishedItems');
+    let res = await fetch('Https://pillpalapi.azurewebsites.net/blog/GetPublishedItems');
     let data = await res.json();
     return data;
 }
@@ -64,7 +65,7 @@ function loggedInData(){
 }
 
 async function addBlogItem(blogItem: string){
-    const res = await fetch('pillpalapi.azurewebsites.net/blog/addblogitem',{
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/blog/addblogitem',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"
@@ -81,13 +82,13 @@ async function addBlogItem(blogItem: string){
 }
 
 async function getBlogItemsByUserId(userId: number){
-    const res = await fetch(`pillpalapi.azurewebsites.net/blog/GetItemsByUserId/${userId}`);
+    const res = await fetch(`Https://pillpalapi.azurewebsites.net/blog/GetItemsByUserId/${userId}`);
     let data = await res.json();
     return data;
 }
 
 async function updateBlogItem(blogItem: string){
-    const res = await fetch('pillpalapi.azurewebsites.net/blog/UpdateBlogItem',{
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/blog/UpdateBlogItem',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"
