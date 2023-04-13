@@ -1,1 +1,89 @@
 @import '../../assets/fonts/Fonts.css';
+
+.parent-bg,html {
+    background-color: #F7F0E8;
+    min-height: 800px;
+}
+
+.profile-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .profile-area img {
+    width: 303px;
+  }
+  .profile-info p{
+    font-family: PoppinsRegular;
+  }
+  .profile-info {
+    font-family: PoppinsMedium;
+    font-size: 24px;
+  }
+
+  .my-tbl {
+    border-collapse: collapse;
+    display: table;
+  }
+  .my-tbl th,
+.my-tbl td {
+  padding: 8px;
+  text-align: left;
+}
+thead {
+    font-family: PoppinsRegular;
+    font-size: 32px;
+    text-align: left;
+    border: none !important;
+}
+tbody {
+    background-color: #F2C1BC;
+    font-family: PoppinsLight;
+    font-size: 12px;
+}
+.my-tbl tr {
+
+}
+.my-tbl td {
+    border: 1px solid black;
+    overflow: hidden;
+    white-space: nowrap;
+    max-height: 52px !important;
+  }
+.my-tbl th {
+    background-color: transparent !important;
+    border: none !important;
+}  
+.tables-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.horizontal-tbl {
+    border-collapse: collapse;
+    width: 80%;
+  }
+  .horizontal-tbl th,
+  .horizontal-tbl td {
+    padding: 8px;
+    border-collapse: collapse;
+  }
+  .horizontal-tbl th {
+    text-align: left;
+    font-family: PoppinsRegular;
+    border: 1px solid black;
+  }
+  .horizontal-tbl td {
+    font-family: PoppinsLight;
+    background-color: #F2C1BC;
+    border: 1px solid black;
+  }
+  .horizontal-tbl thead th {
+    border: none;
+  }
+  .active-meds-area {
+    justify-content: center;
+    display: flex;
+  }

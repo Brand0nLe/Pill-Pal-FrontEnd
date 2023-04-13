@@ -9,6 +9,9 @@ import defaultMedCardFront from '../../assets/images/Med-card-template.webp'
 import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg'
 
 export default function DashboardPage() {
+
+
+    
     return (
         <div className='parent-bg'>
             < Container >
