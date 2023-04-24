@@ -3,7 +3,7 @@
 
 let userData: any;
 
-async function createAccount(createdUser: string){
+async function createAccount(createdUser: object){
     const res = await fetch('https://pillpalapi.azurewebsites.net/User/AddUser',{
         method:"POST",
         headers:{
@@ -17,6 +17,7 @@ async function createAccount(createdUser: string){
     }
     let data = await res.json();
     console.log(data);
+    return data;
 }
 async function login(loginUser: object){
     console.log(loginUser)

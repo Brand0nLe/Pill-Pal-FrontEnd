@@ -1,15 +1,39 @@
-import React from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import React, {useState}  from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
+import '../loginpage/LoginPage.css';
 import { Link } from 'react-router-dom';
-import '../registrationpage/RegistrationPage.css';
+import { Col, Container, Row, Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+import { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
 
-function RegistrationPage() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle registration form submit logic here
-  };
+export default function RegistrationPage() {
+  let navigate = useNavigate();
 
+  const Id: number = 0;
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [Username, setUsername] = useState('');
+  const [Password, setPassword] = useState('');
+  const [checkPassword, setCheckPassword] = useState('');
+
+  const handleSubmit = async () => {
+      let userData: object = {
+          Id,
+          Username,
+          Password
+      }
+      console.log(userData);
+      let data: boolean = await createAccount(userData);
+      console.log(data);
+      if(data == true){
+        console.log("User successfully created!");
+        // await GetLoggedInUserData(Username);
+        navigate("/Dashboard");
+      }else console.log("User creation failed");
+      console.log(userData);
+  }
   return (
     <Container>
       <Row className="justify-content-md-center mt-5">
@@ -52,6 +76,7 @@ function RegistrationPage() {
                 InputProps={{
                   className: 'registration-input-field'
                 }}
+                onChange={({target: {value}}) => setUsername(value)}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
@@ -66,6 +91,7 @@ function RegistrationPage() {
                 InputProps={{
                   className: 'registration-input-field'
                 }}
+                onChange={({target: {value}}) => setPassword(value)}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="confirmPassword">
@@ -80,9 +106,10 @@ function RegistrationPage() {
                 InputProps={{
                   className: 'registration-input-field'
                 }}
+                onChange={({target: {value}}) => setCheckPassword(value)}
               />
             </Form.Group>
-            <Button variant="contained" type="submit" color="primary">
+            <Button variant="contained" type="submit" color="primary" onClick={handleSubmit}>
               Submit
             </Button>
             <div className="text-center mt-3">
@@ -97,4 +124,4 @@ function RegistrationPage() {
   );
 }
 
-export default RegistrationPage;
+// export default RegistrationPage;
