@@ -1,1 +1,12 @@
 @import '../../assets/fonts/Fonts.css';
+
+.form-bg {
+    background-color: white;
+    min-height: 300px;
+    border: 1px solid black;
+    margin-inline: 15%;
+}
+h1 {
+    margin-left: 15%;
+    font-family: PoppinsRegular;
+}

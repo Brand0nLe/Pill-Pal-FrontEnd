@@ -32,7 +32,6 @@ tbody {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  
 .my-tbl th {
     background-color: transparent !important;
 }  
@@ -45,21 +44,18 @@ tbody {
     border-collapse: collapse;
     width: 80%;
   }
-  
   .horizontal-tbl th,
   .horizontal-tbl td {
     padding: 8px;
     border-collapse: collapse;
 
   }
-  
   .horizontal-tbl th {
     text-align: left;
     font-family: PoppinsRegular;
     border: 1px solid black;
     
   }
-  
   .horizontal-tbl td {
     font-family: PoppinsLight;
     background-color: #F2C1BC;
@@ -68,8 +64,6 @@ tbody {
   .horizontal-tbl thead th {
     border: none;
   }
-  
-  
   .active-meds-area {
     justify-content: center;
     display: flex;
@@ -84,7 +78,6 @@ tbody {
   }
   .profile-picture-container img{
     
-    border: 2px inset black ; border-radius: 4px;
   }
 
   .profile-area{
