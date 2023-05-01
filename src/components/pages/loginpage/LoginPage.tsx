@@ -29,7 +29,7 @@ function LoginPage() {
 
 
       <Container>
-        <Row className="mt-5">
+        <Row className="mt-1">
           <Col md={12}>
             <Form className="login-form" onSubmit={handleSubmit} >
 

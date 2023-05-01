@@ -12,17 +12,18 @@ function App() {
   return (
     <Router>
       <div>
-        <NavBar />
+        {/* Conditionally render the NavBar component so it doesn't show on login and registration pages */}
+        {window.location.pathname !== '/' && window.location.pathname !== '/login' && window.location.pathname !== '/register' && <NavBar />}
         <br></br>
         <br></br>
         <br></br>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
-          {/* <Route path="/dependentspage" element={<DependentsPage />} />
+          <Route path="/dependentspage" element={<DependentsPage />} />
           <Route path="/dashboardpage" element={<DashboardPage />} />
           <Route path="/schedulepage" element={<SchedulePage />} />
-          <Route path="/historypage" element={<HistoryPage />} /> */}
+          <Route path="/historypage" element={<HistoryPage />} />
           <Route path="/" element={<LoginPage />} />
         </Routes>
       </div>
