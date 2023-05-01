@@ -1,3 +1,9 @@
-function SchedulePage() {}
+import React from 'react';
 
-export default { SchedulePage }
+const SchedulePage: any = () => {
+return(
+    <></>
+);
+    };
+
+export default SchedulePage;

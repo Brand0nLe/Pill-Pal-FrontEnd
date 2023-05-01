@@ -1,3 +1,9 @@
-function HistoryPage() {}
+import React from 'react';
 
-export default { HistoryPage }
+const HistoryPage: any = () => {
+return(
+    <></>
+);
+    };
+
+export default HistoryPage;

@@ -1,3 +1,9 @@
-function DependentsPage() {}
+import React from 'react';
 
-export default { DependentsPage }
+const DependentsPage: any = () => {
+return(
+    <></>
+);
+    };
+
+export default DependentsPage;

@@ -1,3 +1,11 @@
-function DashboardPage() {}
+import React from 'react';
 
-export default { DashboardPage }
+const DashboardPage: any = () => {
+return(
+    <></>
+);
+    };
+
+export default DashboardPage;
+
+

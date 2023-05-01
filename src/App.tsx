@@ -10,21 +10,20 @@ import HistoryPage from './components/pages/historypage/HistoryPage';
 
 function App() {
   return (
-    <></>
-    // <Router>
-    //   <div>
-    //     <NavBar />
-    //     <Routes>
-    //       <Route path="/login" element={<LoginPage />} />
-    //       <Route path="/register" element={<RegistrationPage />} />
-    //       <Route path="/dependentspage" element={<DependentsPage />} />
-    //       <Route path="/dashboardpage" element={<DashboardPage />} />
-    //       <Route path="/schedulepage" element={<SchedulePage />} />
-    //       <Route path="/historypage" element={<HistoryPage />} />
-    //       <Route path="/" element={<LoginPage />} />
-    //     </Routes>
-    //   </div>
-    // </Router>
+    <Router>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          {/* <Route path="/dependentspage" element={<DependentsPage />} />
+          <Route path="/dashboardpage" element={<DashboardPage />} />
+          <Route path="/schedulepage" element={<SchedulePage />} />
+          <Route path="/historypage" element={<HistoryPage />} /> */}
+          <Route path="/" element={<LoginPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
