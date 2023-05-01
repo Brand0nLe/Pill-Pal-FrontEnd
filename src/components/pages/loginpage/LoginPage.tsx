@@ -17,9 +17,13 @@ function LoginPage() {
   return (
     <ThemeProvider theme={theme}>
 
-<p>
-Login Page
-</p>
+
+
+<Container>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+  <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
+</div>
+</Container>
 
 
       <Container>
@@ -28,11 +32,11 @@ Login Page
             <Form className="login-form" onSubmit={handleSubmit} >
 
 
-            <p className="registrationText">
+              <p className="registrationText">
                 Don't have an account?{'  '}
                 <Link to="/register">Registration</Link>
               </p>
-            
+
 
 
               <Form.Group className="mb-3" controlId="email">
@@ -51,9 +55,9 @@ Login Page
               </Form.Group>
               <Form.Group className="mb-3" controlId="password">
 
-              <p className="registrationText">
-                <Link to="forgotpasswordlinkgoeshere">Forgot Password?</Link>
-              </p>
+                <p className="registrationText">
+                  <Link to="forgotpasswordlinkgoeshere">Forgot Password?</Link>
+                </p>
 
                 <TextField
                   label="Password"

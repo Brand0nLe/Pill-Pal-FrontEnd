@@ -1,8 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import '../registrationpage/RegistrationPage.css';
+
+const theme = createTheme();
+
 
 function RegistrationPage() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -11,10 +15,19 @@ function RegistrationPage() {
   };
 
   return (
+    <ThemeProvider theme={theme}>
+
+<Container>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+  <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
+</div>
+</Container>
+
+    
     <Container>
+    <Row className='display-flex justify-content-md-center'>      <p>Registration</p></Row>
       <Row className="justify-content-md-center mt-5">
         <Col md={6}>
-          <h2>Registration</h2>
           <Form className="registration-form" onSubmit={handleSubmit}>
             <Form.Group className="mb-3 d-flex">
               <TextField
@@ -94,6 +107,7 @@ function RegistrationPage() {
         </Col>
       </Row>
     </Container>
+    </ThemeProvider>
   );
 }
 
