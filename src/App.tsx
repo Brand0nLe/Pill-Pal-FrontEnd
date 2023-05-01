@@ -15,9 +15,6 @@ function App() {
       <div>
         {/* Conditionally render the NavBar component so it doesn't show on login and registration pages */}
         {window.location.pathname !== '/' && window.location.pathname !== '/login' && window.location.pathname !== '/register' && <NavBar />}
-        <br></br>
-        <br></br>
-        <br></br>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />

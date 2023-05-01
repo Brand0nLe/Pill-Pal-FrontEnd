@@ -16,6 +16,7 @@ function RegistrationPage() {
 
   return (
     <ThemeProvider theme={theme}>
+      <div className="elliptical-shape" />
 
 <Container className='LogoMargin'>
   <Col md={6}></Col>
@@ -32,7 +33,7 @@ function RegistrationPage() {
 </Container>
     
     <Container>
-      <Row className="justify-content-md-center mt-1">
+      <Row className="justify-content-md-center">
         <Col md={6}>
           <Form className="registration-form" onSubmit={handleSubmit}>
             <Form.Group className="mb-3 d-flex">

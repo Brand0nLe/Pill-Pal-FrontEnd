@@ -18,6 +18,7 @@ function LoginPage() {
 
   return (
     <ThemeProvider theme={theme}>
+      <div className="elliptical-shape" />
 
 
 
@@ -29,7 +30,7 @@ function LoginPage() {
 
 
       <Container>
-        <Row className="mt-1">
+        <Row className="">
           <Col md={12}>
             <Form className="login-form" onSubmit={handleSubmit} >
 

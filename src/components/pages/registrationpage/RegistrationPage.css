@@ -59,3 +59,24 @@ body, html{
   .spacing{
     margin-bottom: 200px;
   }
+
+  /* Design */
+  .elliptical-shape {
+    width: 100%;
+    height: 140px;
+    background-color: #f2c1bc;
+    position: relative;
+    transform: skewY(-5deg);
+  }
+  
+  .elliptical-shape::before {
+    content: "";
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: skewY(0deg);
+  }
