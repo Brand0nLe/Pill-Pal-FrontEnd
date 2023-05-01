@@ -55,3 +55,7 @@ body, html{
   .LogoMargin{
     margin-top: 80px;
   }
+
+  .spacing{
+    margin-bottom: 200px;
+  }
