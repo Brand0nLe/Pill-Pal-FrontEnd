@@ -1,15 +1,18 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import '../navbarheader/NavBarHeader.css';
 
 const NavBar: React.FC = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+    <Navbar className="NavColor" collapseOnSelect expand="lg" fixed="top">
       <Container>
-        <Navbar.Brand as={Link} to="/">Pill Pal</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+        <img src={require("../assets/images/LogoWithText.png")} alt="Logo" width="auto" height="65" className="d-inline-block align-top" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto NavFont">
             <Nav.Item>
               <Nav.Link as={Link} to="/dependentspage">
                 Profiles
