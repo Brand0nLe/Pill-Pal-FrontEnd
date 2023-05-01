@@ -18,15 +18,21 @@ function RegistrationPage() {
     <ThemeProvider theme={theme}>
 
 <Container>
+  <Col md={6}></Col>
 <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
   <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
-</div>
+  </div>
 </Container>
 
+<Container>
+  <Col md={6}></Col>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+<h2> Registration </h2>
+  </div>
+</Container>
     
     <Container>
-    <Row className='display-flex justify-content-md-center'>      <p>Registration</p></Row>
-      <Row className="justify-content-md-center mt-5">
+      <Row className="justify-content-md-center mt-1">
         <Col md={6}>
           <Form className="registration-form" onSubmit={handleSubmit}>
             <Form.Group className="mb-3 d-flex">

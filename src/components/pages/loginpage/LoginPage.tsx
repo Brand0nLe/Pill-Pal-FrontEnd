@@ -4,6 +4,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // Define Material UI theme
 const theme = createTheme();
