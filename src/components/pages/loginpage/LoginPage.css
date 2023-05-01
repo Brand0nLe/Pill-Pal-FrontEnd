@@ -54,3 +54,7 @@ body, html{
   border-style: solid !important;
   border-width: 2px !important;
 }
+
+.LogoMargin{
+  margin-top: 80px;
+}

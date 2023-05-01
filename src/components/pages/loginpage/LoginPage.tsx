@@ -21,7 +21,7 @@ function LoginPage() {
 
 
 
-<Container>
+<Container className='LogoMargin'>
 <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
   <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
 </div>

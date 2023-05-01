@@ -7,6 +7,7 @@ import DashboardPage from './components/pages/dashboardpage/DashboardPage';
 import DependentsPage from './components/pages/dependentspage/DependentsPage';
 import SchedulePage from './components/pages/schedulepage/SchedulePage';
 import HistoryPage from './components/pages/historypage/HistoryPage';
+import Footer from './components/footer/Footer'
 
 function App() {
   return (
@@ -27,7 +28,12 @@ function App() {
           <Route path="/" element={<LoginPage />} />
         </Routes>
       </div>
+      <div>    
+    <Footer></Footer>
+  </div>
     </Router>
+    
+
   );
 }
 
