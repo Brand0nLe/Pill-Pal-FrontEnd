@@ -44,3 +44,10 @@ body, html{
     border-style: solid !important;
     border-width: 1px !important;
   }
+
+  .RegistrationTxt{
+    margin-top: 10px;
+    margin-bottom: -10px;
+    font-family: PoppinsLight;
+    font-size: 2rem;
+  }

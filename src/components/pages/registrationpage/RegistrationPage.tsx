@@ -27,7 +27,7 @@ function RegistrationPage() {
 <Container>
   <Col md={6}></Col>
 <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-<h2> Registration </h2>
+<p className='RegistrationTxt'> Registration </p>
   </div>
 </Container>
     
