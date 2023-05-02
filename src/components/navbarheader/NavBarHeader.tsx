@@ -7,7 +7,7 @@ const NavBar: React.FC = () => {
   return (
     <Navbar className="NavColor" collapseOnSelect expand="lg" fixed="top">
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand>
         <img src={require("../assets/images/LogoWithText.png")} alt="Logo" width="auto" height="65" className="d-inline-block align-top" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
