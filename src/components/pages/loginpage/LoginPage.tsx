@@ -1,8 +1,11 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
+import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // Define Material UI theme
 const theme = createTheme();
@@ -15,11 +18,30 @@ function LoginPage() {
 
   return (
     <ThemeProvider theme={theme}>
+      <div className="elliptical-shape" />
+
+
+
+<Container className='LogoMargin'>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+  <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
+</div>
+</Container>
+
+
       <Container>
-        <Row className="justify-content-md-center mt-5">
-          <Col md={6}>
-            <h2>Login</h2>
-            <Form className="login-form" onSubmit={handleSubmit}>
+        <Row className="">
+          <Col md={12}>
+            <Form className="login-form" onSubmit={handleSubmit} >
+
+
+              <p className="registrationText">
+                Don't have an account?{'  '}
+                <Link to="/register">Registration</Link>
+              </p>
+
+
+
               <Form.Group className="mb-3" controlId="email">
                 <TextField
                   label="Email"
@@ -27,29 +49,34 @@ function LoginPage() {
                   fullWidth
                   className="login-input"
                   InputLabelProps={{
-                    className: 'login-input-label'
+                    className: 'login-input-label, borderRadius'
                   }}
                   InputProps={{
-                    className: 'login-input-field'
+                    className: 'login-input-field, borderRadius'
                   }}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="password">
+
+                <p className="registrationText">
+                  <Link to="forgotpasswordlinkgoeshere">Forgot Password?</Link>
+                </p>
+
                 <TextField
                   label="Password"
                   type="password"
                   fullWidth
                   className="login-input"
                   InputLabelProps={{
-                    className: 'login-input-label'
+                    className: 'login-input-label, borderRadius'
                   }}
                   InputProps={{
-                    className: 'login-input-field'
+                    className: 'login-input-field, borderRadius'
                   }}
                 />
               </Form.Group>
-              <Button variant="contained" type="submit">
-                Submit
+              <Button variant="contained" type="submit" className="loginBtn">
+                Log In
               </Button>
             </Form>
           </Col>

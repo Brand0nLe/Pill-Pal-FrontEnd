@@ -1,1 +1,82 @@
 @import '../../assets/fonts/Fonts.css';
+
+body, html{
+  background-color: #F7F0E8;
+  background-size: cover;
+  min-height: 100%;
+}
+
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .registration-input {
+    margin-bottom: 1rem !important;
+    border-radius: none;
+    background-color: #C4AFAC;
+    padding: 0.5rem;
+  }
+  
+  .registration-input:hover {
+    background-color: #F2C1BC;
+  }
+  
+  .registration-input-label {
+    color: #555;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .registration-input-field {
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .signupBtn{
+    width: 100%;
+    height: 70px;
+    background-color: #F2C1BC !important;
+    color: black !important;
+    font-family: PoppinsRegular !important;
+    font-size: 20px !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+  }
+
+  .RegistrationTxt{
+    margin-top: 10px;
+    margin-bottom: -10px;
+    font-family: PoppinsLight;
+    font-size: 2rem;
+  }
+
+  .LogoMargin{
+    margin-top: 80px;
+  }
+
+  .spacing{
+    margin-bottom: 200px;
+  }
+
+  /* Design */
+  .elliptical-shape {
+    width: 100%;
+    height: 140px;
+    background-color: #f2c1bc;
+    position: relative;
+    transform: skewY(-5deg);
+  }
+  
+  .elliptical-shape::before {
+    content: "";
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: skewY(0deg);
+  }
