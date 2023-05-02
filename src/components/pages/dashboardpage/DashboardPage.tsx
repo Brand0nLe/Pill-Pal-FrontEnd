@@ -11,25 +11,26 @@ import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg'
 export default function DashboardPage() {
 
     const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState('Brandon Nguyen');
+    const [profileData, setProfileData] = useState({
+        profileName: 'Brandon Nguyen',
+        profileDate: '01-01-1993',
+        profileAddressLine1: '4321 Eureka Ct,',
+        profileAddressLine2: 'Stockton Ca, 95212.'
+    });
 
-    const handleEditName = () => {
+
+    const handleEditClick = () => {
         setIsEditing(true);
-    }
+    };
 
-    const handleSaveName = () => {
+    const handleSaveClick = () => {
         setIsEditing(false);
-        // Make API call to save the updated name
-    }
+    };
 
-    const handleCancelEdit = () => {
-        setIsEditing(false);
-        // Reset the name to its original value
-    }
-
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.target.value);
-    }
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setProfileData({ ...profileData, [name]: value });
+    };
 
     
     return (
@@ -47,20 +48,44 @@ export default function DashboardPage() {
                     <div className="profile-info">
                     {isEditing ? (
                                     <>
-                                        <input type="text" className='profileName' value={name} onChange={handleNameChange} />
-                                        <button onClick={handleSaveName}>Save</button>
-                                        <button onClick={handleCancelEdit}>Cancel</button>
+                                        <input
+                                            type="text"
+                                            name="profileName"
+                                            value={profileData.profileName}
+                                            onChange={handleInputChange}
+                                        />
+                                        <input
+                                            type="text"
+                                            name="profileDate"
+                                            value={profileData.profileDate}
+                                            onChange={handleInputChange}
+                                        />
+                                        <input
+                                            type="text"
+                                            name="profileAddressLine1"
+                                            value={profileData.profileAddressLine1}
+                                            onChange={handleInputChange}
+                                        />
+                                        <input
+                                            type="text"
+                                            name="profileAddressLine2"
+                                            value={profileData.profileAddressLine2}
+                                            onChange={handleInputChange}
+                                        />
+                                        < Button onClick={handleSaveClick} >Save</Button>
+                                        {/* <CommonButton onClick={handleSaveClick}>Save</CommonButton> */}
                                     </>
                                 ) : (
                                     <>
-                                        <h3 className='profileName'>{name}</h3>
-                                        <p className='profileDate'>01-01-1993</p>
-                                        <p className='profileAddressLine1'>4321 Eureka Ct,</p>
-                                        <p className='profileAddressLine2'>Stockton Ca, 95212.</p>
-                                        <Button onClick={handleEditName} >Edit profile</Button>
-                                        {/* <CommonButton onClick={handleEditName} /> */}
+                                        <h3 className='profileName'>{profileData.profileName}</h3>
+                                        <p className='profileDate'>{profileData.profileDate}</p>
+                                        <p className='profileAddressLine1'>{profileData.profileAddressLine1}</p>
+                                        <p className='profileAddressLine2'>{profileData.profileAddressLine2}</p>
+                                        < Button onClick={handleEditClick} >Edit Profile</Button>
+                                        {/* <CommonButton onClick={handleEditClick}>Edit</CommonButton> */}
                                     </>
                                 )}
+
 
                     </div>
                     <img src={defaultMedCardFront} alt="" id="medCardFront" />
