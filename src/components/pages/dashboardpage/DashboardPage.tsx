@@ -35,6 +35,7 @@ export default function DashboardPage() {
     
     return (
         <div className='parent-bg'>
+                    <div className='topspace'></div>
         < Container >
             < Row className='justify-content-md-center mt-5' >
                 < Col md={6}>
@@ -205,6 +206,7 @@ export default function DashboardPage() {
                 </div>
             </Row>
         </Container>
+        <div className='bottomspace'></div>
     </div>
     );
 }

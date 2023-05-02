@@ -90,3 +90,10 @@ tbody {
   .profile-area img {
     width: 363px;
   }
+
+  .bottomspace{
+    min-height: 200px;
+  }
+  .topspace{
+    min-height: 100px;
+  }
