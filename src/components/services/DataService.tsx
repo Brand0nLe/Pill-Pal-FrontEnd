@@ -1,6 +1,6 @@
 let userData: any;
 
-async function createAccount(createdUser: string){
+async function createAccount(createdUser: object){
     const res = await fetch('Https://pillpalapi.azurewebsites.net/user/AddUser',{
         method:"POST",
         headers:{

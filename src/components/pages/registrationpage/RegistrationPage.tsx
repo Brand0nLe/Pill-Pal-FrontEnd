@@ -1,6 +1,5 @@
 import React, {useState}  from 'react';
 // import React from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
@@ -14,10 +13,10 @@ const theme = createTheme();
 
 
 function RegistrationPage() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle registration form submit logic here
-  };
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   // Handle registration form submit logic here
+  // };
 
   const Id: number = 0;
   const [firstName, setFirstName] = useState('');
@@ -38,7 +37,7 @@ function RegistrationPage() {
       if(data == true){
         console.log("User successfully created!");
         // await GetLoggedInUserData(Username);
-        navigate("/Dashboard");
+        // navigate("/Dashboard");
       }else console.log("User creation failed");
       console.log(userData);
   }
@@ -133,9 +132,9 @@ function RegistrationPage() {
                 onChange={({target: {value}}) => setCheckPassword(value)}
               />
             </Form.Group>
-            <Button variant="contained" type="submit" color="primary" onClick={handleSubmit}>
+            {/* <Button variant="contained" type="submit" color="primary" onClick={handleSubmit}>
               Submit
-              </Button>
+              </Button> */}
             <Button variant="contained" type="submit" className='signupBtn'>
               Sign Up
             </Button>
