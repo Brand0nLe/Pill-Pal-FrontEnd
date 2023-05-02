@@ -43,11 +43,30 @@ const theme = createTheme();
 
   return (
     <ThemeProvider theme={theme}>
+      <div className="elliptical-shape" />
+
+
+
+<Container className='LogoMargin'>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+  <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
+</div>
+</Container>
+
+
       <Container>
-        <Row className="justify-content-md-center mt-5">
-          <Col md={6}>
-            <h2>Login</h2>
-            <Form className="login-form">
+        <Row className="">
+          <Col md={12}>
+            <Form className="login-form" onSubmit={handleSubmit} >
+
+
+              <p className="registrationText">
+                Don't have an account?{'  '}
+                <Link to="/register">Registration</Link>
+              </p>
+
+
+
               <Form.Group className="mb-3" controlId="email">
                 <TextField
                   label="Email"
@@ -55,10 +74,10 @@ const theme = createTheme();
                   fullWidth
                   className="login-input"
                   InputLabelProps={{
-                    className: 'login-input-label'
+                    className: 'login-input-label, borderRadius'
                   }}
                   InputProps={{
-                    className: 'login-input-field'
+                    className: 'login-input-field, borderRadius'
                   }}
                 />
               </Form.Group>
@@ -91,11 +110,6 @@ const theme = createTheme();
                 Submit
               </Button>
             </Form>
-            <div className="text-center mt-3">
-              <p>
-                Don't have an account? <Link to="/register">Registration</Link>
-              </p>
-            </div>
           </Col>
         </Row>
       </Container>

@@ -1,10 +1,7 @@
-// import React, { useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
 let userData: any;
 
-async function createAccount(createdUser: object){
-    const res = await fetch('https://pillpalapi.azurewebsites.net/User/AddUser',{
+async function createAccount(createdUser: string){
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/user/AddUser',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"
@@ -40,7 +37,7 @@ async function login(loginUser: object){
 
 //Create endpoint for this
 async function GetLoggedInUserData(username: string){
-    let res= await fetch(`Https://pillpalapi.azurewebsites.net/User/userbyusername/${username}`)
+    let res= await fetch(`Https://pillpalapi.azurewebsites.net/AddUserazurewebsites.net/User/userbyusername/${username}`)
     let data = await res.json();
     userData = data;
     console.log(userData);
@@ -89,7 +86,7 @@ async function getBlogItemsByUserId(userId: number){
 }
 
 async function updateBlogItem(blogItem: string){
-    const res = await fetch('Https://pillpalapi.azurewebsites.net/blog/UpdateBlogItem',{
+    const res = await fetch('Https://pillpalapi..azurewebsites.net/blog/UpdateBlogItem',{
         method:"POST",
         headers:{
             'Content-Type': "application/json"
@@ -108,69 +105,3 @@ async function updateBlogItem(blogItem: string){
 
 export {createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem};
 
-
-
-
-// const DrugSearch = () => {
-//   const [drugName, setDrugName] = useState('');
-//   const [drugOptions, setDrugOptions] = useState([]);
-
-//   const handleInputChange = async (event) => {
-//     const searchTerm = event.target.value;
-
-//     setDrugName(searchTerm);
-
-//     if (searchTerm.length >= 3) {
-//       const response = await fetch(`https://api.fda.gov/drug/label.json?search=openfda.brand_name:${searchTerm}&limit=10`);
-//       const data = await response.json();
-
-//       setDrugOptions(data.results);
-//     } else {
-//       setDrugOptions([]);
-//     }
-//   };
-
-//   const handleOptionClick = (option) => {
-//     setDrugName(option.openfda.brand_name[0]);
-//     setDrugOptions([]);
-//   };
-
-//   return (
-//     <div className="container">
-//       <h1>Pill Pal</h1>
-//       <div className="form-group">
-//         <label htmlFor="drug-search">Search for a drug:</label>
-//         <div className="row">
-//           <div className="col-md-8">
-//             <input
-//               type="text"
-//               id="drug-search"
-//               className="form-control"
-//               placeholder="Enter a drug name"
-//               value={drugName}
-//               onChange={handleInputChange}
-//             />
-//           </div>
-//         </div>
-//         {drugOptions.length > 0 && (
-//           <div className="dropdown-menu show" aria-labelledby="dropdownMenuButton">
-//             {drugOptions.map((option) => (
-//               <button
-//                 key={option.id}
-//                 type="button"
-//                 className="dropdown-item"
-//                 onClick={() => handleOptionClick(option)}
-//               >
-//                 {option.openfda.brand_name[0]} - {option.openfda.manufacturer_name[0]}
-//               </button>
-//             ))}
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default DrugSearch;
-
-<></>
