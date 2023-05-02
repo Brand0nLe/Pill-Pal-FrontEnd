@@ -1,1 +1,6 @@
 @import '../../assets/fonts/Fonts.css';
+
+.parent-bg,html {
+    background-color: #F7F0E8;
+    min-height: 800px;
+}
