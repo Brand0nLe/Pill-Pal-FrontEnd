@@ -1,18 +1,49 @@
-import React from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+
+import React, {useState}  from 'react';
+// import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
+import '../loginpage/LoginPage.css';
 import { Link } from 'react-router-dom';
-import '../registrationpage/RegistrationPage.css';
+import { Col, Container, Row, Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+import { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
 
 const theme = createTheme();
 
 
 function RegistrationPage() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle registration form submit logic here
-  };
+    const navigate = useNavigate();
+  
+    const Id: number = 0;
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [Username, setUsername] = useState('');
+    const [Password, setPassword] = useState('');
+    const [checkPassword, setCheckPassword] = useState('');
+  
+    const handleSubmit = async () => {
+        let userData: object = {
+            Id,
+            firstName,
+            lastName,
+            Username,
+            Password
+        }
+        if (Password == checkPassword){
+
+          console.log(userData);
+          let data: boolean = await createAccount(userData);
+          console.log(data);
+          if(data == true){
+            alert("User successfully created!");
+            // await GetLoggedInUserData(Username);
+            navigate("/DashboardPage");
+          }else console.log("User creation failed");
+          console.log(userData);
+        }else alert("Passwords did not match");
+    }
 
   return (
     <ThemeProvider theme={theme}>
@@ -41,6 +72,7 @@ function RegistrationPage() {
                 label="First Name"
                 fullWidth
                 className="registration-input mr-2"
+                onChange={({target: {value}}: any) => setFirstName(value)}
                 InputLabelProps={{
                   className: 'registration-input-label, borderRadius'
                 }}
@@ -52,6 +84,7 @@ function RegistrationPage() {
                 label="Last Name"
                 fullWidth
                 className="registration-input"
+                onChange={({target: {value}}: any) => setLastName(value)}
                 InputLabelProps={{
                   className: 'registration-input-label, borderRadius'
                 }}
@@ -66,6 +99,7 @@ function RegistrationPage() {
                 type="email"
                 fullWidth
                 className="registration-input"
+                onChange={({target: {value}}: any) => setUsername(value)}
                 InputLabelProps={{
                   className: 'registration-input-label, borderRadius'
                 }}
@@ -80,6 +114,7 @@ function RegistrationPage() {
                 type="password"
                 fullWidth
                 className="registration-input"
+                onChange={({target: {value}}: any) => setPassword(value)}
                 InputLabelProps={{
                   className: 'registration-input-label, borderRadius'
                 }}
@@ -94,6 +129,7 @@ function RegistrationPage() {
                 type="password"
                 fullWidth
                 className="registration-input"
+                onChange={({target: {value}}: any) => setCheckPassword(value)}
                 InputLabelProps={{
                   className: 'registration-input-label, borderRadius'
                 }}
@@ -102,9 +138,12 @@ function RegistrationPage() {
                 }}
               />
             </Form.Group>
-            <Button variant="contained" type="submit" className='signupBtn'>
+            <Button variant="contained" onClick={handleSubmit} className='signupBtn'>
               Sign Up
             </Button>
+            {/* <Button variant="contained" type="submit" className='signupBtn'>
+              Sign Up
+            </Button> */}
             <div className="text-center mt-3">
             <Row className='spacing'>
               <p>
