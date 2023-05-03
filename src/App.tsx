@@ -9,7 +9,7 @@ import DependentsPage from './components/pages/dependentspage/DependentsPage';
 function App() {
   return (
     <div className="App">
-      < DashboardPage />
+      < DependentsPage />
 
     </div>
   );
