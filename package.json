@@ -14,9 +14,9 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.23",
-    "@types/react": "^18.0.33",
-    "@types/react-dom": "^18.0.11",
+    "@types/node": "^16.18.25",
+    "@types/react": "^18.2.5",
+    "@types/react-dom": "^18.2.3",
     "bootstrap": "^5.2.3",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.7",
@@ -53,6 +53,6 @@
   },
   "devDependencies": {
     "react-router-dom": "^6.10.0",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.4"
   }
 }
