@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Calendar from './calendar/Calendar';
+import FirstComponent from './calendar/Calendar';
 import dayjs from 'dayjs';
 
 const SchedulePage: React.FC = () => {
@@ -25,8 +25,8 @@ const SchedulePage: React.FC = () => {
       <h1 className="text-center">Schedule Page</h1>
       <Row className="justify-content-center">
         <Col md={4}>
-          <Calendar selectedDate={selectedDate} handleDateChange={handleDateChange} />
-        </Col>
+        <FirstComponent/>
+                </Col>
       </Row>
     </Container>
   );
