@@ -109,8 +109,10 @@ tbody {
   }
   .my-tbl input{
     background: #F2C1BC;
+    outline: 1px solid black;
     border: transparent;
-    height: 35px;
+    height: 15px;
+    
   }
   .my-tbl input:focus {
     outline: 1px solid black;

@@ -14,16 +14,29 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 export default function DependentsPage() {
   const [allergies, setAllergies] = useState(['This', 'That', 'The other']);
   const [newAllergy, setNewAllergy] = useState('');
+  const [diagnosis, setDiagnosis] = useState(['Alzheimer\'s', 'Diabetes Type 2', 'Hypertension']);
+  const [newDiagnosis, setNewDiagnosis] = useState('');
 
   const handleAddAllergy = () => {
     setAllergies([...allergies, newAllergy]);
     setNewAllergy('');
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAddDiagnosis = () => {
+    setDiagnosis([...diagnosis, newDiagnosis]);
+    setNewDiagnosis('');
+  };
+
+  const handleAllergyInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setNewAllergy(value);
   };
+
+  const handleDiagnosisInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setNewDiagnosis(value);
+  };
+
 
   return (
     <div className='parent-bg'>
@@ -86,7 +99,7 @@ export default function DependentsPage() {
                       name="allergies-inp"
                       id="allergies-inp"
                       value={newAllergy}
-                      onChange={handleInputChange}
+                      onChange={handleAllergyInputChange}
                     />
                   </td>
                   <td>
@@ -112,16 +125,29 @@ export default function DependentsPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td>Alzheimer's</td>
+                  <td>
+                    <input
+                      type="text"
+                      name="diagnosis-inp"
+                      id="diagnosis-inp"
+                      value={newDiagnosis}
+                      onChange={handleDiagnosisInputChange}
+                    />
+                  </td>
+                  <td>
+                    <Button onClick={handleAddDiagnosis}>
+                      <AddCircleIcon />
+                    </Button>
+                  </td>
                 </tr>
-                <tr>
-                  <td>Diabetes Type 2</td>
-                </tr>
-                <tr>
-                  <td>Hypertension</td>
-                </tr>
+                {diagnosis.map((diag, index) => (
+                  <tr key={index}>
+                    <td>{diag}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
+
 
             <table id='doctorContact' className='my-tbl'>
               <thead>
@@ -131,19 +157,34 @@ export default function DependentsPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td>Harpreet Singh, M.D.</td>
+                  <input
+                  type="text"
+                  name="dr-name"
+                  id="dr-name" />
                 </tr>
                 <tr>
-                  <td>(209) 954-3370</td>
+                <input
+                  type="text"
+                  name="dr-number"
+                  id="dr-number" />
                 </tr>
                 <tr>
-                  <td>Stockton Medical Plaza 1</td>
+                <input
+                  type="text"
+                  name="dr-location"
+                  id="dr-location" />
                 </tr>
                 <tr>
-                  <td>2505 West Hammer Lane</td>
+                <input
+                  type="text"
+                  name="dr-address1"
+                  id="dr-address1" />
                 </tr>
                 <tr>
-                  <td>Stockton, CA 95209</td>
+                <input
+                  type="text"
+                  name="dr-address2"
+                  id="dr-address2" />
                 </tr>
               </tbody>
             </table>
