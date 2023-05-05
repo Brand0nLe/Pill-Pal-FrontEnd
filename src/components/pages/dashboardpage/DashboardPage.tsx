@@ -13,7 +13,7 @@ export default function DashboardPage() {
     const [isEditing, setIsEditing] = useState(false);
     const [profileData, setProfileData] = useState({
         profileName: 'Brandon Nguyen',
-        profileDate: '01-01-1993',
+        profileDate: '1993-01-01',
         profileAddressLine1: '4321 Eureka Ct,',
         profileAddressLine2: 'Stockton Ca, 95212.'
     });
@@ -55,7 +55,7 @@ export default function DashboardPage() {
                                             onChange={handleInputChange}
                                         />
                                         <input
-                                            type="text"
+                                            type="date"
                                             name="profileDate"
                                             value={profileData.profileDate}
                                             onChange={handleInputChange}
