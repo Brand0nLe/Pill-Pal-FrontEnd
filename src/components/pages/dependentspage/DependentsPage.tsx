@@ -11,11 +11,63 @@ import {
 // import { AddCircleIcon } from '@mui/icons-material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-export default function DependentsPage() {
+
+
+interface DependentsPageProps {
+  onSaveProfile: (
+    doctorContact: DoctorContactData,
+    pharmacyHours: PharmacyHoursData,
+    name: string,
+    birthDate: string,
+    address1: string,
+    address2: string
+  ) => void;
+}
+
+interface DoctorContactData {
+  name: string;
+  number: string;
+  location: string;
+  address1: string;
+  address2: string;
+}
+
+interface PharmacyHoursData {
+  name: string;
+  number: string;
+  address1: string;
+  address2: string;
+  hours: string;
+}
+
+
+
+export default function DependentsPage(props: DependentsPageProps) {
+
   const [allergies, setAllergies] = useState(['This', 'That', 'The other']);
   const [newAllergy, setNewAllergy] = useState('');
   const [diagnosis, setDiagnosis] = useState(['Alzheimer\'s', 'Diabetes Type 2', 'Hypertension']);
   const [newDiagnosis, setNewDiagnosis] = useState('');
+  const [name, setName] = useState('');
+  const [birthDate, setBirthDate] = useState('');
+  const [address1, setAddress1] = useState('');
+  const [address2, setAddress2] = useState('');
+  const [doctorContact, setDoctorContact] = useState<DoctorContactData>({
+    name: '',
+    number: '',
+    location: '',
+    address1: '',
+    address2: '',
+  });
+  const [pharmacyHours, setPharmacyHours] = useState<PharmacyHoursData>({
+    name: '',
+    number: '',
+    address1: '',
+    address2: '',
+    hours: '',
+  });
+
+  
 
   const handleAddAllergy = () => {
     setAllergies([...allergies, newAllergy]);
@@ -37,6 +89,40 @@ export default function DependentsPage() {
     setNewDiagnosis(value);
   };
 
+  const handleSaveProfile = () => {
+    props.onSaveProfile(doctorContact, pharmacyHours, name, birthDate, address1, address2);
+  };
+
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  const handleBirthDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setBirthDate(event.target.value);
+  };
+
+  const handleAddress1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress1(event.target.value);
+  };
+
+  const handleAddress2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress2(event.target.value);
+  };
+
+  const handleDoctorContactChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setDoctorContact((prevDoctorContact) => ({
+      ...prevDoctorContact,
+      [name]: value,
+    }));
+  };
+  const handlePharmacyHoursChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setPharmacyHours((prevPharmacyHours) => ({
+    ...prevPharmacyHours,
+    [name]: value
+    }));
+    };
 
   return (
     <div className='parent-bg'>
@@ -56,26 +142,35 @@ export default function DependentsPage() {
                   type="text"
                   name="name"
                   id="name"
-                  placeholder='Name' />
+                  placeholder='Name'
+                  value={name}
+               onChange={handleNameChange} />
                 <input
                   className='input'
                   type="text"
                   name="birthDate"
                   id="birthDate"
-                  placeholder='Birth Date' />
+                  placeholder='Birth Date'
+                  value={birthDate}
+               onChange={handleBirthDateChange} />
                 <input
                   className='input'
                   type="text"
                   name="name"
                   id="name"
-                  placeholder='Address Line 1' />
+                  placeholder='Address Line 1'
+                  value={address1}
+               onChange={handleAddress1Change} />
                 <input
                   className='input'
                   type="text"
                   name="name"
                   id="name"
-                  placeholder='Address Line 2' />
-                   <Button>
+                  placeholder='Address Line 2'
+                  value={address2}
+               onChange={handleAddress2Change} />
+
+                   <Button onClick={handleSaveProfile}>
                       Save Profile
                     </Button>
               </div>
@@ -160,31 +255,41 @@ export default function DependentsPage() {
                   <input
                   type="text"
                   name="dr-name"
-                  id="dr-name" />
+                  id="dr-name"
+                  value={doctorContact.name}
+          onChange={handleDoctorContactChange} />
                 </tr>
                 <tr>
                 <input
                   type="text"
                   name="dr-number"
-                  id="dr-number" />
+                  id="dr-number"
+                  value={doctorContact.number}
+          onChange={handleDoctorContactChange} />
                 </tr>
                 <tr>
                 <input
                   type="text"
                   name="dr-location"
-                  id="dr-location" />
+                  id="dr-location"
+                  value={doctorContact.location}
+          onChange={handleDoctorContactChange} />
                 </tr>
                 <tr>
                 <input
                   type="text"
                   name="dr-address1"
-                  id="dr-address1" />
+                  id="dr-address1"
+                  value={doctorContact.address1}
+          onChange={handleDoctorContactChange} />
                 </tr>
                 <tr>
                 <input
                   type="text"
                   name="dr-address2"
-                  id="dr-address2" />
+                  id="dr-address2"
+                  value={doctorContact.address2}
+          onChange={handleDoctorContactChange} />
                 </tr>
               </tbody>
             </table>
@@ -197,23 +302,39 @@ export default function DependentsPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td>CVS Pharmacy</td>
+                  <input
+                  type="text"
+                  name="pharm-name"
+                  id="pharm-name" />
                 </tr>
                 <tr>
-                  <td>(209) 951-6544</td>
+                  <input
+                  type="text"
+                  name="pharm-number"
+                  id="pharm-number" />
                 </tr>
                 <tr>
-                  <td>6632 Pacific Ave.</td>
+                <input
+                  type="text"
+                  name="pharm-address1"
+                  id="pharm-address1" />
                 </tr>
                 <tr>
-                  <td>Stockton, CA 95209</td>
+                <input
+                  type="text"
+                  name="pharm-address2"
+                  id="pharm-address2" />
                 </tr>
                 <tr>
-                  <td>Mon-Fri 8AM-8PM | Sat-Sun 10AM-6PM | Lunch 12:30-1PM every day </td>
+                <input
+                  type="text"
+                  name="pharm-hours"
+                  id="pharm-hours" />
                 </tr>
               </tbody>
             </table>
           </div>
+          
           <div className='active-meds-area'>
             <table id='activeMedsArea' className='horizontal-tbl'>
               <thead>

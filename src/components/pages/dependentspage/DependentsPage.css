@@ -1,9 +1,5 @@
 @import '../../assets/fonts/Fonts.css';
 
-.parent-bg,html {
-    background-color: #F7F0E8;
-    min-height: 800px;
-}
 
 .parent-bg,html {
     background-color: #F7F0E8;
@@ -111,7 +107,7 @@ tbody {
     background: #F2C1BC;
     outline: 1px solid black;
     border: transparent;
-    height: 15px;
+    max-height: 15px !important;
     
   }
   .my-tbl input:focus {
