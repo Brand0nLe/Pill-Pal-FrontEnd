@@ -42,7 +42,7 @@ interface PharmacyHoursData {
 
 
 
-export default function DependentsPage(props: DependentsPageProps) {
+export default function DependentsPage(DependentsPageProps: any) {
 
   const [allergies, setAllergies] = useState(['This', 'That', 'The other']);
   const [newAllergy, setNewAllergy] = useState('');
@@ -67,7 +67,7 @@ export default function DependentsPage(props: DependentsPageProps) {
     hours: '',
   });
 
-  
+
 
   const handleAddAllergy = () => {
     setAllergies([...allergies, newAllergy]);
@@ -90,7 +90,7 @@ export default function DependentsPage(props: DependentsPageProps) {
   };
 
   const handleSaveProfile = () => {
-    props.onSaveProfile(doctorContact, pharmacyHours, name, birthDate, address1, address2);
+    DependentsPageProps.onSaveProfile(doctorContact, pharmacyHours, name, birthDate, address1, address2);
   };
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -119,10 +119,10 @@ export default function DependentsPage(props: DependentsPageProps) {
   const handlePharmacyHoursChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setPharmacyHours((prevPharmacyHours) => ({
-    ...prevPharmacyHours,
-    [name]: value
+      ...prevPharmacyHours,
+      [name]: value
     }));
-    };
+  };
 
   return (
     <div className='parent-bg'>
@@ -144,7 +144,7 @@ export default function DependentsPage(props: DependentsPageProps) {
                   id="name"
                   placeholder='Name'
                   value={name}
-               onChange={handleNameChange} />
+                  onChange={handleNameChange} />
                 <input
                   className='input'
                   type="text"
@@ -152,27 +152,27 @@ export default function DependentsPage(props: DependentsPageProps) {
                   id="birthDate"
                   placeholder='Birth Date'
                   value={birthDate}
-               onChange={handleBirthDateChange} />
+                  onChange={handleBirthDateChange} />
                 <input
                   className='input'
                   type="text"
-                  name="name"
-                  id="name"
+                  name="address1"
+                  id="address1"
                   placeholder='Address Line 1'
                   value={address1}
-               onChange={handleAddress1Change} />
+                  onChange={handleAddress1Change} />
                 <input
                   className='input'
                   type="text"
-                  name="name"
-                  id="name"
+                  name="address2"
+                  id="address2"
                   placeholder='Address Line 2'
                   value={address2}
-               onChange={handleAddress2Change} />
+                  onChange={handleAddress2Change} />
 
-                   <Button onClick={handleSaveProfile}>
-                      Save Profile
-                    </Button>
+                <Button onClick={handleSaveProfile}>
+                  Save Profile
+                </Button>
               </div>
               {/* <img src={} alt="" id="medCardFront" />
                     <img src={} alt="" id="medCardBack" /> */}
@@ -253,43 +253,44 @@ export default function DependentsPage(props: DependentsPageProps) {
               <tbody>
                 <tr>
                   <input
-                  type="text"
-                  name="dr-name"
-                  id="dr-name"
-                  value={doctorContact.name}
-          onChange={handleDoctorContactChange} />
+                    placeholder='Doctor Name'
+                    type="text"
+                    name="dr-name"
+                    id="dr-name"
+                    value={doctorContact.name}
+                    onChange={handleDoctorContactChange} />
                 </tr>
                 <tr>
-                <input
-                  type="text"
-                  name="dr-number"
-                  id="dr-number"
-                  value={doctorContact.number}
-          onChange={handleDoctorContactChange} />
+                  <input
+                    type="text"
+                    name="dr-number"
+                    id="dr-number"
+                    value={doctorContact.number}
+                    onChange={handleDoctorContactChange} />
                 </tr>
                 <tr>
-                <input
-                  type="text"
-                  name="dr-location"
-                  id="dr-location"
-                  value={doctorContact.location}
-          onChange={handleDoctorContactChange} />
+                  <input
+                    type="text"
+                    name="dr-location"
+                    id="dr-location"
+                    value={doctorContact.location}
+                    onChange={handleDoctorContactChange} />
                 </tr>
                 <tr>
-                <input
-                  type="text"
-                  name="dr-address1"
-                  id="dr-address1"
-                  value={doctorContact.address1}
-          onChange={handleDoctorContactChange} />
+                  <input
+                    type="text"
+                    name="dr-address1"
+                    id="dr-address1"
+                    value={doctorContact.address1}
+                    onChange={handleDoctorContactChange} />
                 </tr>
                 <tr>
-                <input
-                  type="text"
-                  name="dr-address2"
-                  id="dr-address2"
-                  value={doctorContact.address2}
-          onChange={handleDoctorContactChange} />
+                  <input
+                    type="text"
+                    name="dr-address2"
+                    id="dr-address2"
+                    value={doctorContact.address2}
+                    onChange={handleDoctorContactChange} />
                 </tr>
               </tbody>
             </table>
@@ -303,38 +304,38 @@ export default function DependentsPage(props: DependentsPageProps) {
               <tbody>
                 <tr>
                   <input
-                  type="text"
-                  name="pharm-name"
-                  id="pharm-name" />
+                    type="text"
+                    name="pharm-name"
+                    id="pharm-name" />
                 </tr>
                 <tr>
                   <input
-                  type="text"
-                  name="pharm-number"
-                  id="pharm-number" />
+                    type="text"
+                    name="pharm-number"
+                    id="pharm-number" />
                 </tr>
                 <tr>
-                <input
-                  type="text"
-                  name="pharm-address1"
-                  id="pharm-address1" />
+                  <input
+                    type="text"
+                    name="pharm-address1"
+                    id="pharm-address1" />
                 </tr>
                 <tr>
-                <input
-                  type="text"
-                  name="pharm-address2"
-                  id="pharm-address2" />
+                  <input
+                    type="text"
+                    name="pharm-address2"
+                    id="pharm-address2" />
                 </tr>
                 <tr>
-                <input
-                  type="text"
-                  name="pharm-hours"
-                  id="pharm-hours" />
+                  <input
+                    type="text"
+                    name="pharm-hours"
+                    id="pharm-hours" />
                 </tr>
               </tbody>
             </table>
           </div>
-          
+
           <div className='active-meds-area'>
             <table id='activeMedsArea' className='horizontal-tbl'>
               <thead>
@@ -344,17 +345,83 @@ export default function DependentsPage(props: DependentsPageProps) {
               </thead>
               <tbody>
                 <tr>
-                  <th>Losartan 25 mg</th>
-                  <td>Take 1 tablet everyday.</td>
-                  <td>Harpreet Singh</td>
-                </tr>
-                <tr>
-                  <th>Alprazolam 1 mg</th>
-                  <td>Take 1 tablet daily as needed.</td>
-                  <td>Harpreet Singh</td>
+                  <td>Medication Name will appear </td>
+                  <td>Directions for use</td>
+                  <td>Prescribing Doctor</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div className='add-medication-history' id='AddMedHistory'>
+            <h1>Add Medication History</h1>
+            <div className='add-form'>
+              <div>
+
+              <label htmlFor="MedName">Medication Name</label>
+              <input
+                placeholder='e.g. Aspirin'
+                type="text"
+                name="MedName"
+                id="MedName" />
+                </div>
+              <div>
+                <label htmlFor="Dosage">Dosage (Strength)</label>
+                <input
+                  placeholder='e.g. 81 mg'
+                  type="text"
+                  name="Dosage"
+                  id="Dosage" />
+              </div>
+              <div>
+                <label htmlFor="Directions">Directions for use</label>
+                <input
+                  placeholder='e.g. Take 1 tablet by mouth daily'
+                  type="text"
+                  name="Directions"
+                  id="Directions" />
+              </div>
+              <div>
+                <label htmlFor="StartDate">Start Date</label>
+                <input
+                  placeholder='e.g. 01/01/2023'
+                  type="text"
+                  name="StartDate"
+                  id="StartDate" />
+              </div>
+              <div>
+                <label htmlFor="EndDate">End Date</label>
+                <input
+                  placeholder='e.g. 01/01/2023 or N/A'
+                  type="text"
+                  name="EndDate"
+                  id="EndDate" />
+              </div>
+              <div>
+                <label htmlFor="ReasonForUse">Reason for use</label>
+                <input
+                  placeholder='e.g. Asthma, Hypertension, etc.'
+                  type="text"
+                  name="ReasonForUse"
+                  id="ReasonForUse" />
+              </div>
+              <div>
+                <label htmlFor="PrescribingDoctor">Prescribing Doctor</label>
+                <input
+                  placeholder='e.g. Harpreet Singh'
+                  type="text"
+                  name="PrescribingDoctor"
+                  id="PrescribingDoctor" />
+              </div>
+              <div>
+                <label htmlFor="DoctorContact">Doctor's Contact</label>
+                <input
+                  placeholder='e.g. 209-123-4567'
+                  type="text"
+                  name="DoctorContact"
+                  id="DoctorContact" />
+              </div>
+              < Button className='my-btn' >Save Medication</Button>
+            </div>
           </div>
         </Row>
       </Container>
