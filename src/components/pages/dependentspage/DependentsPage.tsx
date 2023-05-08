@@ -39,10 +39,16 @@ interface PharmacyHoursData {
   address2: string;
   hours: string;
 }
+type Medication = {
+  medicationName: string;
+  directionsForUse: string;
+  prescribingDoctor: string;
+};
 
 
 
 export default function DependentsPage(DependentsPageProps: any) {
+
 
   const [allergies, setAllergies] = useState(['This', 'That', 'The other']);
   const [newAllergy, setNewAllergy] = useState('');
@@ -68,6 +74,47 @@ export default function DependentsPage(DependentsPageProps: any) {
   });
 
 
+  const [medications, setMedications] = useState<Medication[]>([]);
+  const [newMedName, setNewMedName] = useState('');
+  const [newDirections, setNewDirections] = useState('');
+  const [newPrescribingDoctor, setNewPrescribingDoctor] = useState('');
+
+
+  const handleAddMedication = () => {
+    if (!newMedName) {
+      alert('Enter Medication name!');
+      return;
+    }
+    if (!newDirections) {
+      alert('Enter Directions!');
+      return;
+    }
+    if (!newPrescribingDoctor) {
+      alert('Enter Doctor name');
+      return;
+    }
+    const newMedication: Medication = {
+      medicationName: newMedName,
+      directionsForUse: newDirections,
+      prescribingDoctor: newPrescribingDoctor,
+    };
+
+    setMedications([...medications, newMedication]);
+    setNewMedName('');
+    setNewDirections('');
+    setNewPrescribingDoctor('');
+  }
+
+  const handleMedNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewMedName(e.target.value);
+  };
+  const handleDirectionsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewDirections(e.target.value);
+  };
+
+  const handlePrescribingDoctorChange = ( e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewPrescribingDoctor(e.target.value);
+  };
 
   const handleAddAllergy = () => {
     setAllergies([...allergies, newAllergy]);
@@ -170,7 +217,7 @@ export default function DependentsPage(DependentsPageProps: any) {
                   value={address2}
                   onChange={handleAddress2Change} />
 
-                <Button onClick={handleSaveProfile}>
+                <Button className='my-btn' onClick={handleSaveProfile}>
                   Save Profile
                 </Button>
               </div>
@@ -337,92 +384,137 @@ export default function DependentsPage(DependentsPageProps: any) {
           </div>
 
           <div className='active-meds-area'>
-            <table id='activeMedsArea' className='horizontal-tbl'>
+            <table id="activeMedsArea" className="horizontal-tbl">
               <thead>
                 <tr>
                   <th>Current Active Medications</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Medication Name will appear </td>
-                  <td>Directions for use</td>
-                  <td>Prescribing Doctor</td>
-                </tr>
+                {medications.map((medication, index) => (
+                  <tr key={index}>
+                    <td>{medication.medicationName}</td>
+                    <td>{medication.directionsForUse}</td>
+                    <td>{medication.prescribingDoctor}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
           <div className='add-medication-history' id='AddMedHistory'>
             <h1>Add Medication History</h1>
             <div className='add-form'>
-              <div>
+              <Col md={6}>
+                <div>
 
-              <label htmlFor="MedName">Medication Name</label>
-              <input
-                placeholder='e.g. Aspirin'
-                type="text"
-                name="MedName"
-                id="MedName" />
+                  <label htmlFor="MedName">Medication Name</label>
+                  <input
+                    placeholder='e.g. Aspirin'
+                    type="text"
+                    name="MedName"
+                    id="MedName"
+                    value={newMedName}
+                    onChange={handleMedNameChange} />
                 </div>
-              <div>
-                <label htmlFor="Dosage">Dosage (Strength)</label>
-                <input
-                  placeholder='e.g. 81 mg'
-                  type="text"
-                  name="Dosage"
-                  id="Dosage" />
-              </div>
-              <div>
-                <label htmlFor="Directions">Directions for use</label>
-                <input
-                  placeholder='e.g. Take 1 tablet by mouth daily'
-                  type="text"
-                  name="Directions"
-                  id="Directions" />
-              </div>
-              <div>
-                <label htmlFor="StartDate">Start Date</label>
-                <input
-                  placeholder='e.g. 01/01/2023'
-                  type="text"
-                  name="StartDate"
-                  id="StartDate" />
-              </div>
-              <div>
-                <label htmlFor="EndDate">End Date</label>
-                <input
-                  placeholder='e.g. 01/01/2023 or N/A'
-                  type="text"
-                  name="EndDate"
-                  id="EndDate" />
-              </div>
-              <div>
-                <label htmlFor="ReasonForUse">Reason for use</label>
-                <input
-                  placeholder='e.g. Asthma, Hypertension, etc.'
-                  type="text"
-                  name="ReasonForUse"
-                  id="ReasonForUse" />
-              </div>
-              <div>
-                <label htmlFor="PrescribingDoctor">Prescribing Doctor</label>
-                <input
-                  placeholder='e.g. Harpreet Singh'
-                  type="text"
-                  name="PrescribingDoctor"
-                  id="PrescribingDoctor" />
-              </div>
-              <div>
-                <label htmlFor="DoctorContact">Doctor's Contact</label>
-                <input
-                  placeholder='e.g. 209-123-4567'
-                  type="text"
-                  name="DoctorContact"
-                  id="DoctorContact" />
-              </div>
-              < Button className='my-btn' >Save Medication</Button>
+                <div>
+                  <label htmlFor="Dosage">Dosage (Strength)</label>
+                  <input
+                    placeholder='e.g. 81 mg'
+                    type="text"
+                    name="Dosage"
+                    id="Dosage" />
+                </div>
+                <div>
+                  <label htmlFor="Directions">Directions for use</label>
+                  <input
+                    placeholder='e.g. Take 1 tablet by mouth daily'
+                    type="text"
+                    name="Directions"
+                    id="Directions"
+                    value={newDirections}
+                    onChange={handleDirectionsChange} />
+                </div>
+                <div>
+                  <label htmlFor="StartDate">Start Date</label>
+                  <input
+                    placeholder='e.g. 01/01/2023'
+                    type="text"
+                    name="StartDate"
+                    id="StartDate" />
+                </div>
+                <div>
+                  <label htmlFor="EndDate">End Date</label>
+                  <input
+                    placeholder='e.g. 01/01/2023 or N/A'
+                    type="text"
+                    name="EndDate"
+                    id="EndDate" />
+                </div>
+                <div>
+                  <label htmlFor="ReasonForUse">Reason for use</label>
+                  <input
+                    placeholder='e.g. Asthma, Hypertension, etc.'
+                    type="text"
+                    name="ReasonForUse"
+                    id="ReasonForUse" />
+                </div>
+                <div>
+                  <label htmlFor="PrescribingDoctor">Prescribing Doctor</label>
+                  <input
+                    placeholder='e.g. Harpreet Singh'
+                    type="text"
+                    name="PrescribingDoctor"
+                    id="PrescribingDoctor"
+                    value={newPrescribingDoctor}
+                    onChange={handlePrescribingDoctorChange} />
+                </div>
+                <div>
+                  <label htmlFor="DoctorContact">Doctor's Contact</label>
+                  <input
+                    placeholder='e.g. 209-123-4567'
+                    type="text"
+                    name="DoctorContact"
+                    id="DoctorContact" />
+                </div>
+                <div className='right-side'>
+                  <div>
+                    <label htmlFor="PharmacyLocation">Pharmacy Location</label>
+                    <input
+                      placeholder='e.g. CVS Pharmacy on Pacific Ave.'
+                      type="text"
+                      name="PharmacyLocation"
+                      id="PharmacyLocation" />
+                  </div>
+                  <div>
+                    <label htmlFor="PharmacyContact">Pharmacy Contact</label>
+                    <input
+                      placeholder='e.g. 209-123-4567'
+                      type="text"
+                      name="PharmacyContact"
+                      id="PharmacyContact" />
+                  </div>
+                  <div>
+                    <label htmlFor="SideEffects">Side Effects or Concerns</label>
+                    <input
+                      placeholder='e.g. feeling dizzy, nauseous, unable to sleep, etc.'
+                      type="text"
+                      name="SideEffects"
+                      id="SideEffects" />
+                  </div>
+                  <div>
+                    <label htmlFor="AdditionalNotes">Additional Notes</label>
+                    <textarea
+                      name="AdditionalNotes"
+                      id="AdditionalNotes"
+                      placeholder='e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can'></textarea>
+                  </div>
+                  < Button className='my-btn' onClick={handleAddMedication} >Save Medication</Button>
+                </div>
+              </Col>
+
             </div>
           </div>
+
         </Row>
       </Container>
     </div>

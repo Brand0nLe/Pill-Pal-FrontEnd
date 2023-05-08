@@ -149,21 +149,22 @@ tbody {
 
 }
 
-.add-medication-history h1 {
+.add-medication-history {
+  margin: 0 15%;
   font-family: PoppinsRegular;
-  text-align: center;
 }
-
+.add-medication-history h1 {
+  margin: 0;
+}
 .add-form {
   position: relative;
   font-family: PoppinsLight;
   background: white;
   border: 1px solid black;
   padding: 10px;
-  margin: 0 15%;
 }
 
-.add-form input {
+.add-form input, textarea {
   background-color: #F2C1BC;
   border: 1px solid black;
   margin-top: 15px;
@@ -178,9 +179,18 @@ label {
 
 .add-form div {
   position: relative;
+  display: block;
 }
-.add-form .my-btn {
+.my-btn {
+  font-family: PoppinsRegular;
   background: rgba(242, 193, 188, 0.5);
   border-radius: 6px;
   box-shadow: 0 2px 5px black;
+}
+.my-btn:hover {
+  background-color: #C4AFAC;
+}
+#AdditionalNotes {
+  height: 100px;
+  width: 40%;
 }
