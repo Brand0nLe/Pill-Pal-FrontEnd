@@ -237,6 +237,7 @@ export default function DependentsPage(DependentsPageProps: any) {
                 <tr>
                   <td>
                     <input
+                  placeholder='New Allergy'
                       type="text"
                       name="allergies-inp"
                       id="allergies-inp"
@@ -269,6 +270,7 @@ export default function DependentsPage(DependentsPageProps: any) {
                 <tr>
                   <td>
                     <input
+                  placeholder='New Diagnosis'
                       type="text"
                       name="diagnosis-inp"
                       id="diagnosis-inp"
@@ -309,6 +311,7 @@ export default function DependentsPage(DependentsPageProps: any) {
                 </tr>
                 <tr>
                   <input
+                    placeholder='Phone Name'
                     type="text"
                     name="dr-number"
                     id="dr-number"
@@ -317,6 +320,7 @@ export default function DependentsPage(DependentsPageProps: any) {
                 </tr>
                 <tr>
                   <input
+                    placeholder='Address'
                     type="text"
                     name="dr-location"
                     id="dr-location"
@@ -325,6 +329,7 @@ export default function DependentsPage(DependentsPageProps: any) {
                 </tr>
                 <tr>
                   <input
+                  placeholder='Address Line 2'
                     type="text"
                     name="dr-address1"
                     id="dr-address1"
@@ -333,6 +338,7 @@ export default function DependentsPage(DependentsPageProps: any) {
                 </tr>
                 <tr>
                   <input
+                  placeholder='Address Line 3'
                     type="text"
                     name="dr-address2"
                     id="dr-address2"
@@ -351,30 +357,36 @@ export default function DependentsPage(DependentsPageProps: any) {
               <tbody>
                 <tr>
                   <input
+                  placeholder='Pharmacy name'
                     type="text"
                     name="pharm-name"
                     id="pharm-name" />
                 </tr>
                 <tr>
                   <input
+                  placeholder='Pharmacy Phone Number'
                     type="text"
                     name="pharm-number"
                     id="pharm-number" />
                 </tr>
                 <tr>
                   <input
+                  placeholder='Address Line 1'
                     type="text"
                     name="pharm-address1"
                     id="pharm-address1" />
                 </tr>
                 <tr>
                   <input
+                  placeholder='Address Line 2'
+
                     type="text"
                     name="pharm-address2"
                     id="pharm-address2" />
                 </tr>
                 <tr>
                   <input
+                  placeholder='Hours of Operation'
                     type="text"
                     name="pharm-hours"
                     id="pharm-hours" />
