@@ -172,6 +172,16 @@ export default function DependentsPage(DependentsPageProps: any) {
   return (
     <div className='parent-bg'>
       < Container >
+
+      <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+
+
         < Row className='justify-content-md-center mt-5' >
           < Col md={6}>
             <div className="profile-area">
