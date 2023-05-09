@@ -8,6 +8,7 @@ import DependentsPage from './components/pages/dependentspage/DependentsPage';
 import SchedulePage from './components/pages/schedulepage/SchedulePage';
 import HistoryPage from './components/pages/historypage/HistoryPage';
 import Footer from './components/footer/Footer'
+import ForgotPasswordPage from './components/pages/forgotpasswordpage/ForgotPasswordPage';
 
 function App() {
 
@@ -21,12 +22,13 @@ function App() {
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/dependentspage" element={<DependentsPage />} />
           <Route path="/dashboardpage" element={<DashboardPage />} />
+          <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
           <Route path="/schedulepage" element={<SchedulePage />} />
           <Route path="/historypage" element={<HistoryPage />} />
           <Route path="/" element={<LoginPage />} />
         </Routes>
       </div>
-      <div>    
+      <div>
     <Footer></Footer>
   </div>
     </Router>
