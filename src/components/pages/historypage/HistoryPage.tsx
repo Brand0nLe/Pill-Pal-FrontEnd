@@ -17,7 +17,12 @@ return(
         <br></br>
 <h1>HISTORY PAGE</h1>
 <TableWithPagination/>
+<br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         </Container>
+        
 );
     };
 
