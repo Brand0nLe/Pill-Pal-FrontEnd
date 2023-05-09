@@ -1,66 +1,106 @@
-// import React, { useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+let userData: any;
 
-// const DrugSearch = () => {
-//   const [drugName, setDrugName] = useState('');
-//   const [drugOptions, setDrugOptions] = useState([]);
+async function createAccount(createdUser: object){
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/user/AddUser',{
+        method:"POST",
+        headers:{
+            'Content-Type': "application/json"
+        },
+        body:JSON.stringify(createdUser)
+    });   
+    if(!res.ok){
+        const message = `An error has occurred ${res.status}`;
+        throw new Error(message);
+    }
+    let data = await res.json();
+    console.log(data);
+    return data;
+}
+async function login(loginUser: object){
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/User/login',{
+        method:"POST",
+        headers:{
+            'Content-Type': "application/json"
+        },
+        body:JSON.stringify(loginUser)
+    });
+    if(!res.ok){
+        const message = `An error has occurred ${res.status}`;
+        throw new Error(message);
+    }
+    let data = await res.json();
+    console.log(data);
+    return data;
+}
 
-//   const handleInputChange = async (event) => {
-//     const searchTerm = event.target.value;
 
-//     setDrugName(searchTerm);
+//Create endpoint for this
+async function GetLoggedInUserData(username: string){
+    let res= await fetch(`Https://pillpalapi.azurewebsites.net/AddUserazurewebsites.net/User/userbyusername/${username}`)
+    let data = await res.json();
+    userData = data;
+    console.log(userData);
+}
 
-//     if (searchTerm.length >= 3) {
-//       const response = await fetch(`https://api.fda.gov/drug/label.json?search=openfda.brand_name:${searchTerm}&limit=10`);
-//       const data = await response.json();
+async function GetPublishedBlogItems(){
+    let res = await fetch('Https://pillpalapi.azurewebsites.net/blog/GetPublishedItems');
+    let data = await res.json();
+    return data;
+}
 
-//       setDrugOptions(data.results);
-//     } else {
-//       setDrugOptions([]);
-//     }
-//   };
+function checkToken(){
+    let result = false;
+    let lsData = localStorage.getItem('Token');
+    if(lsData !=null){
+        result = true;
+    }
+    return result;
+}
 
-//   const handleOptionClick = (option) => {
-//     setDrugName(option.openfda.brand_name[0]);
-//     setDrugOptions([]);
-//   };
+function loggedInData(){
+    return userData;
+}
 
-//   return (
-//     <div className="container">
-//       <h1>Pill Pal</h1>
-//       <div className="form-group">
-//         <label htmlFor="drug-search">Search for a drug:</label>
-//         <div className="row">
-//           <div className="col-md-8">
-//             <input
-//               type="text"
-//               id="drug-search"
-//               className="form-control"
-//               placeholder="Enter a drug name"
-//               value={drugName}
-//               onChange={handleInputChange}
-//             />
-//           </div>
-//         </div>
-//         {drugOptions.length > 0 && (
-//           <div className="dropdown-menu show" aria-labelledby="dropdownMenuButton">
-//             {drugOptions.map((option) => (
-//               <button
-//                 key={option.id}
-//                 type="button"
-//                 className="dropdown-item"
-//                 onClick={() => handleOptionClick(option)}
-//               >
-//                 {option.openfda.brand_name[0]} - {option.openfda.manufacturer_name[0]}
-//               </button>
-//             ))}
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
+async function addBlogItem(blogItem: string){
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/blog/addblogitem',{
+        method:"POST",
+        headers:{
+            'Content-Type': "application/json"
+        },
+        body:JSON.stringify(blogItem)
+    });   
+    if(!res.ok){
+        const message = `An error has occurred ${res.status}`;
+        throw new Error(message);
+    }
+    let data = await res.json();
+    console.log(data);
+    return data;
+}
 
-// export default DrugSearch;
+async function getBlogItemsByUserId(userId: number){
+    const res = await fetch(`Https://pillpalapi.azurewebsites.net/blog/GetItemsByUserId/${userId}`);
+    let data = await res.json();
+    return data;
+}
 
-<></>
+async function updateBlogItem(blogItem: string){
+    const res = await fetch('Https://pillpalapi..azurewebsites.net/blog/UpdateBlogItem',{
+        method:"POST",
+        headers:{
+            'Content-Type': "application/json"
+        },
+        body:JSON.stringify(blogItem)
+    });   
+    if(!res.ok){
+        const message = `An error has occurred ${res.status}`;
+        throw new Error(message);
+    }
+    let data = await res.json();
+    console.log(data);
+    return data;
+}
+
+
+export {createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem};
+

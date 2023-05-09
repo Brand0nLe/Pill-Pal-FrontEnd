@@ -1,55 +1,102 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+
+import React, {useState}  from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
+import { Link } from 'react-router-dom';
+import { Col, Container, Row, Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+import { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
+
 
 // Define Material UI theme
 const theme = createTheme();
 
 function LoginPage() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle login form submit logic here
+  let navigate = useNavigate();
+
+  const [Username, setUsername] = useState('');
+  const [Password, setPassword] = useState('');
+
+  const handleSubmit = async () => {
+      let userData: any = {
+          Username,
+          Password
+      }
+      console.log(userData);
+      let token = await login(userData);
+      if(token.token != null){
+        localStorage.setItem("token", token.token);
+        // await GetLoggedInUserData(Username);
+        navigate("/DashboardPage");
+      }else alert("User could not be found. Please check login information");
+      console.log(userData);
   };
 
   return (
     <ThemeProvider theme={theme}>
+      <div className="elliptical-shape" />
+
+
+
+<Container className='LogoMargin'>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+  <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
+</div>
+</Container>
+
+
       <Container>
-        <Row className="justify-content-md-center mt-5">
-          <Col md={6}>
-            <h2>Login</h2>
-            <Form className="login-form" onSubmit={handleSubmit}>
+        <Row className="">
+          <Col md={12}>
+            <Form className="login-form" onSubmit={handleSubmit} >
+
+
+              <p className="registrationText">
+                Don't have an account?{'  '}
+                <Link to="/register">Registration</Link>
+              </p>
+
+
+
               <Form.Group className="mb-3" controlId="email">
                 <TextField
                   label="Email"
                   type="email"
                   fullWidth
                   className="login-input"
+                  onChange={({target: {value}}) => setUsername(value)}
                   InputLabelProps={{
-                    className: 'login-input-label'
+                    className: 'login-input-label, borderRadius'
                   }}
                   InputProps={{
-                    className: 'login-input-field'
+                    className: 'login-input-field, borderRadius'
                   }}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="password">
+
+                <p className="registrationText">
+                  <Link to="forgotpassword">Forgot Password?</Link>
+                </p>
+
                 <TextField
                   label="Password"
                   type="password"
                   fullWidth
                   className="login-input"
+                  onChange={({target: {value}}) => setPassword(value)}
                   InputLabelProps={{
-                    className: 'login-input-label'
+                    className: 'login-input-label, borderRadius'
                   }}
                   InputProps={{
-                    className: 'login-input-field'
+                    className: 'login-input-field, borderRadius'
                   }}
                 />
               </Form.Group>
-              <Button variant="contained" type="submit">
-                Submit
+              <Button variant="contained" onClick={handleSubmit} className="loginBtn">
+                Log In
               </Button>
             </Form>
           </Col>
