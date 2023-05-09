@@ -10,6 +10,7 @@ import HistoryPage from './components/pages/historypage/HistoryPage';
 import Footer from './components/footer/Footer'
 
 function App() {
+
   return (
     <Router>
       <div>
