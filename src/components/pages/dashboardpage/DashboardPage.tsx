@@ -7,6 +7,7 @@ import './DashboardPage.css';
 import  defaultProfilePicture  from '../../assets/images/default-profile-picture.png';
 import defaultMedCardFront from '../../assets/images/Med-card-template.webp';
 import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg';
+import NavBar from '../../navbarheader/NavBarHeader';
 
 export default function DashboardPage() {
 
@@ -35,6 +36,7 @@ export default function DashboardPage() {
     
     return (
         <div className='parent-bg'>
+            <NavBar/>
                     <div className='topspace'></div>
         < Container >
             < Row className='justify-content-md-center mt-5' >

@@ -8,6 +8,8 @@ import {
 } from 'react-bootstrap';
 // import { AddCircleIcon } from '@mui/icons-material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import NavBar from '../../navbarheader/NavBarHeader';
+
 
 
 
@@ -172,7 +174,7 @@ export default function DependentsPage(DependentsPageProps: any) {
   return (
     <div className='parent-bg'>
       < Container >
-
+<NavBar/>
       <br></br>
     <br></br>
     <br></br>
