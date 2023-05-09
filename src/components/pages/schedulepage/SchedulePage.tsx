@@ -28,6 +28,12 @@ const SchedulePage: React.FC = () => {
         <FirstComponent/>
                 </Col>
       </Row>
+      <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
     </Container>
   );
 };
