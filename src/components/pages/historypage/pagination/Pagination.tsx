@@ -11,23 +11,33 @@ import {
 } from "@mui/material";
 
 interface Row {
-    id: number;
-    name: string;
+    date: number;
+    medname: string;
+    medstrength: any;
     doctor: string;
+    directions: string;
     [key: string]: any;
 }
 
 const rows: Row[] = [
-    { id: 1, name: "Tylenol 500mg", doctor: "Dr Singh" },
-    { id: 2, name: "Ibuprofen 400mg", doctor: "Dr Singh" },
-    { id: 3, name: "Loratadine 10mg", doctor: "Dr Yi" },
+    { date: 1/1/2023, medname: "Alprazolam", medstrength: "1mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by everyday as needed" },
+    { date: 1/1/2022, medname: "Metformin", medstrength: "1000mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth 4 times daily." },
+    { date: 1/1/2022, medname: "Losartan", medstrength: "25mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth 3 times daily." },    
+    { date: 1/1/2022, medname: "Januvia", medstrength: "100mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth daily." },
+    { date: 7/1/2021, medname: "Zolpidem", medstrength: "10mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth as needed at bedtime." },
+    { date: 7/1/2021, medname: "Alprazolam", medstrength: "0.5mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth 3 times daily as needed." },
+    { date: 1/1/2021, medname: "Alprazolam", medstrength: "0.25mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth 3 times daily as needed." },
+    { date: 7/1/2020, medname: "Januvia", medstrength: "25mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth daily." },
+    { date: 1/1/2020, medname: "Januvia", medstrength: "50mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth every other day." },
     // add more rows here
 ];
 
 const columns = [
-    { id: "id", label: "ID", minWidth: 50 },
-    { id: "name", label: "Medication Name", minWidth: 100 },
-    { id: "doctor", label: "Prescribing Doctor", minWidth: 200 },
+    { id: "date", label: "Date Prescribed", minWidth: 50 },
+    { id: "medname", label: "Medication", minWidth: 50 },
+    { id: "medstrength", label: "Strength", minWidth: 50 },
+    { id: "doctor", label: "Prescribing Doctor", minWidth: 100 },
+    { id: "directions", label: "Directions for Use", minWidth: 100 },
     // add more columns here
 ];
 

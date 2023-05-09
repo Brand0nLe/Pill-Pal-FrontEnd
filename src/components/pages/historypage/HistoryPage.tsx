@@ -15,7 +15,7 @@ return(
         <br></br>
         <br></br>
         <br></br>
-<h1>TESTING TEXT HISTORY PAGE</h1>
+<h1>HISTORY PAGE</h1>
 <TableWithPagination/>
         </Container>
 );
