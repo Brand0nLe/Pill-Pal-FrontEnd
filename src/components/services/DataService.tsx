@@ -1,6 +1,6 @@
 let userData: any;
 
-async function createAccount(createdUser: string){
+async function createAccount(createdUser: object){
     const res = await fetch('Https://pillpalapi.azurewebsites.net/user/AddUser',{
         method:"POST",
         headers:{
@@ -14,8 +14,9 @@ async function createAccount(createdUser: string){
     }
     let data = await res.json();
     console.log(data);
+    return data;
 }
-async function login(loginUser: string){
+async function login(loginUser: object){
     const res = await fetch('Https://pillpalapi.azurewebsites.net/User/login',{
         method:"POST",
         headers:{

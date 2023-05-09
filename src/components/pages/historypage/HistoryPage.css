@@ -1,1 +1,22 @@
 @import '../../assets/fonts/Fonts.css';
+
+.parent-bg,
+html {
+  background-color: #F7F0E8;
+  min-height: 800px;
+}
+
+.history-table thead th{
+  font-family: PoppinsSemiBold;
+  background: rgba(242, 193, 188, 0.5);
+  border: 1px solid black;
+  display: inline-table;
+  width: 200px;
+}
+.history-table tbody td{
+    background: white;
+  border: 1px solid black;
+  display: inline-table;
+  width: 200px;
+  
+}

@@ -7,6 +7,13 @@ const theme = createTheme();
 
 const ForgotPasswordPage: any = () => {
 return(
+<>
+    <Container className='LogoMargin'>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+  <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
+</div>
+</Container>
+
     <Container>
         <br></br>
         <br></br>
@@ -14,6 +21,7 @@ return(
         <br></br>
 <h1>TESTING TEXT FORGOT PW PAGE</h1>
         </Container>
+</>
 );
     };
 
