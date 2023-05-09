@@ -13,21 +13,21 @@ import {
 interface Row {
     id: number;
     name: string;
-    email: string;
+    doctor: string;
     [key: string]: any;
 }
 
 const rows: Row[] = [
-    { id: 1, name: "John Doe", email: "john@example.com" },
-    { id: 2, name: "Jane Smith", email: "jane@example.com" },
-    { id: 3, name: "Bob Johnson", email: "bob@example.com" },
+    { id: 1, name: "Tylenol 500mg", doctor: "Dr Singh" },
+    { id: 2, name: "Ibuprofen 400mg", doctor: "Dr Singh" },
+    { id: 3, name: "Loratadine 10mg", doctor: "Dr Yi" },
     // add more rows here
 ];
 
 const columns = [
     { id: "id", label: "ID", minWidth: 50 },
-    { id: "name", label: "Name", minWidth: 100 },
-    { id: "email", label: "Email", minWidth: 200 },
+    { id: "name", label: "Medication Name", minWidth: 100 },
+    { id: "doctor", label: "Prescribing Doctor", minWidth: 200 },
     // add more columns here
 ];
 
