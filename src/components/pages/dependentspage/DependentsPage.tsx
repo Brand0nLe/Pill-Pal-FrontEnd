@@ -518,7 +518,8 @@ export default function DependentsPage(DependentsPageProps: any) {
                     <textarea
                       name="AdditionalNotes"
                       id="AdditionalNotes"
-                      placeholder='e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can'></textarea>
+                      placeholder='e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can'>
+                      </textarea>
                   </div>
                   < Button className='my-btn' onClick={handleAddMedication} >Save Medication</Button>
                 </div>
