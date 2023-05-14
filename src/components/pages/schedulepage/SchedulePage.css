@@ -1,2 +1,45 @@
 @import '../../assets/fonts/Fonts.css';
 
+.table-parent {
+    min-height: 100vh;
+    max-width: 70vw;
+justify-content: flex-end;
+display: flex;
+}
+.table-parent th {
+    background: #C4AFAC;
+    border: 3px solid ;
+    border-color: black;
+    padding: 10%;
+    text-align: center;
+    
+    white-space: nowrap;
+    font-family: PoppinsRegular;
+display: flex;
+    width: 100%;
+}
+
+.table-parent tr {
+    background-color: #F2C1BC;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    padding: 3%;
+    margin-top: 10px;
+    width: 100%;
+    font-family: PoppinsRegular;
+    box-shadow: 0 5px 10px  rgba(0, 0, 0, 0.375);
+
+    border: 3px solid;
+    border-color: black;
+    border-radius: 10px;
+
+}
+.table-parent td {
+    margin-right: 5%;
+    white-space: nowrap;
+}
+
+#time {
+    font-family: PoppinsSemiBold;
+}
