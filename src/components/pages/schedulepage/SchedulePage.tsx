@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import NavBar from '../../navbarheader/NavBarHeader';
+import './SchedulePage.css';
 
 const SchedulePage: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
