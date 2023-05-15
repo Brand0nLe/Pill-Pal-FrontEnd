@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Pill Pal (Full Stack Group Project for CodeStack Academy)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a final project for CodeStack Academy, where I worked as the "Product Manager/Team Lead" for a group project. I collaborated with two other classmates on this application. As the team lead, my responsibilities included creating a Jira board, organizing tasks, managing requirements, and designing the application using Notion and Figma. And I also focused mainly on the front-end code, while my classmate Griffin worked on the back-end, and Harrison worked on the front-end also.
 
-## Available Scripts
+>The Team:
+>
+>Brandon Le (Front-End/Team-Lead)
+>
+>Griffin Parker (Back-End)
+>
+>N. Harrison Wilkins (Front-End)
 
-In the project directory, you can run:
+## About the Project
 
-### `npm start`
+Pill Pal is an app that aims to provide users with a place to store medical information such as medication history, insurance details, allergies, doctor's contacts, and pharmacy contacts. While the current version of the app is not fully functional as initially planned, it serves as a prototype developed for the assignment within the given timeframe and project constraints.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As I continue to enhance my skills and knowledge, I have plans to completely revamp the application according to my original vision. I invite you to follow along with my journey as I work on improving and refining Pill Pal in the future.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Setup and Installation
 
-### `npm test`
+Please note that as this was a class assignment, the backend server required to fully utilize the application is not going to be publicly available or hosted to a database at the end of this project. However, you can still access and review the frontend code.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the frontend code locally, follow these steps:
 
-### `npm run build`
+1. Clone the repository to your local machine.
+2. Install the necessary dependencies by running `npm install` in the project directory.
+3. Start the development server by running `npm start`.
+4. Open `http://localhost:3000` in your web browser to view the site.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contact
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you have any questions or would like to know more about the project, feel free to reach out to me.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Email: [brandonctle.dev@gmail.com](mailto:brandonctle.dev@gmail.com)
+- LinkedIn: [https://www.linkedin.com/in/brandonctle/](https://www.linkedin.com/in/brandonctle/)
+- Portfolio: [https://brandonle.azurewebsites.net/](https://brandonle.azurewebsites.net/)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Thank you for your interest in Pill Pal!
