@@ -18,18 +18,6 @@ interface MedsListProps {
 
 const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
   const [meds, setMeds] = useState<Med[]>([
-    {
-      name: "Advil",
-      time: "10:00 AM",
-    },
-    {
-      name: "Tylenol",
-      time: "12:00 PM",
-    },
-    {
-      name: "Ibuprofen",
-      time: "2:00 PM",
-    },
   ]);
 
   const handleDateChange = (date: Date) => {
@@ -107,9 +95,9 @@ const SchedulePage = () => {
   };
 
   return (
-    <Container className="parent-bg">
+    <div className="parent-bg">
       <NavBar />
-     
+     <Container className="SchedulePageWrapper mt-5">
 
       <Row>
         <Col lg={6}>
@@ -231,7 +219,8 @@ const SchedulePage = () => {
           </div>
         </Col>
       </Row>
-    </Container>
+      </Container>
+    </div>
   );
 };
 
