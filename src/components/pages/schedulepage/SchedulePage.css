@@ -1,7 +1,6 @@
 @import '../../assets/fonts/Fonts.css';
-body{
-  min-height: 100%!important;
-
+body, html{
+  min-height: 100vh!important;
 }
 .parent-bg
 {
@@ -24,7 +23,6 @@ body{
   text-align: center;
   white-space: nowrap;
   font-family: PoppinsRegular;
-  display: flex;
   width: 100%;
 }
 
@@ -68,20 +66,12 @@ form.add-form-schedules-page {
   border: 1px solid black;
   margin-bottom: 10px;
   display: block;
-  width: 100%;
 }
 
 
 .form-wrapper {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  width: 70%;
-  height: 80vh;
+  width: 100%;
+  height: 100%;
 }
 
 .add-form-schedules-page {
@@ -91,8 +81,7 @@ form.add-form-schedules-page {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 80%;
-  max-width: 500px;
+  width: 100%;
 }
 
 .my-btn {
