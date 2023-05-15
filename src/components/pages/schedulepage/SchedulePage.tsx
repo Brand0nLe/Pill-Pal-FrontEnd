@@ -1,30 +1,13 @@
 import "./calendar/Calendar.css";
-import "../schedulepage/SchedulePage.css";
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './calendar/Calendar.css';
 import NavBar from '../../navbarheader/NavBarHeader';
-import { Button, Modal } from 'react-bootstrap';
 import { DisabledByDefaultOutlined, CheckBoxOutlined } from '@mui/icons-material';
 import './SchedulePage.css';
 
-
-  useEffect(() => {
-    const storedMedications = localStorage.getItem("medications");
-    if (storedMedications) {
-      setMedications(JSON.parse(storedMedications));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("medications", JSON.stringify(medications));
-  }, [medications]);
-
-
-
-export default function SchedulePage() {
+const SchedulePage = () => {
   const currentDate = new Date();
   const currentDayOfWeek = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
 
@@ -61,8 +44,6 @@ export default function SchedulePage() {
     const dose = doseInput.value;
     const instructions = instructionsInput.value;
 
-
-
     const newMedication = {
       id: Date.now(),
       time,
@@ -80,6 +61,10 @@ export default function SchedulePage() {
 
   return (
     <>
+      <NavBar />
+      <div className="calendar-container">
+        <Calendar value={currentDate} />
+      </div>
       <button className='my-btn' onClick={handleAddMedication}>Add Medication</button>
       {showForm && (
         <form className='add-form' onSubmit={handleFormSubmit}>
@@ -164,7 +149,7 @@ export default function SchedulePage() {
             <button className='my-btn' type="submit">Add</button>
           </div>
 
-        </form>
+          </form>
       )}
       <div className="table-parent">
         <div>
@@ -190,8 +175,11 @@ export default function SchedulePage() {
                 </tr>
               ))}
             </tbody>
-          </table>
+            </table>
         </div>
       </div>
-    </>);}
+    </>
+  );
+};
 
+export default SchedulePage;
