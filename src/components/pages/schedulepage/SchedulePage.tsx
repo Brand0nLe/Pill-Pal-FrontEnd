@@ -98,7 +98,7 @@ const SchedulePage = () => {
     <div className="parent-bg">
       <NavBar />
      <Container className="SchedulePageWrapper mt-5">
-
+          
       <Row>
         <Col lg={6}>
           <MedsList myDate={currentDate} onDateChange={handleDateChange} />
