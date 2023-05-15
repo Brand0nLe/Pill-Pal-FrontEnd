@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { DisabledByDefaultOutlined, CheckBoxOutlined } from "@mui/icons-material";
 import NavBar from "../../navbarheader/NavBarHeader";
 import "./calendar/Calendar.css";
@@ -104,7 +104,7 @@ const SchedulePage = () => {
           <MedsList myDate={currentDate} onDateChange={handleDateChange} />
           <button className='my-btn' onClick={handleAddMedication}>Add Medication</button>
           {showForm && (
-            <form className='add-form' onSubmit={handleFormSubmit}>
+            <Form className='add-form' onSubmit={handleFormSubmit}>
               <label htmlFor="name">Medication Name</label>
               <input
                 autoComplete='tothis'
@@ -186,7 +186,7 @@ const SchedulePage = () => {
                 <button className='my-btn' type="submit">Add</button>
               </div>
 
-              </form>
+              </Form>
           )}
         </Col>
         <Col lg={6}>
