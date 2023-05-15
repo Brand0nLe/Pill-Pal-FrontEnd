@@ -3,6 +3,12 @@ body{
   min-height: 100%!important;
 
 }
+.parent-bg,
+html {
+  min-height: 800px;
+  background-color: #F7F0E8;
+}
+
 .table-parent {
   min-height: 100vh;
   max-width: 70vw;

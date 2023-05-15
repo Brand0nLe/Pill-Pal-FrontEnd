@@ -11,20 +11,20 @@ import NavBar from '../../navbarheader/NavBarHeader';
 const theme = createTheme();
 
 const HistoryPage: any = () => {
-return(
-    <div className='parent-bg'>
+    return (
+        <div className='parent-bg'>
 
-        <NavBar/>
-    <Container className="mt-5">
-<>
-<TableWithPagination/>
-</>
+            <NavBar />
+            <Container className="mt-5">
+                <>
+                    <TableWithPagination />
+                </>
 
-        </Container>
+            </Container>
         </div>
 
-        
-);
-    };
+
+    );
+};
 
 export default HistoryPage;

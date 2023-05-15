@@ -1,5 +1,6 @@
 import React from "react";
 import ReactCalendar from "react-calendar";
+import '/Calendar.css';
 
 interface CalendarProps {
   initialDate: Date;
