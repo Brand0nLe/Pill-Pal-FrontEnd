@@ -4,3 +4,7 @@ body{
   min-height: 100%!important;
 
 }
+
+.btn.btn-primary{
+  background-color: #c4afac!important;
+}
