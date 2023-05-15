@@ -14,8 +14,10 @@ const SchedulePage: React.FC = () => {
   };
 
   return (
-    <Container>
+    <div className='parent-bg'>
+
       <NavBar />
+    <Container>
       <br />
       <br />
       <br />
@@ -34,7 +36,14 @@ const SchedulePage: React.FC = () => {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </Container>
+    </div>
   );
 };
 

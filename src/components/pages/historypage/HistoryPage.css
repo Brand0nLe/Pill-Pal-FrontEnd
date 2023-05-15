@@ -3,7 +3,7 @@
 .parent-bg,
 html {
   background-color: #F7F0E8;
-  min-height: 800px;
+  min-height: 100%;
 }
 
 .history-table thead th{

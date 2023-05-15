@@ -173,8 +173,8 @@ export default function DependentsPage(DependentsPageProps: any) {
 
   return (
     <div className='parent-bg'>
-      < Container >
 <NavBar/>
+      < Container >
       <br></br>
     <br></br>
     <br></br>

@@ -12,19 +12,25 @@ const theme = createTheme();
 
 const HistoryPage: any = () => {
 return(
-    <Container>
+    <div className='parent-bg'>
+
         <NavBar/>
+    <Container>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
 <h1>HISTORY PAGE</h1>
+<>
 <TableWithPagination/>
+</>
 <br></br>
         <br></br>
         <br></br>
         <br></br>
         </Container>
+        </div>
+
         
 );
     };

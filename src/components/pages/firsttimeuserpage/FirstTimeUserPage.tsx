@@ -2,12 +2,15 @@ import React from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from '../../navbarheader/NavBarHeader';
 
 const theme = createTheme();
 
 const FirstTimeUserPage: any = () => {
 return(
     <Container>
+                    <NavBar/>
+
         <br></br>
         <br></br>
         <br></br>

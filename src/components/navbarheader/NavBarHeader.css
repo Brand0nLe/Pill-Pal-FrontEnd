@@ -1,5 +1,9 @@
 @import '../assets/fonts/Fonts.css';
 
+
+.Navbar{
+    width: 100%;
+}
 .NavColor {
     background-color: #F5D8D2; 
     /* This is for the 50% opacity of #F2C1BC */

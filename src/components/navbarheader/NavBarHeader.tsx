@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 import '../navbarheader/NavBarHeader.css';
 
 const NavBar: React.FC = () => {
+  const handleLogout = () => {
+    window.location.href = '/login';
+  };
+
   return (
-    <Navbar className="NavColor" collapseOnSelect expand="lg" fixed="top">
+    <Navbar className="NavColor" collapseOnSelect expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-        <img src={require("../assets/images/LogoWithText.png")} alt="Logo" width="auto" height="65" className="d-inline-block align-top" />
+          <img src={require("../assets/images/LogoWithText.png")} alt="Logo" width="auto" height="65" className="d-inline-block align-top" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -33,6 +37,9 @@ const NavBar: React.FC = () => {
                 History
               </Nav.Link>
             </Nav.Item>
+          </Nav>
+          <Nav>
+            <Nav.Link onClick={handleLogout}>Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
