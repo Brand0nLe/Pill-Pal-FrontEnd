@@ -5,15 +5,11 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './calendar/Calendar.css';
-import '../schedulepage/SchedulePage.css';
 import NavBar from '../../navbarheader/NavBarHeader';
 import { Button, Modal } from 'react-bootstrap';
+import { DisabledByDefaultOutlined, CheckBoxOutlined } from '@mui/icons-material';
+import './SchedulePage.css';
 
-const SchedulePage = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [medications, setMedications] = useState<{ name: string; time: string; }[]>([]);
-  const [showModal, setShowModal] = useState(false);
-  const [newMedication, setNewMedication] = useState({ name: "", time: "" });
 
   useEffect(() => {
     const storedMedications = localStorage.getItem("medications");
@@ -26,96 +22,176 @@ const SchedulePage = () => {
     localStorage.setItem("medications", JSON.stringify(medications));
   }, [medications]);
 
-  const handleDateChange = (date: Date) => {
-    setSelectedDate(date);
+
+
+export default function SchedulePage() {
+  const currentDate = new Date();
+  const currentDayOfWeek = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
+
+  const [showForm, setShowForm] = useState(false);
+  const [medications, setMedications] = useState([
+    {
+      id: Date.now(),
+      time: '',
+      name: '',
+      dose: '',
+      instructions: '',
+    },
+  ]);
+
+  const handleDisableClick = (id: number) => {
+    setMedications(prevMedications => prevMedications.filter(medication => medication.id !== id));
   };
 
   const handleAddMedication = () => {
-    if (newMedication.name && newMedication.time) {
-      setMedications([...medications, newMedication]);
-      setNewMedication({ name: "", time: "" });
-      setShowModal(false);
-    }
+    setShowForm(true);
+  };
+
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // find the form inputs
+    const timeInput = (event.target as HTMLFormElement).querySelector('input[name="time"]') as HTMLInputElement;
+    const nameInput = (event.target as HTMLFormElement).querySelector('input[name="name"]') as HTMLInputElement;
+    const doseInput = (event.target as HTMLFormElement).querySelector('input[name="dose"]') as HTMLInputElement;
+    const instructionsInput = (event.target as HTMLFormElement).querySelector('input[name="instructions"]') as HTMLInputElement;
+    
+    const time = timeInput.value;
+    const name = nameInput.value;
+    const dose = doseInput.value;
+    const instructions = instructionsInput.value;
+
+
+
+    const newMedication = {
+      id: Date.now(),
+      time,
+      name,
+      dose,
+      instructions,
+    };
+
+    setMedications(prevMedications => [...prevMedications, newMedication]);
+
+    // Reset the form and hide it
+    (event.target as HTMLFormElement).reset();
+    setShowForm(false);
   };
 
   return (
-    <div className="wrapper-parent">
-      <NavBar />
-      <div className="container-fluid mt-5">
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="calendar-container">
-              <Calendar value={selectedDate} onChange={handleDateChange} />
-              <Button
-                className="btn mt-3"
-                onClick={() => setShowModal(true)}
-              >
-                Add Medication
-              </Button>
-            </div>
+    <>
+      <button className='my-btn' onClick={handleAddMedication}>Add Medication</button>
+      {showForm && (
+        <form className='add-form' onSubmit={handleFormSubmit}>
+          <label htmlFor="name">Medication Name</label>
+          <input
+            autoComplete='tothis'
+            type="text"
+            name="name"
+            placeholder="Medication Name" required />
+          <label htmlFor="dose">Doseage (Strength)</label>
+          <input
+            type="text"
+            name="dose"
+            placeholder="Doseage" required />
+          <label htmlFor="time">Time</label>
+          <input
+            type="text"
+            name="time"
+            placeholder="Time" required />
+          <label htmlFor="instructions">Instrucitons</label>
+          <input
+            type="text"
+            name="instructions"
+            placeholder="Instructions" required />
+          <label htmlFor="StartDate">Start Date</label>
+          <input
+            placeholder='e.g. 01/01/2023'
+            type="text"
+            name="StartDate"
+            id="StartDate" />
+          <label htmlFor="EndDate">End Date</label>
+          <input
+            placeholder='e.g. 01/01/2023 or N/A'
+            type="text"
+            name="EndDate"
+            id="EndDate" />
+          <label htmlFor="ReasonForUse">Reason for use</label>
+          <input
+            placeholder='e.g. Asthma, Hypertension, etc.'
+            type="text"
+            name="ReasonForUse"
+            id="ReasonForUse" />
+          <label htmlFor="PrescribingDoctor">Prescribing Doctor</label>
+          <input
+            placeholder='e.g. Harpreet Singh'
+            type="text"
+            name="PrescribingDoctor"
+            id="PrescribingDoctor" />
+          <label htmlFor="DoctorContact">Doctor's Contact</label>
+          <input
+            placeholder='e.g. 209-123-4567'
+            type="text"
+            name="DoctorContact"
+            id="DoctorContact" />
+
+          <div>
+            <label htmlFor="PharmacyLocation">Pharmacy Location</label>
+            <input
+              placeholder='e.g. CVS Pharmacy on Pacific Ave.'
+              type="text"
+              name="PharmacyLocation"
+              id="PharmacyLocation" />
+            <label htmlFor="PharmacyContact">Pharmacy Contact</label>
+            <input
+              placeholder='e.g. 209-123-4567'
+              type="text"
+              name="PharmacyContact"
+              id="PharmacyContact" />
+            <label htmlFor="SideEffects">Side Effects or Concerns</label>
+            <input
+              placeholder='e.g. feeling dizzy, nauseous, unable to sleep, etc.'
+              type="text"
+              name="SideEffects"
+              id="SideEffects" />
+            <label htmlFor="AdditionalNotes">Additional Notes</label>
+            <textarea
+              name="AdditionalNotes"
+              id="AdditionalNotes"
+              placeholder='e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can'>
+            </textarea>
+
+            <button className='my-btn' type="submit">Add</button>
           </div>
-          <div className="col-lg-6">
-            <div className="medication-list-container">
-              <h2>Medications for {selectedDate.toLocaleDateString()}</h2>
-              <ul>
-                {medications.map((medication, index) => (
-                  <li key={index}>
-                    <span>{medication.name}</span>
-                    <span>{medication.time}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+
+        </form>
+      )}
+      <div className="table-parent">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>{currentDayOfWeek} {currentDate.toLocaleDateString()}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {medications.map(medication => (
+                <tr key={medication.id}>
+                  <td>{medication.time}</td>
+                  <td>{medication.name}</td>
+                  <td>{medication.dose}</td>
+                  <td>{medication.instructions}</td>
+                  <td>
+                    <DisabledByDefaultOutlined onClick={() => handleDisableClick(medication.id)} />
+                  </td>
+                  <td>
+                    <CheckBoxOutlined />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Add Medication</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="form-group">
-            <label htmlFor="medName">Medication Name</label>
-            <input
-              type="text"
-              className="form-control"
-              id="medName"
-              value={newMedication.name}
-              onChange={(e) =>
-                setNewMedication({
-                  ...newMedication,
-                  name: e.target.value,
-                })
-              }
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="medTime">Medication Time</label>
-            <input
-              type="text"
-              className="form-control"
-              id="medTime"
-              value={newMedication.time}
-              onChange={(e) =>
-                setNewMedication({
-                  ...newMedication,
-                  time: e.target.value,
-                })
-              }
-            />
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleAddMedication}>
-            Add
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
-};
+    </>);}
 
-export default SchedulePage;
