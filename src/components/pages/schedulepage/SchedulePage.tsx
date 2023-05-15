@@ -8,11 +8,15 @@ export default function SchedulePage() {
   const currentDate = new Date();
   const currentDayOfWeek = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
 
-  const [showForm, setShowForm] = useState(false); // State for showing the medication form
-
+  const [showForm, setShowForm] = useState(false);
   const [medications, setMedications] = useState([
-    { id: 1, time: '8:00 AM', name: 'Medication 1', dose: '10mg', instructions: 'Take with water' },
-    { id: 2, time: '10:30 AM', name: 'Medication 2', dose: '20mg', instructions: 'Take with food' },
+    {
+      id: Date.now(),
+      time: '',
+      name: '',
+      dose: '',
+      instructions: '',
+    },
   ]);
 
   const handleDisableClick = (id: number) => {
@@ -26,10 +30,17 @@ export default function SchedulePage() {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const time = (event.target as HTMLFormElement).elements.time.value;
-    const name = (event.target as HTMLFormElement).elements.name.value;
-    const dose = (event.target as HTMLFormElement).elements.dose.value;
-    const instructions = (event.target as HTMLFormElement).elements.instructions.value;
+    // find the form inputs
+    const timeInput = (event.target as HTMLFormElement).querySelector('input[name="time"]') as HTMLInputElement;
+    const nameInput = (event.target as HTMLFormElement).querySelector('input[name="name"]') as HTMLInputElement;
+    const doseInput = (event.target as HTMLFormElement).querySelector('input[name="dose"]') as HTMLInputElement;
+    const instructionsInput = (event.target as HTMLFormElement).querySelector('input[name="instructions"]') as HTMLInputElement;
+    
+    const time = timeInput.value;
+    const name = nameInput.value;
+    const dose = doseInput.value;
+    const instructions = instructionsInput.value;
+
 
 
     const newMedication = {
@@ -54,6 +65,7 @@ export default function SchedulePage() {
         <form className='add-form' onSubmit={handleFormSubmit}>
           <label htmlFor="name">Medication Name</label>
           <input
+            autoComplete='tothis'
             type="text"
             name="name"
             placeholder="Medication Name" required />
@@ -102,6 +114,7 @@ export default function SchedulePage() {
             type="text"
             name="DoctorContact"
             id="DoctorContact" />
+
           <div>
             <label htmlFor="PharmacyLocation">Pharmacy Location</label>
             <input
@@ -128,19 +141,18 @@ export default function SchedulePage() {
               placeholder='e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can'>
             </textarea>
 
-
-
-
-
+            <button className='my-btn' type="submit">Add</button>
           </div>
-          <button className='my-btn' type="submit">Add</button>
+
         </form>
       )}
       <div className="table-parent">
         <div>
           <table>
             <thead>
-              <th>{currentDayOfWeek} {currentDate.toLocaleDateString()}</th>
+              <tr>
+                <th>{currentDayOfWeek} {currentDate.toLocaleDateString()}</th>
+              </tr>
             </thead>
             <tbody>
               {medications.map(medication => (
@@ -164,4 +176,5 @@ export default function SchedulePage() {
     </>
   );
 }
+
 
