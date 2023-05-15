@@ -175,13 +175,6 @@ export default function DependentsPage(DependentsPageProps: any) {
     <div className='parent-bg'>
 <NavBar/>
       < Container >
-      <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-
 
 
         < Row className='justify-content-md-center mt-5' >
