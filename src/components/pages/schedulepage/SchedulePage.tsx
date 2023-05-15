@@ -17,8 +17,7 @@ interface MedsListProps {
 }
 
 const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
-  const [meds, setMeds] = useState<Med[]>([
-  ]);
+  const [meds, setMeds] = useState<Med[]>([]);
 
   const handleDateChange = (date: Date) => {
     onDateChange(date);
@@ -64,29 +63,20 @@ const SchedulePage = () => {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // find the form inputs
-    const timeInput = (event.target as HTMLFormElement).querySelector('input[name="time"]') as HTMLInputElement;
-    const nameInput = (event.target as HTMLFormElement).querySelector('input[name="name"]') as HTMLInputElement;
-    const doseInput = (event.target as HTMLFormElement).querySelector('input[name="dose"]') as HTMLInputElement;
-    const instructionsInput = (event.target as HTMLFormElement).querySelector('input[name="instructions"]') as HTMLInputElement;
-
-    const time = timeInput.value;
-    const name = nameInput.value;
-    const dose = doseInput.value;
-    const instructions = instructionsInput.value;
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
 
     const newMedication = {
       id: Date.now(),
-      time,
-      name,
-      dose,
-      instructions,
+      time: formData.get("time") as string,
+      name: formData.get("name") as string,
+      dose: formData.get("dose") as string,
+      instructions: formData.get("instructions") as string,
     };
 
-    setMedications((prevMedications) => [...prevMedications, newMedication]);
+    setMedications(prevMedications => [...prevMedications, newMedication]);
 
-    // Reset the form and hide it
-    (event.target as HTMLFormElement).reset();
+    form.reset();
     setShowForm(false);
   };
 
@@ -97,128 +87,102 @@ const SchedulePage = () => {
   return (
     <div className="parent-bg">
       <NavBar />
-     <Container className="SchedulePageWrapper mt-5">
-
-      <Row>
-        <Col lg={6}>
-          <MedsList myDate={currentDate} onDateChange={handleDateChange} />
-          <button className='my-btn' onClick={handleAddMedication}>Add Medication</button>
-          {showForm && (
-            <Form className='add-form' onSubmit={handleFormSubmit}>
-              <label htmlFor="name">Medication Name</label>
-              <input
-                autoComplete='tothis'
-                type="text"
-                name="name"
-                placeholder="Medication Name" required />
-              <label htmlFor="dose">Doseage (Strength)</label>
-              <input
-                type="text"
-                name="dose"
-                placeholder="Doseage" required />
-              <label htmlFor="time">Time</label>
-              <input
-                type="text"
-                name="time"
-                placeholder="Time" required />
-              <label htmlFor="instructions">Instrucitons</label>
-              <input
-                type="text"
-                name="instructions"
-                placeholder="Instructions" required />
-              <label htmlFor="StartDate">Start Date</label>
-              <input
-                placeholder='e.g. 01/01/2023'
-                type="text"
-                name="StartDate"
-                id="StartDate" />
-              <label htmlFor="EndDate">End Date</label>
-              <input
-                placeholder='e.g. 01/01/2023 or N/A'
-                type="text"
-                name="EndDate"
-                id="EndDate" />
-              <label htmlFor="ReasonForUse">Reason for use</label>
-              <input
-                placeholder='e.g. Asthma, Hypertension, etc.'
-                type="text"
-                name="ReasonForUse"
-                id="ReasonForUse" />
-              <label htmlFor="PrescribingDoctor">Prescribing Doctor</label>
-              <input
-                placeholder='e.g. Harpreet Singh'
-                type="text"
-                name="PrescribingDoctor"
-                id="PrescribingDoctor" />
-              <label htmlFor="DoctorContact">Doctor's Contact</label>
-              <input
-                placeholder='e.g. 209-123-4567'
-                type="text"
-                name="DoctorContact"
-                id="DoctorContact" />
-
-              <div>
-                <label htmlFor="PharmacyLocation">Pharmacy Location</label>
-                <input
-                  placeholder='e.g. CVS Pharmacy on Pacific Ave.'
-                  type="text"
-                  name="PharmacyLocation"
-                  id="PharmacyLocation" />
-                <label htmlFor="PharmacyContact">Pharmacy Contact</label>
-                <input
-                  placeholder='e.g. 209-123-4567'
-                  type="text"
-                  name="PharmacyContact"
-                  id="PharmacyContact" />
-                <label htmlFor="SideEffects">Side Effects or Concerns</label>
-                <input
-                  placeholder='e.g. feeling dizzy, nauseous, unable to sleep, etc.'
-                  type="text"
-                  name="SideEffects"
-                  id="SideEffects" />
-                <label htmlFor="AdditionalNotes">Additional Notes</label>
-                <textarea
-                  name="AdditionalNotes"
-                  id="AdditionalNotes"
-                  placeholder='e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can'>
-                </textarea>
-
-                <button className='my-btn' type="submit">Add</button>
-              </div>
-
-              </Form>
+      <Container className=" mt-5">
+        <Row>
+          <Col lg={6}>
+            <MedsList myDate={currentDate} onDateChange={handleDateChange} />
+            <Button className='my-btn' onClick={handleAddMedication}>Add Medication</Button>
+            {showForm && (
+              <div className="form-wrapper"> {/* Wrap the populated form with a div */}
+                <Form className='add-form-schedules-page' onSubmit={handleFormSubmit}>
+                <Form.Group controlId="name">
+                  <Form.Label>Medication Name</Form.Label>
+                  <Form.Control type="text" name="name" placeholder="Medication Name" required />
+                </Form.Group>
+                <Form.Group controlId="dose">
+                  <Form.Label>Dosage (Strength)</Form.Label>
+                  <Form.Control type="text" name="dose" placeholder="Dosage" required />
+                </Form.Group>
+                <Form.Group controlId="time">
+                  <Form.Label>Time</Form.Label>
+                  <Form.Control type="text" name="time" placeholder="Time" required />
+                </Form.Group>
+                <Form.Group controlId="instructions">
+                  <Form.Label>Instructions</Form.Label>
+                  <Form.Control type="text" name="instructions" placeholder="Instructions" required />
+                </Form.Group>
+                <Form.Group controlId="StartDate">
+                  <Form.Label>Start Date</Form.Label>
+                  <Form.Control type="text" name="StartDate" placeholder="e.g. 01/01/2023" />
+                </Form.Group>
+                <Form.Group controlId="EndDate">
+                  <Form.Label>End Date</Form.Label>
+                  <Form.Control type="text" name="EndDate" placeholder="e.g. 01/01/2023 or N/A" />
+                </Form.Group>
+                <Form.Group controlId="ReasonForUse">
+                  <Form.Label>Reason for Use</Form.Label>
+                  <Form.Control type="text" name="ReasonForUse" placeholder="e.g. Asthma, Hypertension, etc." />
+                </Form.Group>
+                <Form.Group controlId="PrescribingDoctor">
+                  <Form.Label>Prescribing Doctor</Form.Label>
+                  <Form.Control type="text" name="PrescribingDoctor" placeholder="e.g. Harpreet Singh" />
+                </Form.Group>
+                <Form.Group controlId="DoctorContact">
+                  <Form.Label>Doctor's Contact</Form.Label>
+                  <Form.Control type="text" name="DoctorContact" placeholder="e.g. 209-123-4567" />
+                </Form.Group>
+                  <Form.Group controlId="PharmacyLocation">
+                    <Form.Label>Pharmacy Location</Form.Label>
+                    <Form.Control type="text" name="PharmacyLocation" placeholder="e.g. CVS Pharmacy on Pacific Ave." />
+                  </Form.Group>
+                  <Form.Group controlId="PharmacyContact">
+                    <Form.Label>Pharmacy Contact</Form.Label>
+                    <Form.Control type="text" name="PharmacyContact" placeholder="e.g. 209-123-4567" />
+                  </Form.Group>
+                  <Form.Group controlId="SideEffects">
+                    <Form.Label>Side Effects or Concerns</Form.Label>
+                    <Form.Control type="text" name="SideEffects" placeholder="e.g. feeling dizzy, nauseous, unable to sleep, etc." />
+                  </Form.Group>
+                  <Form.Group controlId="AdditionalNotes">
+                    <Form.Label>Additional Notes</Form.Label>
+                    <Form.Control as="textarea" name="AdditionalNotes" placeholder="e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can" />
+                  </Form.Group>
+                  <Button className='my-btn' type="submit">Save Med</Button>
+                </Form>
+            </div>
           )}
         </Col>
         <Col lg={6}>
-          <div className="table-parent">
-            <div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>{currentDayOfWeek} {currentDate.toLocaleDateString()}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {medications.map(medication => (
-                    <tr key={medication.id}>
-                      <td>{medication.time}</td>
-                      <td>{medication.name}</td>
-                      <td>{medication.dose}</td>
-                      <td>{medication.instructions}</td>
-                      <td>
-                        <DisabledByDefaultOutlined onClick={() => handleDisableClick(medication.id)} />
-                      </td>
-                      <td>
-                        <CheckBoxOutlined />
-                      </td>
+            <div className="table-parent">
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>{currentDayOfWeek} {currentDate.toLocaleDateString()}</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {medications.map(medication => (
+                      <tr key={medication.id}>
+                        <td>{medication.time}</td>
+                        <td>{medication.name}</td>
+                        <td>{medication.dose}</td>
+                        <td>{medication.instructions}    </td>
+                        <td>
+
+                          <DisabledByDefaultOutlined onClick={() => handleDisableClick(medication.id)} />
+                        </td>
+                        <td>
+                          <CheckBoxOutlined />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
       </Container>
     </div>
   );

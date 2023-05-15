@@ -3,11 +3,10 @@ body{
   min-height: 100%!important;
 
 }
-.parent-bg,
-html {
-  min-height: 800px;
+.parent-bg
+{
   background-color: #F7F0E8;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .table-parent {
@@ -53,24 +52,47 @@ html {
 #time {
   font-family: PoppinsSemiBold;
 }
-
-.add-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+form.add-form-schedules-page {
   font-family: PoppinsLight;
   background: white;
   border: 1px solid black;
   padding: 10px;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
 }
 
-  .add-form input, textarea {
+
+.add-form-schedules-page input,
+.add-form-schedules-page textarea {
   background-color: #F2C1BC;
   border: 1px solid black;
   margin-bottom: 10px;
   display: block;
+  width: 100%;
+}
+
+
+.form-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 70%;
+  height: 80vh;
+}
+
+.add-form-schedules-page {
+  font-family: PoppinsLight;
+  background: white;
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 500px;
 }
 
 .my-btn {

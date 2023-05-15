@@ -532,15 +532,10 @@ export default function DependentsPage(DependentsPageProps: any) {
           </div>
 
         </Row>
-        <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
+        <div className='bottomspace'></div>
+
       </Container>
+
     </div>
   )
 }
-
-

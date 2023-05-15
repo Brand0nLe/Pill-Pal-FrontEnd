@@ -98,7 +98,7 @@ tbody {
   font-size: 24px;
 }
 
-.profile-picture-container img {}
+/* .profile-picture-container img {} */
 
 .profile-area {
   display: flex;
@@ -170,12 +170,7 @@ tbody {
   margin-top: 15px;
 }
 
-label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: -5px;
-}
+
 
 .add-form div {
   position: relative;
