@@ -18,16 +18,6 @@ const Footer = () => {
             </a>
           </div>
         </Container>
-        <div className="bg-secondary py-2">
-          <Container>
-            <p className="m-0 text-center">
-              Thank you to the Pill Pal team for making this project possible!
-              <Link to="/members" className="ms-2 text-white fw-bold">
-                View our members' LinkedIn and GitHub profiles
-              </Link>
-            </p>
-          </Container>
-        </div>
       </footer>
     );
   };

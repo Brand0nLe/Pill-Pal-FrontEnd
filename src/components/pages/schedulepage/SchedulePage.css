@@ -1,6 +1,9 @@
 @import '../../assets/fonts/Fonts.css';
 
+body{
+  min-height: 100%!important;
 
+}
 /* CalendarStyles.css */
 
 .react-calendar {
