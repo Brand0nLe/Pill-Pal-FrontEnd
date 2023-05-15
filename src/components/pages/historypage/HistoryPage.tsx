@@ -15,19 +15,11 @@ return(
     <div className='parent-bg'>
 
         <NavBar/>
-    <Container>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-<h1>HISTORY PAGE</h1>
+    <Container className="mt-5">
 <>
 <TableWithPagination/>
 </>
-<br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+
         </Container>
         </div>
 

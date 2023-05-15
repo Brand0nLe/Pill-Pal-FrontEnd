@@ -4,6 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './calendar/Calendar.css';
 import NavBar from '../../navbarheader/NavBarHeader';
+import { Button } from 'react-bootstrap';
 
 
 const SchedulePage = () => {
@@ -43,12 +44,12 @@ const SchedulePage = () => {
         <div className="col-lg-6">
           <div className="calendar-container">
             <Calendar value={selectedDate} onChange={handleDateChange} />
-            <button
-              className="btn btn-primary mt-3"
+            <Button
+              className="btn mt-3"
               onClick={() => setShowModal(true)}
             >
               Add Medication
-            </button>
+            </Button>
           </div>
         </div>
         <div className="col-lg-6">
@@ -71,13 +72,13 @@ const SchedulePage = () => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Add Medication</h5>
-                <button
+                <Button
                   type="button"
                   className="close"
                   onClick={() => setShowModal(false)}
                 >
                   <span>&times;</span>
-                </button>
+                </Button>
               </div>
               <div className="modal-body">
                 <div className="form-group">
@@ -112,20 +113,20 @@ const SchedulePage = () => {
                 </div>
                 </div>
               <div className="modal-footer">
-                <button
+                <Button
                   type="button"
                   className="btn btn-secondary"
                   onClick={() => setShowModal(false)}
                 >
                   Cancel
-                </button>
-                <button
+                </Button>
+                <Button
                   type="button"
                   className="btn btn-primary"
                   onClick={handleAddMedication}
                 >
                   Add
-                </button>
+                </Button>
               </div>
             </div>
           </div>
