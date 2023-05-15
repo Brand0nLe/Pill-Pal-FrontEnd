@@ -1,13 +1,19 @@
-import * as React from 'react';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import './Calendar.css';
+import React from "react";
+import ReactCalendar from "react-calendar";
 
-export default function FirstComponent() {
-  return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker />
-    </LocalizationProvider>
-  );
+interface CalendarProps {
+  initialDate: Date;
 }
+
+const Calendar: React.FC<CalendarProps> = ({ initialDate }) => {
+  return (
+    <ReactCalendar
+      value={initialDate}
+      onChange={(date: Date) => {
+        console.log("Date selected:", date);
+      }}
+    />
+  );
+};
+
+export default Calendar;

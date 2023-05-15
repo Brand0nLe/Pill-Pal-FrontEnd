@@ -75,9 +75,9 @@ tbody {
     font-family: PoppinsMedium;
     font-size: 24px;
   }
-  .profile-picture-container img{
+  /* .profile-picture-container img{
     
-  }
+  } */
 
   .profile-area{
     display: flex;

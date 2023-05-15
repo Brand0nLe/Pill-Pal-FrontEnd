@@ -30,18 +30,7 @@ const SchedulePage: React.FC = () => {
           <Calendar value={selectedDate} onChange={handleDateChange} />
         </Col>
       </Row>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
     </Container>
     </div>
   );
