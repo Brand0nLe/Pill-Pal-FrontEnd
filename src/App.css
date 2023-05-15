@@ -41,9 +41,3 @@
 .Ap,html {
   background-color: #F7F0E8;
 }
-
-body{
-  min-height: 100%!important;
-  background-color: #F7F0E8!important;
-  background-size: cover!important;
-}
