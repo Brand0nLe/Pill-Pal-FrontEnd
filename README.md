@@ -18,7 +18,7 @@ As I continue to enhance my skills and knowledge, I have plans to completely rev
 
 ## Setup and Installation
 
-Please note that as this was a class assignment, the backend server required to fully utilize the application is not publicly available at the moment. However, you can still access and review the frontend code.
+Please note that as this was a class assignment, the backend server required to fully utilize the application is not going to be publicly available or hosted to a database at the end of this project. However, you can still access and review the frontend code.
 
 To run the frontend code locally, follow these steps:
 
