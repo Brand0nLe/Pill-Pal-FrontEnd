@@ -450,28 +450,28 @@ export default function DependentsPage(DependentsPageProps: any) {
                     onChange={handleDirectionsChange} />
                 </div>
                 <div>
-                  <label htmlFor="StartDate">Start Date</label>
+                  {/* <label htmlFor="StartDate">Start Date</label>
                   <input
                     placeholder='e.g. 01/01/2023'
                     type="text"
                     name="StartDate"
-                    id="StartDate" />
+                    id="StartDate" /> */}
                 </div>
                 <div>
-                  <label htmlFor="EndDate">End Date</label>
+                  {/* <label htmlFor="EndDate">End Date</label>
                   <input
                     placeholder='e.g. 01/01/2023 or N/A'
                     type="text"
                     name="EndDate"
-                    id="EndDate" />
+                    id="EndDate" /> */}
                 </div>
                 <div>
-                  <label htmlFor="ReasonForUse">Reason for use</label>
+                  {/* <label htmlFor="ReasonForUse">Reason for use</label>
                   <input
                     placeholder='e.g. Asthma, Hypertension, etc.'
                     type="text"
                     name="ReasonForUse"
-                    id="ReasonForUse" />
+                    id="ReasonForUse" /> */}
                 </div>
                 <div>
                   <label htmlFor="PrescribingDoctor">Prescribing Doctor</label>
@@ -493,36 +493,36 @@ export default function DependentsPage(DependentsPageProps: any) {
                 </div>
                 <div className='right-side'>
                   <div>
-                    <label htmlFor="PharmacyLocation">Pharmacy Location</label>
+                    {/* <label htmlFor="PharmacyLocation">Pharmacy Location</label>
                     <input
                       placeholder='e.g. CVS Pharmacy on Pacific Ave.'
                       type="text"
                       name="PharmacyLocation"
-                      id="PharmacyLocation" />
+                      id="PharmacyLocation" /> */}
                   </div>
                   <div>
-                    <label htmlFor="PharmacyContact">Pharmacy Contact</label>
+                    {/* <label htmlFor="PharmacyContact">Pharmacy Contact</label>
                     <input
                       placeholder='e.g. 209-123-4567'
                       type="text"
                       name="PharmacyContact"
-                      id="PharmacyContact" />
+                      id="PharmacyContact" /> */}
                   </div>
                   <div>
-                    <label htmlFor="SideEffects">Side Effects or Concerns</label>
+                    {/* <label htmlFor="SideEffects">Side Effects or Concerns</label>
                     <input
                       placeholder='e.g. feeling dizzy, nauseous, unable to sleep, etc.'
                       type="text"
                       name="SideEffects"
-                      id="SideEffects" />
+                      id="SideEffects" /> */}
                   </div>
                   <div>
-                    <label htmlFor="AdditionalNotes">Additional Notes</label>
+                    {/* <label htmlFor="AdditionalNotes">Additional Notes</label>
                     <textarea
                       name="AdditionalNotes"
                       id="AdditionalNotes"
                       placeholder='e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can'>
-                      </textarea>
+                      </textarea> */}
                   </div>
                   < Button className='my-btn' onClick={handleAddMedication} >Save Medication</Button>
                 </div>

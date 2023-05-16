@@ -117,7 +117,7 @@ const SchedulePage = () => {
                 name="dose"
                 placeholder="Doseage" required />
               <label htmlFor="time">Time</label>
-              <input
+              {/* <input
                 type="text"
                 name="time"
                 placeholder="Time" required />
@@ -155,9 +155,9 @@ const SchedulePage = () => {
                 placeholder='e.g. 209-123-4567'
                 type="text"
                 name="DoctorContact"
-                id="DoctorContact" />
+                id="DoctorContact" /> */}
 
-              <div>
+              {/* <div>
                 <label htmlFor="PharmacyLocation">Pharmacy Location</label>
                 <input
                   placeholder='e.g. CVS Pharmacy on Pacific Ave.'
@@ -184,7 +184,7 @@ const SchedulePage = () => {
                 </textarea>
 
                 <button className='my-btn' type="submit">Add</button>
-              </div>
+              </div> */}
 
               </Form>
           )}

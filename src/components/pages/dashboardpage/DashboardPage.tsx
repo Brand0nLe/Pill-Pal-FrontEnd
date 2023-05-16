@@ -11,6 +11,23 @@ import NavBar from '../../navbarheader/NavBarHeader';
 
 export default function DashboardPage() {
 
+    function DecodeToken(){
+        let localStorageData = localStorage.getItem('token');
+    if(localStorageData == null){
+        return [];
+    }
+    
+    console.log(localStorageData);
+    const jwt = require('jsonwebtoken');
+
+// Assuming you have the token stored in the variable 'token'
+const decodedToken = jwt.decode(localStorageData);
+
+if (decodedToken) {
+  const userId = decodedToken.userId;
+    }
+}
+
     const [isEditing, setIsEditing] = useState(false);
     const [profileData, setProfileData] = useState({
         profileName: 'Brandon Nguyen',
@@ -36,6 +53,7 @@ export default function DashboardPage() {
     
     return (
         <div className='parent-bg'>
+            <Button onClick={DecodeToken}>Token Decode</Button>
             <NavBar/>
         < Container >
             < Row className='justify-content-md-center mt-5' >
