@@ -4,13 +4,17 @@ import defaultProfilePicture from '../../assets/images/default-profile-picture.p
 
 import AddIcon from '@mui/icons-material/Add';
 
-export default function Card() {
+interface CardProps {
+    name: string;
+}
+export default function Card(props: CardProps) {
+    
     return (
         <div className='card-parent'>
             <div className="card-bg">
                 <div className="card-body">
                     <img id='' src={defaultProfilePicture} alt="" />
-                    <p>Doan Nguyen</p>
+                    <p>{props.name}</p>
 
                     <button>
                         < AddIcon />

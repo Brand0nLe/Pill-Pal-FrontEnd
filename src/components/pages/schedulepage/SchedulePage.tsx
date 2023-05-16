@@ -27,7 +27,7 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
 
   return (
     <div>
-      < Card />
+      
       <Calendar value={myDate} onChange={handleDateChange} />
       <ul>
         {meds.map((med: Med) => (

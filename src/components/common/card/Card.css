@@ -3,19 +3,22 @@
 
 .card-parent {
 
-    justify-content: center;
+    justify-content: space-around;
+    max-height: 350px;
 
+    max-width: 320px;
 }
 
 .card-bg {
+    justify-content: center;
     background: #F2C1BC;
     border: 1px solid;
     border-color: black;
     display: table;
     padding: 25px;
-    margin: 20px;
-    height: 400px;
-    width: 300px;
+    margin: 25px;
+    width: calc(82% - 10px);
+    max-height: 350px;
 }
 
 .card-body {
@@ -24,7 +27,7 @@
     padding: 10px 10px 0 10px;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    
 
 }
 
@@ -44,7 +47,7 @@
     bottom: 0; 
     font-family: PoppinsLight;
     display: flex;
-    width: 50%;
+    width: 8vw;
     white-space: nowrap;
     box-shadow: 0 2px 5px black;
     
