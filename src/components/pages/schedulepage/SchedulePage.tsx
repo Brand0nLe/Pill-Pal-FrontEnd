@@ -5,6 +5,7 @@ import { DisabledByDefaultOutlined, CheckBoxOutlined } from "@mui/icons-material
 import NavBar from "../../navbarheader/NavBarHeader";
 import "./calendar/Calendar.css";
 import "./SchedulePage.css";
+import Card from "../../common/card/Card";
 
 interface Med {
   name: string;
@@ -26,6 +27,7 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
 
   return (
     <div>
+      < Card />
       <Calendar value={myDate} onChange={handleDateChange} />
       <ul>
         {meds.map((med: Med) => (
