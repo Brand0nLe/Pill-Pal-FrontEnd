@@ -32,7 +32,7 @@ To run the frontend code locally, follow these steps:
 If you have any questions or would like to know more about the project, feel free to reach out to me.
 
 - Email: [brandonctle.dev@gmail.com](mailto:brandonctle.dev@gmail.com)
-- LinkedIn: [https://www.linkedin.com/in/brandonctle/](https://www.linkedin.com/in/brandonctle/)
-- Portfolio: [https://brandonle.azurewebsites.net/](https://brandonle.azurewebsites.net/)
+- LinkedIn: [https://www.linkedin.com/in/brandonctle](https://www.linkedin.com/in/brandonctle/)
+- Portfolio: [https://brandonle.azurewebsites.net](https://brandonle.azurewebsites.net/)
 
 Thank you for your interest in Pill Pal!
