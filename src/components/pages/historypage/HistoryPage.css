@@ -6,17 +6,18 @@ html {
   min-height: 100%;
 }
 
-.history-table thead th{
+.history-table thead th {
   font-family: PoppinsSemiBold;
   background: rgba(242, 193, 188, 0.5);
   border: 1px solid black;
   display: inline-table;
   width: 200px;
 }
-.history-table tbody td{
-    background: white;
+
+.history-table tbody td {
+  background: white;
   border: 1px solid black;
   display: inline-table;
   width: 200px;
-  
+
 }
