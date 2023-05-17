@@ -8,7 +8,7 @@ interface CardProps {
     name: string;
 }
 export default function Card(props: CardProps) {
-    
+
     return (
         <div className='card-parent'>
             <div className="card-bg">

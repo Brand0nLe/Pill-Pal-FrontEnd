@@ -37,7 +37,7 @@ export default function DashboardPage() {
 
     return (
 
-< div className='dashboard-parent'>
+        < div className='dashboard-parent'>
 
             <NavBar />
 
@@ -211,8 +211,8 @@ export default function DashboardPage() {
                         </table>
                     </div>
                 </Row>
-        </Container>
-        <Footer />
+            </Container>
+            <Footer />
 
         </div>
 

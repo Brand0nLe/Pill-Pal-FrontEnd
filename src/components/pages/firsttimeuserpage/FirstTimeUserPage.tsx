@@ -113,7 +113,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
     setNewDirections(e.target.value);
   };
 
-  const handlePrescribingDoctorChange = ( e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePrescribingDoctorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewPrescribingDoctor(e.target.value);
   };
 
@@ -174,7 +174,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
 
   return (
     <div className='firsttimeuser-parents'>
-<NavBar/>
+      <NavBar />
       < Container >
 
 
@@ -241,7 +241,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
                 <tr>
                   <td>
                     <input
-                  placeholder='New Allergy'
+                      placeholder='New Allergy'
                       type="text"
                       name="allergies-inp"
                       id="allergies-inp"
@@ -274,7 +274,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
                 <tr>
                   <td>
                     <input
-                  placeholder='New Diagnosis'
+                      placeholder='New Diagnosis'
                       type="text"
                       name="diagnosis-inp"
                       id="diagnosis-inp"
@@ -333,7 +333,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
                 </tr>
                 <tr>
                   <input
-                  placeholder='Address Line 2'
+                    placeholder='Address Line 2'
                     type="text"
                     name="dr-address1"
                     id="dr-address1"
@@ -342,7 +342,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
                 </tr>
                 <tr>
                   <input
-                  placeholder='Address Line 3'
+                    placeholder='Address Line 3'
                     type="text"
                     name="dr-address2"
                     id="dr-address2"
@@ -361,28 +361,28 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
               <tbody>
                 <tr>
                   <input
-                  placeholder='Pharmacy name'
+                    placeholder='Pharmacy name'
                     type="text"
                     name="pharm-name"
                     id="pharm-name" />
                 </tr>
                 <tr>
                   <input
-                  placeholder='Pharmacy Phone Number'
+                    placeholder='Pharmacy Phone Number'
                     type="text"
                     name="pharm-number"
                     id="pharm-number" />
                 </tr>
                 <tr>
                   <input
-                  placeholder='Address Line 1'
+                    placeholder='Address Line 1'
                     type="text"
                     name="pharm-address1"
                     id="pharm-address1" />
                 </tr>
                 <tr>
                   <input
-                  placeholder='Address Line 2'
+                    placeholder='Address Line 2'
 
                     type="text"
                     name="pharm-address2"
@@ -390,7 +390,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
                 </tr>
                 <tr>
                   <input
-                  placeholder='Hours of Operation'
+                    placeholder='Hours of Operation'
                     type="text"
                     name="pharm-hours"
                     id="pharm-hours" />
@@ -523,7 +523,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
                       name="AdditionalNotes"
                       id="AdditionalNotes"
                       placeholder='e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can'>
-                      </textarea>
+                    </textarea>
                   </div>
                   < Button className='my-btn' onClick={handleAddMedication} >Save Medication</Button>
                 </div>
@@ -535,9 +535,9 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
         </Row>
         <div className='bottomspace'></div>
 
-        </Container>
-        <Footer />
+      </Container>
+      <Footer />
 
-        </div>
+    </div>
   )
 }

@@ -22,7 +22,7 @@ interface Row {
 const rows: Row[] = [
     { date: 2023, medname: "Alprazolam", medstrength: "1mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by everyday as needed" },
     { date: 2022, medname: "Metformin", medstrength: "1000mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth 4 times daily." },
-    { date: 2022, medname: "Losartan", medstrength: "25mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth 3 times daily." },    
+    { date: 2022, medname: "Losartan", medstrength: "25mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth 3 times daily." },
     { date: 2022, medname: "Januvia", medstrength: "100mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth daily." },
     { date: 2021, medname: "Zolpidem", medstrength: "10mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth as needed at bedtime." },
     { date: 2021, medname: "Alprazolam", medstrength: "0.5mg", doctor: "Harpreet Singh", directions: "Take 1 tablet by mouth 3 times daily as needed." },

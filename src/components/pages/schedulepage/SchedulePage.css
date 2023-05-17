@@ -1,9 +1,11 @@
 @import '../../assets/fonts/Fonts.css';
-body, html{
-  min-height: 100vh!important;
+
+body,
+html {
+  min-height: 100vh !important;
 }
-.parent-bg
-{
+
+.parent-bg {
   background-color: #F7F0E8;
   min-height: 100vh;
 }
@@ -15,9 +17,10 @@ body, html{
   display: flex;
 
 }
+
 .table-parent th {
   background: #C4AFAC;
-    border: 3px solid ;
+  border: 3px solid;
   border-color: black;
   padding: 10%;
   text-align: center;
@@ -35,13 +38,14 @@ body, html{
   margin-top: 10px;
   width: 100%;
   font-family: PoppinsRegular;
-  box-shadow: 0 5px 10px  rgba(0, 0, 0, 0.375);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.375);
   border: 3px solid;
   border-color: black;
   border-radius: 10px;
   white-space: nowrap;
 
 }
+
 .table-parent td {
   margin-right: 5%;
 
@@ -50,6 +54,7 @@ body, html{
 #time {
   font-family: PoppinsSemiBold;
 }
+
 form.add-form-schedules-page {
   font-family: PoppinsLight;
   background: white;
@@ -90,6 +95,7 @@ form.add-form-schedules-page {
   border-radius: 6px;
   box-shadow: 0 2px 5px black;
 }
+
 .my-btn:hover {
   background-color: #C4AFAC;
 }

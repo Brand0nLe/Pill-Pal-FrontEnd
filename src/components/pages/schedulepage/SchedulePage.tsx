@@ -27,16 +27,16 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
 
   return (
     <div>
-    <Container>
-      <Calendar value={myDate} onChange={handleDateChange} />
-      <ul>
-        {meds.map((med: Med) => (
-          <li key={med.name}>
-            {med.name} - {med.time}
-          </li>
-        ))}
-      </ul>
-    </Container>
+      <Container>
+        <Calendar value={myDate} onChange={handleDateChange} />
+        <ul>
+          {meds.map((med: Med) => (
+            <li key={med.name}>
+              {med.name} - {med.time}
+            </li>
+          ))}
+        </ul>
+      </Container>
     </div>
 
   );
@@ -100,42 +100,42 @@ const SchedulePage = () => {
             {showForm && (
               <div className="form-wrapper"> {/* Wrap the populated form with a div */}
                 <Form className='add-form-schedules-page' onSubmit={handleFormSubmit}>
-                <Form.Group controlId="name">
-                  <Form.Label>Medication Name</Form.Label>
-                  <Form.Control type="text" name="name" placeholder="Medication Name" required />
-                </Form.Group>
-                <Form.Group controlId="dose">
-                  <Form.Label>Dosage (Strength)</Form.Label>
-                  <Form.Control type="text" name="dose" placeholder="Dosage" required />
-                </Form.Group>
-                <Form.Group controlId="time">
-                  <Form.Label>Time</Form.Label>
-                  <Form.Control type="text" name="time" placeholder="Time" required />
-                </Form.Group>
-                <Form.Group controlId="instructions">
-                  <Form.Label>Instructions</Form.Label>
-                  <Form.Control type="text" name="instructions" placeholder="Instructions" required />
-                </Form.Group>
-                <Form.Group controlId="StartDate">
-                  <Form.Label>Start Date</Form.Label>
-                  <Form.Control type="text" name="StartDate" placeholder="e.g. 01/01/2023" />
-                </Form.Group>
-                <Form.Group controlId="EndDate">
-                  <Form.Label>End Date</Form.Label>
-                  <Form.Control type="text" name="EndDate" placeholder="e.g. 01/01/2023 or N/A" />
-                </Form.Group>
-                <Form.Group controlId="ReasonForUse">
-                  <Form.Label>Reason for Use</Form.Label>
-                  <Form.Control type="text" name="ReasonForUse" placeholder="e.g. Asthma, Hypertension, etc." />
-                </Form.Group>
-                <Form.Group controlId="PrescribingDoctor">
-                  <Form.Label>Prescribing Doctor</Form.Label>
-                  <Form.Control type="text" name="PrescribingDoctor" placeholder="e.g. Harpreet Singh" />
-                </Form.Group>
-                <Form.Group controlId="DoctorContact">
-                  <Form.Label>Doctor's Contact</Form.Label>
-                  <Form.Control type="text" name="DoctorContact" placeholder="e.g. 209-123-4567" />
-                </Form.Group>
+                  <Form.Group controlId="name">
+                    <Form.Label>Medication Name</Form.Label>
+                    <Form.Control type="text" name="name" placeholder="Medication Name" required />
+                  </Form.Group>
+                  <Form.Group controlId="dose">
+                    <Form.Label>Dosage (Strength)</Form.Label>
+                    <Form.Control type="text" name="dose" placeholder="Dosage" required />
+                  </Form.Group>
+                  <Form.Group controlId="time">
+                    <Form.Label>Time</Form.Label>
+                    <Form.Control type="text" name="time" placeholder="Time" required />
+                  </Form.Group>
+                  <Form.Group controlId="instructions">
+                    <Form.Label>Instructions</Form.Label>
+                    <Form.Control type="text" name="instructions" placeholder="Instructions" required />
+                  </Form.Group>
+                  <Form.Group controlId="StartDate">
+                    <Form.Label>Start Date</Form.Label>
+                    <Form.Control type="text" name="StartDate" placeholder="e.g. 01/01/2023" />
+                  </Form.Group>
+                  <Form.Group controlId="EndDate">
+                    <Form.Label>End Date</Form.Label>
+                    <Form.Control type="text" name="EndDate" placeholder="e.g. 01/01/2023 or N/A" />
+                  </Form.Group>
+                  <Form.Group controlId="ReasonForUse">
+                    <Form.Label>Reason for Use</Form.Label>
+                    <Form.Control type="text" name="ReasonForUse" placeholder="e.g. Asthma, Hypertension, etc." />
+                  </Form.Group>
+                  <Form.Group controlId="PrescribingDoctor">
+                    <Form.Label>Prescribing Doctor</Form.Label>
+                    <Form.Control type="text" name="PrescribingDoctor" placeholder="e.g. Harpreet Singh" />
+                  </Form.Group>
+                  <Form.Group controlId="DoctorContact">
+                    <Form.Label>Doctor's Contact</Form.Label>
+                    <Form.Control type="text" name="DoctorContact" placeholder="e.g. 209-123-4567" />
+                  </Form.Group>
                   <Form.Group controlId="PharmacyLocation">
                     <Form.Label>Pharmacy Location</Form.Label>
                     <Form.Control type="text" name="PharmacyLocation" placeholder="e.g. CVS Pharmacy on Pacific Ave." />
@@ -154,10 +154,10 @@ const SchedulePage = () => {
                   </Form.Group>
                   <Button className='my-btn' type="submit">Save Med</Button>
                 </Form>
-            </div>
-          )}
-        </Col>
-        <Col lg={6}>
+              </div>
+            )}
+          </Col>
+          <Col lg={6}>
             <div className="table-parent">
               <div>
                 <table>
@@ -189,7 +189,7 @@ const SchedulePage = () => {
           </Col>
         </Row>
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

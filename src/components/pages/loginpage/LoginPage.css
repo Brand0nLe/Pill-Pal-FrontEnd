@@ -1,12 +1,13 @@
 @import '../../assets/fonts/Fonts.css';
 
-body, html{
+body,
+html {
   background-color: #F7F0E8;
   background-size: cover;
   min-height: 100%;
 }
 
-.borderRadius{
+.borderRadius {
   border-radius: 0% !important;
 }
 
@@ -38,13 +39,13 @@ body, html{
 }
 
 
-.registrationText{
+.registrationText {
   display: flex;
   justify-content: flex-end;
   white-space: pre;
 }
 
-.loginBtn{
+.loginBtn {
   width: 100%;
   height: 70px;
   background-color: #F2C1BC !important;
@@ -55,7 +56,7 @@ body, html{
   border-width: 2px !important;
 }
 
-.LogoMargin{
+.LogoMargin {
   margin-top: 80px;
 }
 

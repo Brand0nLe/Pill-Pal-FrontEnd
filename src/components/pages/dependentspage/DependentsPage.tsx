@@ -36,7 +36,7 @@ export default function DependentsPage() {
       <Container className="dependents-divide">
         {/* Left side */}
         <Col className="admin-container" md={4}>
-          <Card name='ADMIN'/>
+          <Card name='ADMIN' />
           <input
             type="text"
             value={dependentName}
@@ -52,9 +52,9 @@ export default function DependentsPage() {
             <Card key={index} name={dependent} />
           ))}
         </Col>
-        </Container>
-        <Footer />
+      </Container>
+      <Footer />
 
-        </div>
+    </div>
   );
 }
