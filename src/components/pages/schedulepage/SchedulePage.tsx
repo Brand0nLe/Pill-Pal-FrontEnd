@@ -28,7 +28,16 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
   return (
     <div>
       <Container>
-        <Calendar value={myDate} onChange={handleDateChange} />
+        <Calendar
+          value={myDate}
+          onChange={handleDateChange}
+          calendarType="US"
+          locale="en-US"
+          // Set the start day of the week to Sunday
+          // Sunday: 0, Monday: 1, Tuesday: 2, etc.
+          // The default value is 0 (Sunday), so this line is optional
+          startWeekDay={0}
+        />
         <ul>
           {meds.map((med: Med) => (
             <li key={med.name}>
@@ -38,9 +47,13 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
         </ul>
       </Container>
     </div>
-
   );
 };
+
+
+
+
+
 
 const SchedulePage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
