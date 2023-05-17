@@ -90,7 +90,7 @@ const SchedulePage = () => {
   };
 
   return (
-    <div className="parent-bg">
+    <div className="schedule-parent">
       <NavBar />
       <Container className=" mt-5">
         <Row>
