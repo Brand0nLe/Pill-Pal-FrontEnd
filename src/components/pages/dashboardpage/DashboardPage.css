@@ -1,7 +1,9 @@
 @import '../../assets/fonts/Fonts.css';
-.parent-bg,html {
-    min-height: 100%;
+.body {
+    min-height: 100vh;
 }
+
+
 .my-tbl {
   border-collapse: collapse;
   display: table;

@@ -3,7 +3,7 @@ import NavBar from '../../navbarheader/NavBarHeader';
 import Card from '../../common/card/Card';
 import Footer from '../../footer/Footer';
 import React, { useState, useEffect } from 'react';
-import { Col } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
 
 export default function DependentsPage() {
   const [dependentName, setDependentName] = useState('');
@@ -33,7 +33,7 @@ export default function DependentsPage() {
   return (
     <div className="dependents-parent">
       <NavBar />
-      <div className="dependents-divide">
+      <Container className="dependents-divide">
         {/* Left side */}
         <Col className="admin-container" md={4}>
           <Card name='ADMIN'/>
@@ -52,8 +52,9 @@ export default function DependentsPage() {
             <Card key={index} name={dependent} />
           ))}
         </Col>
-      </div>
-      <Footer />
-    </div>
+        </Container>
+        <Footer />
+
+        </div>
   );
 }

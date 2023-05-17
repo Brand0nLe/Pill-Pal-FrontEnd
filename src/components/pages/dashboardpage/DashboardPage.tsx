@@ -36,9 +36,13 @@ export default function DashboardPage() {
 
 
     return (
-        <div className='parent-bg'>
+
+< div className='dashboard-parent'>
+
             <NavBar />
-            < Container >
+
+            <Container>
+
                 < Row className='justify-content-md-center mt-5' >
                     < Col md={6}>
                         <div className="profile-area">
@@ -207,8 +211,10 @@ export default function DashboardPage() {
                         </table>
                     </div>
                 </Row>
-            </Container>
-            <Footer />
+        </Container>
+        <Footer />
+
         </div>
+
     );
 }
