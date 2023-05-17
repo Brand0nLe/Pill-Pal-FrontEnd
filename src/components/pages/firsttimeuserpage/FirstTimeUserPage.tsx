@@ -173,7 +173,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
   };
 
   return (
-    <div className='parent-bg'>
+    <div className='firsttimeuser-parents'>
 <NavBar/>
       < Container >
 
@@ -535,9 +535,9 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
         </Row>
         <div className='bottomspace'></div>
 
-      </Container>
-      <Footer />
+        </Container>
+        <Footer />
 
-    </div>
+        </div>
   )
 }

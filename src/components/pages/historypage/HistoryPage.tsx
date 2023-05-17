@@ -13,7 +13,7 @@ const theme = createTheme();
 
 const HistoryPage: any = () => {
     return (
-        <div className='parent-bg'>
+        <div className='history-parent'>
 
             <NavBar />
             <Container className="mt-5">

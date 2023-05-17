@@ -38,19 +38,20 @@ function LoginPage() {
 
   return (
     <ThemeProvider theme={theme}>
+    <div className='login-parent'>
       <div className="elliptical-shape" />
+      <Container>
 
 
 
-      <Container className='LogoMargin'>
+      <div className='LogoMargin'>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
           <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
         </div>
-      </Container>
+      </div>
 
-      <div>
 
-        <Container>
+        <div>
           <Row className="">
             <Col md={12}>
               <Form className="login-form" onSubmit={handleSubmit} >
@@ -104,10 +105,12 @@ function LoginPage() {
               </Form>
             </Col>
           </Row>
-        </Container>
+        </div>
 
-      </div>
-      <Footer />
+        </Container>
+        <Footer />
+
+        </div>
     </ThemeProvider>
   );
 }
