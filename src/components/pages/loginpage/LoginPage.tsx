@@ -105,9 +105,9 @@ function LoginPage() {
           </Col>
         </Row>
       </Container>
-      <Footer />
 
       </div>
+      <Footer />
     </ThemeProvider>
   );
 }
