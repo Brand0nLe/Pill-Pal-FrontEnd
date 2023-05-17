@@ -17,6 +17,7 @@ Pill Pal is an app that aims to provide users with a place to store medical info
 ## Setup and Installation
 
 Please note that as this was a class assignment, the backend server required to fully utilize the application is not going to be publicly available or hosted to a database at the end of this project. However, you can still access and review the frontend code.
+
 [Here is the backend repo if you'd like to see it.](https://github.com/Brand0nLe/pillpalbackend)
 
 To run the frontend code locally, follow these steps:
