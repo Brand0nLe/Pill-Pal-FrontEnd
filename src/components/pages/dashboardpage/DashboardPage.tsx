@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button';
 import './DashboardPage.css';
@@ -12,6 +13,7 @@ import Footer from '../../footer/Footer';
 
 export default function DashboardPage() {
 
+    const [userId, setUserId] = useState(0)
     const [isEditing, setIsEditing] = useState(false);
     const [profileData, setProfileData] = useState({
         profileName: 'Brandon Nguyen',
@@ -19,6 +21,30 @@ export default function DashboardPage() {
         profileAddressLine1: '4321 Eureka Ct,',
         profileAddressLine2: 'Stockton Ca, 95212.'
     });
+
+    useEffect(() => {
+        let localStorageData: string = '1';
+        let UserIdNumber: number = 1;
+        const storedUserId = sessionStorage.getItem('UserId');
+        if (storedUserId !== null) {
+            localStorageData = storedUserId;
+            UserIdNumber = parseInt(localStorageData);
+            setUserId(UserIdNumber);
+        }
+    }, []);
+
+    useEffect(() => {
+        const storedUserFname = sessionStorage.getItem('FirstName');
+        const storedUserLname = sessionStorage.getItem('LastName');
+        if (storedUserFname !== null && storedUserLname !== null) {
+            setProfileData({
+                profileName: (storedUserFname + " " + storedUserLname),
+                profileDate: '1993-01-01',
+                profileAddressLine1: profileData.profileAddressLine1,
+                profileAddressLine2: 'Stockton Ca, 95212.'
+            })
+        }
+    }, [userId])
 
 
     const handleEditClick = () => {
@@ -35,6 +61,7 @@ export default function DashboardPage() {
     };
 
 
+
     return (
 
         < div className='dashboard-parent'>
@@ -49,6 +76,11 @@ export default function DashboardPage() {
 
                             <div className="profile-picture-container">
 
+                                <img id='profile-picture' src={defaultProfilePicture} alt="" />
+
+                            </div>
+                            <div className="profile-info">
+                                {isEditing ? (
                                 <img id='profile-picture' src={defaultProfilePicture} alt="" />
 
                             </div>
@@ -100,7 +132,31 @@ export default function DashboardPage() {
                         </div>
                     </Col>
                     < div className='tables-area'>
+                            </div>
+                            <img src={defaultMedCardFront} alt="" id="medCardFront" />
+                            <img src={defaultMedCardBack} alt="" id="medCardBack" />
+                        </div>
+                    </Col>
+                    < div className='tables-area'>
 
+                        <table id='allergies' className='my-tbl'>
+                            <thead>
+                                <tr>
+                                    <th>Allergies</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Peanuts</td>
+                                </tr>
+                                <tr>
+                                    <td>Shellfish</td>
+                                </tr>
+                                <tr>
+                                    <td>Dust mites</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <table id='allergies' className='my-tbl'>
                             <thead>
                                 <tr>
@@ -138,7 +194,49 @@ export default function DashboardPage() {
                                 </tr>
                             </tbody>
                         </table>
+                        <table id='Diagnosis' className='my-tbl'>
+                            <thead>
+                                <tr>
+                                    <th>Diagnosis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alzheimer's</td>
+                                </tr>
+                                <tr>
+                                    <td>Diabetes Type 2</td>
+                                </tr>
+                                <tr>
+                                    <td>Hypertension</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
+                        <table id='doctorContact' className='my-tbl'>
+                            <thead>
+                                <tr>
+                                    <th>Doctor's Contact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Harpreet Singh, M.D.</td>
+                                </tr>
+                                <tr>
+                                    <td>(209) 954-3370</td>
+                                </tr>
+                                <tr>
+                                    <td>Stockton Medical Plaza 1</td>
+                                </tr>
+                                <tr>
+                                    <td>2505 West Hammer Lane</td>
+                                </tr>
+                                <tr>
+                                    <td>Stockton, CA 95209</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <table id='doctorContact' className='my-tbl'>
                             <thead>
                                 <tr>

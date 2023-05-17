@@ -21,18 +21,21 @@ function LoginPage() {
   const [Password, setPassword] = useState('');
 
   const handleSubmit = async () => {
-    let userData: any = {
-      Username,
-      Password
-    }
-    console.log(userData);
-    let token = await login(userData);
-    if (token.token != null) {
-      localStorage.setItem("token", token.token);
-      // await GetLoggedInUserData(Username);
-      navigate("/DashboardPage");
-    } else alert("User could not be found. Please check login information");
-    console.log(userData);
+      let userData: any = {
+          Username,
+          Password
+      }
+      console.log(userData);
+      let token = await login(userData);
+      if(token.token != null){
+        sessionStorage.setItem("token", token.token);
+        sessionStorage.setItem("UserId", token.userId);
+        sessionStorage.setItem("FirstName", token.userFname);
+        sessionStorage.setItem("LastName", token.userLname);
+        // await GetLoggedInUserData(Username);
+        navigate("/DashboardPage");
+      }else alert("User could not be found. Please check login information");
+      console.log(userData);
   };
 
   return (

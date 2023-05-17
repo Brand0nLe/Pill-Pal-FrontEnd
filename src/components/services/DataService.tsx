@@ -35,8 +35,20 @@ async function login(loginUser: object) {
 
 
 //Create endpoint for this
-async function GetLoggedInUserData(username: string) {
-    let res = await fetch(`Https://pillpalapi.azurewebsites.net/AddUserazurewebsites.net/User/userbyusername/${username}`)
+async function GetLoggedInUserData(username: string){
+    let res= await fetch(`https://pillpalapi.azurewebsites.net/User/UserSearch/${username}`)
+    let data = await res.json();
+    userData = data;
+    console.log(userData);
+}
+
+async function GetIdByUserData(username: string){
+    let res= await fetch(`https://pillpalapi.azurewebsites.net/User/IdUserSearch/${username}`)
+    return res;
+}
+
+async function GetLoggedInUserDataById(UserId: number){
+    let res= await fetch(`https://pillpalapi.azurewebsites.net/User/IdSearch/${UserId}`)
     let data = await res.json();
     userData = data;
     console.log(userData);
@@ -102,5 +114,5 @@ async function updateBlogItem(blogItem: string) {
 }
 
 
-export { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem };
+export {createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem, GetLoggedInUserDataById, GetIdByUserData};
 
