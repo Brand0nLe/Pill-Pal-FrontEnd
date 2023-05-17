@@ -81,10 +81,6 @@ function LoginPage() {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="password">
 
-                  <p className="registrationText">
-                    <Link to="forgotpassword">Forgot Password?</Link>
-                  </p>
-
                   <TextField
                     label="Password"
                     type="password"
