@@ -76,7 +76,7 @@ html {
   height: 100%;
   position: absolute;
   top: -100px;
-  left: 0;
+  left: -100px;
   border-radius: 50%;
   background-color: #fff;
   transform: skewY(0deg);
