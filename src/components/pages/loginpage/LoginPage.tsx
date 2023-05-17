@@ -27,8 +27,10 @@ function LoginPage() {
       console.log(userData);
       let token = await login(userData);
       if(token.token != null){
-        localStorage.setItem("token", token.token);
-        localStorage.setItem("username", Username);
+        sessionStorage.setItem("token", token.token);
+        sessionStorage.setItem("UserId", token.userId);
+        sessionStorage.setItem("FirstName", token.userFname);
+        sessionStorage.setItem("LastName", token.userLname);
         // await GetLoggedInUserData(Username);
         navigate("/DashboardPage");
       }else alert("User could not be found. Please check login information");
