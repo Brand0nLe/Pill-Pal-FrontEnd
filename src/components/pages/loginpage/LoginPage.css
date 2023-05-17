@@ -1,10 +1,8 @@
 @import '../../assets/fonts/Fonts.css';
 
-body,
-html {
+body{
   background-color: #F7F0E8;
-  background-size: cover;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .borderRadius {

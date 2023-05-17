@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-// import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
@@ -49,7 +48,6 @@ function RegistrationPage() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
       <div className='registration-parent'>
         <div className="elliptical-shape" />
         <Container>
@@ -161,7 +159,6 @@ function RegistrationPage() {
         <Footer />
 
       </div>
-    </ThemeProvider>
   );
 }
 

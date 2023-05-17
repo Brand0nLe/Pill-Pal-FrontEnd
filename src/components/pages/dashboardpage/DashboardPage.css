@@ -89,9 +89,7 @@ tbody {
   font-size: 24px;
 }
 
-/* .profile-picture-container img{
-  
-} */
+
 
 .profile-area {
   display: flex;
@@ -104,10 +102,4 @@ tbody {
   width: 363px;
 }
 
-.bottomspace {
-  min-height: 200px;
-}
 
-.topspace {
-  min-height: 100px;
-}

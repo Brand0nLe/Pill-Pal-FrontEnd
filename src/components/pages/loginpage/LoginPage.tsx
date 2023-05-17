@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
 import { Link } from 'react-router-dom';
@@ -13,7 +12,7 @@ import Footer from '../../footer/Footer';
 
 
 // Define Material UI theme
-const theme = createTheme();
+// const theme = createTheme();
 
 function LoginPage() {
   let navigate = useNavigate();
@@ -37,9 +36,8 @@ function LoginPage() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className='login-parent'>
-        <div className="elliptical-shape" />
+    <div className='login-parent'>
+      <div className="elliptical-shape" />
         <Container>
 
 
@@ -107,7 +105,6 @@ function LoginPage() {
         <Footer />
 
       </div>
-    </ThemeProvider>
   );
 }
 
