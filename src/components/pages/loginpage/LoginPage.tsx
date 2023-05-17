@@ -8,6 +8,8 @@ import { Col, Container, Row, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
+import Footer from '../../footer/Footer';
+
 
 
 // Define Material UI theme
@@ -46,6 +48,7 @@ function LoginPage() {
 </div>
 </Container>
 
+<div>
 
       <Container>
         <Row className="">
@@ -102,6 +105,9 @@ function LoginPage() {
           </Col>
         </Row>
       </Container>
+      <Footer />
+
+      </div>
     </ThemeProvider>
   );
 }

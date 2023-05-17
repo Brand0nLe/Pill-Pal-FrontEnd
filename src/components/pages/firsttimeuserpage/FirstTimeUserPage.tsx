@@ -9,6 +9,7 @@ import {
 // import { AddCircleIcon } from '@mui/icons-material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import NavBar from '../../navbarheader/NavBarHeader';
+import Footer from '../../footer/Footer';
 
 
 
@@ -535,6 +536,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
         <div className='bottomspace'></div>
 
       </Container>
+      <Footer />
 
     </div>
   )

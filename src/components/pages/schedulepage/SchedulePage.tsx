@@ -5,6 +5,8 @@ import { DisabledByDefaultOutlined, CheckBoxOutlined } from "@mui/icons-material
 import NavBar from "../../navbarheader/NavBarHeader";
 import "./calendar/Calendar.css";
 import "./SchedulePage.css";
+import Footer from '../../footer/Footer';
+
 
 interface Med {
   name: string;
@@ -24,6 +26,7 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
   };
 
   return (
+    <Container>
     <div>
       <Calendar value={myDate} onChange={handleDateChange} />
       <ul>
@@ -34,6 +37,9 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
         ))}
       </ul>
     </div>
+    <Footer />
+
+    </Container>
   );
 };
 
