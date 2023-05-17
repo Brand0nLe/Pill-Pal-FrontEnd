@@ -1,5 +1,5 @@
 
-import React, {useState}  from 'react';
+import React, { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { TextField, Button } from '@mui/material';
 import '../loginpage/LoginPage.css';
@@ -22,18 +22,18 @@ function LoginPage() {
   const [Password, setPassword] = useState('');
 
   const handleSubmit = async () => {
-      let userData: any = {
-          Username,
-          Password
-      }
-      console.log(userData);
-      let token = await login(userData);
-      if(token.token != null){
-        localStorage.setItem("token", token.token);
-        // await GetLoggedInUserData(Username);
-        navigate("/DashboardPage");
-      }else alert("User could not be found. Please check login information");
-      console.log(userData);
+    let userData: any = {
+      Username,
+      Password
+    }
+    console.log(userData);
+    let token = await login(userData);
+    if (token.token != null) {
+      localStorage.setItem("token", token.token);
+      // await GetLoggedInUserData(Username);
+      navigate("/DashboardPage");
+    } else alert("User could not be found. Please check login information");
+    console.log(userData);
   };
 
   return (
@@ -42,69 +42,69 @@ function LoginPage() {
 
 
 
-<Container className='LogoMargin'>
-<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-  <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
-</div>
-</Container>
+      <Container className='LogoMargin'>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
+        </div>
+      </Container>
 
-<div>
+      <div>
 
-      <Container>
-        <Row className="">
-          <Col md={12}>
-            <Form className="login-form" onSubmit={handleSubmit} >
+        <Container>
+          <Row className="">
+            <Col md={12}>
+              <Form className="login-form" onSubmit={handleSubmit} >
 
-
-              <p className="registrationText">
-                Don't have an account?{'  '}
-                <Link to="/register">Registration</Link>
-              </p>
-
-
-
-              <Form.Group className="mb-3" controlId="email">
-                <TextField
-                  label="Email"
-                  type="email"
-                  fullWidth
-                  className="login-input"
-                  onChange={({target: {value}}) => setUsername(value)}
-                  InputLabelProps={{
-                    className: 'login-input-label, borderRadius'
-                  }}
-                  InputProps={{
-                    className: 'login-input-field, borderRadius'
-                  }}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="password">
 
                 <p className="registrationText">
-                  <Link to="forgotpassword">Forgot Password?</Link>
+                  Don't have an account?{'  '}
+                  <Link to="/register">Registration</Link>
                 </p>
 
-                <TextField
-                  label="Password"
-                  type="password"
-                  fullWidth
-                  className="login-input"
-                  onChange={({target: {value}}) => setPassword(value)}
-                  InputLabelProps={{
-                    className: 'login-input-label, borderRadius'
-                  }}
-                  InputProps={{
-                    className: 'login-input-field, borderRadius'
-                  }}
-                />
-              </Form.Group>
-              <Button variant="contained" onClick={handleSubmit} className="loginBtn">
-                Log In
-              </Button>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
+
+
+                <Form.Group className="mb-3" controlId="email">
+                  <TextField
+                    label="Email"
+                    type="email"
+                    fullWidth
+                    className="login-input"
+                    onChange={({ target: { value } }) => setUsername(value)}
+                    InputLabelProps={{
+                      className: 'login-input-label, borderRadius'
+                    }}
+                    InputProps={{
+                      className: 'login-input-field, borderRadius'
+                    }}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="password">
+
+                  <p className="registrationText">
+                    <Link to="forgotpassword">Forgot Password?</Link>
+                  </p>
+
+                  <TextField
+                    label="Password"
+                    type="password"
+                    fullWidth
+                    className="login-input"
+                    onChange={({ target: { value } }) => setPassword(value)}
+                    InputLabelProps={{
+                      className: 'login-input-label, borderRadius'
+                    }}
+                    InputProps={{
+                      className: 'login-input-field, borderRadius'
+                    }}
+                  />
+                </Form.Group>
+                <Button variant="contained" onClick={handleSubmit} className="loginBtn">
+                  Log In
+                </Button>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
 
       </div>
       <Footer />

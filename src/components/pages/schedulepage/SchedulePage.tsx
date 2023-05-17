@@ -26,8 +26,8 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
   };
 
   return (
-    <Container>
     <div>
+    <Container>
       <Calendar value={myDate} onChange={handleDateChange} />
       <ul>
         {meds.map((med: Med) => (
@@ -36,10 +36,9 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
           </li>
         ))}
       </ul>
-    </div>
-    <Footer />
-
     </Container>
+    </div>
+
   );
 };
 
@@ -190,6 +189,7 @@ const SchedulePage = () => {
           </Col>
         </Row>
       </Container>
+      <Footer/>
     </div>
   );
 };
