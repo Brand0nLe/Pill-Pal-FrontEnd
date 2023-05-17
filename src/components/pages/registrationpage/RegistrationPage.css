@@ -15,7 +15,7 @@ body, html{
   .registration-input {
     margin-bottom: 1rem !important;
     border-radius: none;
-    background-color: #C4AFAC;
+    background-color: #C4AFAC!important;
     padding: 0.5rem;
   }
   

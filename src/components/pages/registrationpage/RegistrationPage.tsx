@@ -66,7 +66,6 @@ function RegistrationPage() {
 <div>
   <Col md={6}></Col>
 <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-<p className='RegistrationTxt'> Registration </p>
   </div>
 </div>
     
@@ -147,9 +146,7 @@ function RegistrationPage() {
             <Button variant="contained" onClick={handleSubmit} className='signupBtn'>
               Sign Up
             </Button>
-            {/* <Button variant="contained" type="submit" className='signupBtn'>
-              Sign Up
-            </Button> */}
+
             <div className="text-center mt-3">
             <Row className='spacing'>
               <p>
