@@ -5,6 +5,7 @@ import DashboardPage from '../../components/pages/dashboardpage/DashboardPage';
 import DependentsPage from '../../components/pages/dependentspage/DependentsPage';
 import SchedulePage from '../../components/pages/schedulepage/SchedulePage';
 import HistoryPage from '../../components/pages/historypage/HistoryPage';
+import FirstTimeUserPage from '../pages/firsttimeuserpage/FirstTimeUserPage';
 
 const AppRoutes = () => {
 
@@ -17,6 +18,7 @@ const AppRoutes = () => {
       <Route path="/dashboardpage" element={<DashboardPage />} />
       <Route path="/schedulepage" element={<SchedulePage />} />
       <Route path="/historypage" element={<HistoryPage />} />
+      <Route path="/firsttimeuser" element={<FirstTimeUserPage />} />
       <Route path="/" element={<LoginPage />} />
     </Routes>
   );

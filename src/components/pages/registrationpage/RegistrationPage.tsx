@@ -42,7 +42,7 @@ function RegistrationPage() {
           if(data == true){
             alert("User successfully created!");
             // await GetLoggedInUserData(Username);
-            navigate("/DashboardPage");
+            navigate("/firsttimeuserpage");
           }else console.log("User creation failed");
           console.log(userData);
         }else alert("Passwords did not match");
