@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './DependentsPage.css'
+import './FirstTimeUserPage.css'
 import {
   Row,
   Container,
