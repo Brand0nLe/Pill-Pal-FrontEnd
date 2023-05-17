@@ -14,8 +14,6 @@ This is a final project for CodeStack Academy, where I worked as the "Product Ma
 
 Pill Pal is an app that aims to provide users with a place to store medical information such as medication history, insurance details, allergies, doctor's contacts, and pharmacy contacts. While the current version of the app is not fully functional as initially planned, it serves as a prototype developed for the assignment within the given timeframe and project constraints.
 
-As I continue to enhance my skills and knowledge, I have plans to completely revamp the application according to my original vision. I invite you to follow along with my journey as I work on improving and refining Pill Pal in the future.
-
 ## Setup and Installation
 
 Please note that as this was a class assignment, the backend server required to fully utilize the application is not going to be publicly available or hosted to a database at the end of this project. However, you can still access and review the frontend code.
