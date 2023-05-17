@@ -50,26 +50,26 @@ function RegistrationPage() {
 
   return (
     <ThemeProvider theme={theme}>
+      <div className='registration-parent'>
       <div className="elliptical-shape" />
-
-<Container className='LogoMargin'>
+    <Container>
+<div className='LogoMargin'>
   <Col md={6}></Col>
 <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
   <img src={require("../../assets/images/LogoWithText.png")} alt="Logo" />
   </div>
-</Container>
+</div>
+
+
 
 
 <div>
-
-<Container>
   <Col md={6}></Col>
 <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
 <p className='RegistrationTxt'> Registration </p>
   </div>
-</Container>
+</div>
     
-    <Container>
       <Row className="justify-content-md-center">
         <Col md={6}>
           <Form className="registration-form" onSubmit={handleSubmit}>
@@ -160,10 +160,10 @@ function RegistrationPage() {
           </Form>
         </Col>
       </Row>
-    </Container>
-    <Footer />
+      </Container>
+        <Footer />
 
-    </div>
+        </div>
     </ThemeProvider>
   );
 }
