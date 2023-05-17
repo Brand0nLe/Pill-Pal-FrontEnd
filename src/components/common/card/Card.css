@@ -1,1 +1,59 @@
 @import '../../assets/fonts/Fonts.css';
+
+
+.card-parent {
+
+    justify-content: space-around;
+    max-height: 350px;
+
+    max-width: 320px;
+}
+
+.card-bg {
+    justify-content: center;
+    background: #F2C1BC;
+    border: 1px solid;
+    border-color: black;
+    display: table;
+    padding: 25px;
+    margin: 25px;
+    width: calc(82% - 10px);
+    max-height: 350px;
+}
+
+.card-body {
+    background-color: #fff;
+    position: relative; 
+    padding: 10px 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.card-body img {
+    width: 100%;
+    border: 1px solid black;
+    /* background-color:; */
+}
+
+.card-body button {
+    position: absolute;
+    background: #903B3C;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    left: 45%; 
+    bottom: 0; 
+    font-family: PoppinsLight;
+    display: flex;
+    width: 8vw;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px black;
+    
+}
+
+.card-body button:hover {
+    background: #a30c0f;
+
+}

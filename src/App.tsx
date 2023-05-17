@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Router>
       <AppRoutes />
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 };
