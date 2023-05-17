@@ -12,7 +12,6 @@ import Footer from '../../footer/Footer';
 
 
 
-const theme = createTheme();
 
 
 function RegistrationPage() {
