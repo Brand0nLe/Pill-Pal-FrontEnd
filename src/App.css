@@ -38,9 +38,9 @@
 } */
 
 
-.Ap,html {
-  background-color: #F7F0E8;
+
+
+body, html{
+  min-height: 100vh!important;
 }
-
-
 
