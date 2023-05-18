@@ -6,47 +6,12 @@ import NavBar from "../../navbarheader/NavBarHeader";
 import "./calendar/Calendar.css";
 import "./SchedulePage.css";
 import Footer from '../../footer/Footer';
+import MedsList from "./medlist/MedList";
 
-interface Med {
-  name: string;
-  time: string;
-}
 
-interface MedsListProps {
-  myDate: Date;
-  onDateChange: (date: Date) => void;
-}
-
-const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
-  const [meds, setMeds] = useState<Med[]>([]);
-
-  const handleDateChange = (date: Date) => {
-    onDateChange(date);
-  };
-
-  return (
-    <div>
-      <Container>
-        <Calendar
-          value={myDate}
-          onChange={handleDateChange}
-          calendarType="US"
-          locale="en-US"
-          startWeekDay={0}
-        />
-        <ul>
-          {meds.map((med: Med) => (
-            <li key={med.name}>
-              {med.name} - {med.time}
-            </li>
-          ))}
-        </ul>
-      </Container>
-    </div>
-  );
-};
 
 const SchedulePage = () => {
+
   const [currentDate, setCurrentDate] = useState(new Date());
   const currentDayOfWeek = currentDate.toLocaleDateString("en-US", { weekday: "long" });
 
@@ -177,6 +142,8 @@ const SchedulePage = () => {
               </Modal.Footer>
             </Modal>
           </Col>
+
+
           <Col lg={6}>
             <div className="table-parent">
               <div>
@@ -207,6 +174,10 @@ const SchedulePage = () => {
               </div>
             </div>
           </Col>
+
+
+
+
         </Row>
       </Container>
       <Footer />
