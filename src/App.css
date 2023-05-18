@@ -42,5 +42,7 @@
 
 body, html{
   min-height: 100vh!important;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
