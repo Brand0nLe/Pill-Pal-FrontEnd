@@ -12,6 +12,7 @@ import Footer from '../../footer/Footer';
 
 export default function DashboardPage() {
 
+    const [userId, setUserId] = useState(0)
     const [isEditing, setIsEditing] = useState(false);
     const [profileData, setProfileData] = useState({
         profileName: 'Brandon Nguyen',
