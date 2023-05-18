@@ -420,26 +420,25 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
           <div className='add-medication-history' id='AddMedHistory'>
             <h1>Add Medication History</h1>
             <div className='add-form'>
-              <Col md={6}>
-                <div>
-
-                  <label htmlFor="MedName">Medication Name</label>
-                  <input
-                    placeholder='e.g. Aspirin'
-                    type="text"
-                    name="MedName"
-                    id="MedName"
-                    value={newMedName}
-                    onChange={handleMedNameChange} />
-                </div>
-                <div>
-                  <label htmlFor="Dosage">Dosage (Strength)</label>
-                  <input
-                    placeholder='e.g. 81 mg'
-                    type="text"
-                    name="Dosage"
-                    id="Dosage" />
-                </div>
+            <Col xs={12} sm={6} md={4}>
+  <div>
+    <label htmlFor="MedName">Medication Name</label>
+    <input
+      placeholder='e.g. Aspirin'
+      type="text"
+      name="MedName"
+      id="MedName"
+      value={newMedName}
+      onChange={handleMedNameChange} />
+  </div>
+  <div>
+    <label htmlFor="Dosage">Dosage (Strength)</label>
+    <input
+      placeholder='e.g. 81 mg'
+      type="text"
+      name="Dosage"
+      id="Dosage" />
+  </div>
                 <div>
                   <label htmlFor="Directions">Directions for use</label>
                   <input
