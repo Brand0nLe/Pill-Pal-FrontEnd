@@ -173,10 +173,10 @@ textarea {
 
 
 
-.add-form div {
+/* .add-form div {
   position: relative;
   display: block;
-}
+} */
 
 .my-btn {
   font-family: PoppinsRegular;
@@ -190,6 +190,5 @@ textarea {
 }
 
 #AdditionalNotes {
-  height: 100px;
-  width: 40%;
+  min-height: 100px;
 }
