@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button';
 import './DashboardPage.css';
@@ -19,6 +19,30 @@ export default function DashboardPage() {
         profileAddressLine1: '4321 Eureka Ct,',
         profileAddressLine2: 'Stockton Ca, 95212.'
     });
+
+    useEffect(() => {
+        let localStorageData: string = '1';
+        let UserIdNumber: number = 1;
+        const storedUserId = sessionStorage.getItem('UserId');
+        if (storedUserId !== null) {
+            localStorageData = storedUserId;
+            UserIdNumber = parseInt(localStorageData);
+            setUserId(UserIdNumber);
+        }
+    }, []);
+
+    useEffect(() => {
+        const storedUserFname = sessionStorage.getItem('FirstName');
+        const storedUserLname = sessionStorage.getItem('LastName');
+        if (storedUserFname !== null && storedUserLname !== null) {
+            setProfileData({
+                profileName: (storedUserFname + " " + storedUserLname),
+                profileDate: '1993-01-01',
+                profileAddressLine1: profileData.profileAddressLine1,
+                profileAddressLine2: 'Stockton Ca, 95212.'
+            })
+        }
+    }, [userId])
 
 
     const handleEditClick = () => {
