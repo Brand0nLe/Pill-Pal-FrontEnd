@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
 import { DisabledByDefaultOutlined, CheckBoxOutlined } from "@mui/icons-material";
 import NavBar from "../../navbarheader/NavBarHeader";
 import "./calendar/Calendar.css";
 import "./SchedulePage.css";
 import Footer from '../../footer/Footer';
-
 
 interface Med {
   name: string;
@@ -33,9 +32,6 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
           onChange={handleDateChange}
           calendarType="US"
           locale="en-US"
-          // Set the start day of the week to Sunday
-          // Sunday: 0, Monday: 1, Tuesday: 2, etc.
-          // The default value is 0 (Sunday), so this line is optional
           startWeekDay={0}
         />
         <ul>
@@ -49,11 +45,6 @@ const MedsList: React.FC<MedsListProps> = ({ myDate, onDateChange }) => {
     </div>
   );
 };
-
-
-
-
-
 
 const SchedulePage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -71,7 +62,9 @@ const SchedulePage = () => {
   ]);
 
   const handleDisableClick = (id: number) => {
-    setMedications(prevMedications => prevMedications.filter(medication => medication.id !== id));
+    setMedications((prevMedications) =>
+      prevMedications.filter((medication) => medication.id !== id)
+    );
   };
 
   const handleAddMedication = () => {
@@ -92,7 +85,7 @@ const SchedulePage = () => {
       instructions: formData.get("instructions") as string,
     };
 
-    setMedications(prevMedications => [...prevMedications, newMedication]);
+    setMedications((prevMedications) => [...prevMedications, newMedication]);
 
     form.reset();
     setShowForm(false);
@@ -105,14 +98,20 @@ const SchedulePage = () => {
   return (
     <div className="schedule-parent">
       <NavBar />
-      <Container className=" mt-5">
+      <Container className="mt-5">
         <Row>
           <Col lg={6}>
             <MedsList myDate={currentDate} onDateChange={handleDateChange} />
-            <Button className='my-btn' onClick={handleAddMedication}>Add Medication</Button>
-            {showForm && (
-              <div className="form-wrapper"> {/* Wrap the populated form with a div */}
-                <Form className='add-form-schedules-page' onSubmit={handleFormSubmit}>
+            <Button className="my-btn" onClick={handleAddMedication}>
+              Add Medication
+            </Button>
+            <Modal show={showForm} onHide={() => setShowForm(false)} centered>
+              <Modal.Header closeButton>
+                <Modal.Title>Add Medication</Modal.Title>
+              </Modal.Header>
+
+              <Modal.Body>
+                <Form className="add-form-schedules-page" onSubmit={handleFormSubmit}>
                   <Form.Group controlId="name">
                     <Form.Label>Medication Name</Form.Label>
                     <Form.Control type="text" name="name" placeholder="Medication Name" required />
@@ -166,9 +165,16 @@ const SchedulePage = () => {
                     <Form.Control as="textarea" name="AdditionalNotes" placeholder="e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can" />
                   </Form.Group>
                   <Button className='my-btn' type="submit">Save Med</Button>
+
+                  <Button variant="secondary" onClick={() => setShowForm(false)}>
+                    Close
+                  </Button>
                 </Form>
-              </div>
-            )}
+              </Modal.Body>
+              <Modal.Footer>
+
+              </Modal.Footer>
+            </Modal>
           </Col>
           <Col lg={6}>
             <div className="table-parent">
