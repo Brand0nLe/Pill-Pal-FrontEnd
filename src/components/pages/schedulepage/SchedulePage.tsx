@@ -63,7 +63,7 @@ const SchedulePage = () => {
   return (
     <div className="schedule-parent">
       <NavBar />
-      <Container className="mt-5">
+      <Container className="schedule-container mt-5">
         <Row>
           <Col lg={6}>
             <MedsList myDate={currentDate} onDateChange={handleDateChange} />
