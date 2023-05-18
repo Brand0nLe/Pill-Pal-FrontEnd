@@ -10,6 +10,8 @@ import {
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import NavBar from '../../navbarheader/NavBarHeader';
 import Footer from '../../footer/Footer';
+import card1 from '../../assets/images/Med-card-template.webp';
+import card2 from '../../assets/images/Med-card-two-template.jpg';
 
 
 
@@ -179,7 +181,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
 
 
         < Row className='justify-content-md-center mt-5' >
-          < Col md={6}>
+        <Col xs={12} sm={6} md={4} lg={12}>
             <div className="profile-area">
 
               <div className="profile-picture-container">
@@ -225,8 +227,8 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
                   Save Profile
                 </Button>
               </div>
-              {/* <img src={} alt="" id="medCardFront" />
-                    <img src={} alt="" id="medCardBack" /> */}
+              <img src={card1} alt="" id="medCardFront" />
+                    <img src={card2} alt="" id="medCardBack" />
             </div>
           </Col>
           < div className='tables-area'>
@@ -398,6 +400,11 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
               </tbody>
             </table>
           </div>
+
+
+
+
+
 
           <div className='active-meds-area'>
             <table id="activeMedsArea" className="horizontal-tbl">
