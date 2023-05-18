@@ -10,11 +10,15 @@
 
 .dependents-parent {
   position: relative;
-  min-height: 100vh;
+
 }
 
 .dependents-divide {
   display: flex;
+}
+
+.dependents-divide input {
+  width: 80%;
 }
 
 .admin-container {
@@ -27,17 +31,13 @@
 
 .add-btn {
   font-family: PoppinsRegular;
-  background: rgba(242, 193, 188, 0.5);
-  border-radius: 6px;
-  box-shadow: 0 2px 5px black;
-  width: 50%;
-  margin: 0 25%;
-}
+  background: transparent;
 
-.add-btn:hover {
-  background-color: #C4AFAC;
+  border: transparent;
+  margin: 25%;
 }
 
 .three-wide {
   display: flex;
+  flex-wrap: wrap;
 }

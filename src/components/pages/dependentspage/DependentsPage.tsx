@@ -4,20 +4,15 @@ import Card from '../../common/card/Card';
 import Footer from '../../footer/Footer';
 import React, { useState, useEffect } from 'react';
 import { Col, Container } from 'react-bootstrap';
+import AddNewBtn from '../../assets/images/add new dependent button.png'
 
 export default function DependentsPage() {
   const [dependentName, setDependentName] = useState('');
-  const [dependents, setDependents] = useState<string[]>([]);
-
-  // Load saved dependents from local storage on component mount
-  useEffect(() => {
+  const [dependents, setDependents] = useState<string[]>(() => {
     const savedDependents = localStorage.getItem('dependents');
-    if (savedDependents) {
-      setDependents(JSON.parse(savedDependents));
-    }
-  }, []);
+    return savedDependents ? JSON.parse(savedDependents) : [];
+  });
 
-  // Save dependents to local storage whenever it changes
   useEffect(() => {
     localStorage.setItem('dependents', JSON.stringify(dependents));
   }, [dependents]);
@@ -43,7 +38,7 @@ export default function DependentsPage() {
             onChange={(e) => setDependentName(e.target.value)}
           />
           <button className="add-btn" onClick={handleAddDependent}>
-            Add Dependent
+            <img src={AddNewBtn} alt="" />
           </button>
         </Col>
         {/* right side */}

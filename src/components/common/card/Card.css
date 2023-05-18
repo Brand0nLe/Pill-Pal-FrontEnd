@@ -4,11 +4,11 @@
 .card-parent {
 
     justify-content: space-around;
-    max-height: 350px;
+    font-family: PoppinsLight;
 
-    max-width: 320px;
+    max-height: 50%;
+    max-width: 33%;
 }
-
 .card-bg {
     justify-content: center;
     background: #F2C1BC;
@@ -24,7 +24,7 @@
 .card-body {
     background-color: #fff;
     position: relative;
-    padding: 10px 10px 0 10px;
+    padding: 10px 10px 35% 10px;
     display: flex;
     flex-direction: column;
 
@@ -50,6 +50,7 @@
     width: 8vw;
     white-space: nowrap;
     box-shadow: 0 2px 5px black;
+    margin-bottom: -10px;
 
 }
 
