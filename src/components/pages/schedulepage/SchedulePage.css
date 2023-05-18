@@ -1,7 +1,7 @@
 @import '../../assets/fonts/Fonts.css';
 
 .schedule-container{
-height: 100vh;
+min-height: 75vh;
 }
 
 .table-parent th {
