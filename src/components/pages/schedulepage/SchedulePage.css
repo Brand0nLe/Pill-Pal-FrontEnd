@@ -2,7 +2,9 @@
 
 
 
-
+.schedule-parent{
+  min-height: 100vh!important;
+}
 
 .table-parent th {
   background: #C4AFAC;
@@ -81,3 +83,5 @@ form.add-form-schedules-page {
 .my-btn:hover {
   background-color: #C4AFAC;
 }
+
+
