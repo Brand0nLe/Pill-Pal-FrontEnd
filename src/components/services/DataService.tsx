@@ -16,10 +16,11 @@ async function createAccount(createdUser: object) {
     console.log(data);
     return data;
 }
-async function login(loginUser: object) {
-    const res = await fetch('Https://pillpalapi.azurewebsites.net/User/login', {
-        method: "POST",
-        headers: {
+
+async function login(loginUser: object){
+    const res = await fetch('Https://pillpalapi.azurewebsites.net/User/login',{
+        method:"POST",
+        headers:{
             'Content-Type': "application/json"
         },
         body: JSON.stringify(loginUser)
