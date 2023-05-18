@@ -6,10 +6,7 @@
   color: black;
 }
 
-body,
-html {
-  background-color: #F7F0E8;
-}
+
 
 .my-tbl {
   border-collapse: collapse;
@@ -35,8 +32,7 @@ tbody {
   font-size: 12px;
 }
 
-/* .my-tbl td {
-} */
+
 .my-tbl td {
   border: 1px solid black;
   overflow: hidden;
@@ -114,6 +110,7 @@ tbody {
   background-color: transparent;
   border: transparent;
   height: 35px;
+  min-width: 100%;
 }
 
 .input::placeholder {
@@ -163,6 +160,7 @@ tbody {
   background: white;
   border: 1px solid black;
   padding: 10px;
+  min-width: 100%;
 }
 
 .add-form input,
@@ -170,6 +168,7 @@ textarea {
   background-color: #F2C1BC;
   border: 1px solid black;
   margin-top: 15px;
+  min-width: 100%;
 }
 
 
