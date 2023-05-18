@@ -113,7 +113,7 @@ const SchedulePage = () => {
               <Modal.Body>
                 <Form className="add-form-schedules-page" onSubmit={handleFormSubmit}>
 
-<Form.Group controlId="name">
+                  <Form.Group controlId="name">
                     <Form.Label>Medication Name</Form.Label>
                     <Form.Control type="text" name="name" placeholder="Medication Name" required />
                   </Form.Group>
