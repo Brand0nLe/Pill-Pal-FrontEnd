@@ -10,7 +10,7 @@ import {
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import NavBar from '../../navbarheader/NavBarHeader';
 import Footer from '../../footer/Footer';
-import card1 from '../../assets/images/Med-card-template.webp';
+import card1 from '../../assets/images/med-card-template.png';
 import card2 from '../../assets/images/Med-card-two-template.jpg';
 
 
