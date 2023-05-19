@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Col, Container, Row, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
-import { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
+import { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem, GetNewId } from '../../services/DataService';
 import Footer from '../../footer/Footer';
 
 
@@ -39,6 +39,9 @@ function RegistrationPage() {
       console.log(data);
       if (data == true) {
         alert("User successfully created!");
+        let newId: any = await GetNewId()
+        console.log(newId);
+        sessionStorage.setItem("UserId", newId);
         // await GetLoggedInUserData(Username);
         navigate("/firsttimeuserpage");
       } else console.log("User creation failed");

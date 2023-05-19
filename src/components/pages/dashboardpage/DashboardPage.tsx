@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button';
 import './DashboardPage.css';
@@ -8,10 +8,13 @@ import defaultMedCardFront from '../../assets/images/Med-card-template.webp';
 import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg';
 import NavBar from '../../navbarheader/NavBarHeader';
 import Footer from '../../footer/Footer';
+import { createAccount, login, GetLoggedInUserData, GetLoggedInUserDataById, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
+
 
 
 export default function DashboardPage() {
 
+    const [userId, setUserId] = useState(0)
     const [isEditing, setIsEditing] = useState(false);
     const [profileData, setProfileData] = useState({
         profileName: 'Brandon Nguyen',
@@ -19,6 +22,31 @@ export default function DashboardPage() {
         profileAddressLine1: '4321 Eureka Ct,',
         profileAddressLine2: 'Stockton Ca, 95212.'
     });
+
+    useEffect(() => {
+        let localStorageData: string = '1';
+        let UserIdNumber: number = 1;
+        const storedUserId = sessionStorage.getItem('UserId');
+        if (storedUserId !== null) {
+            localStorageData = storedUserId;
+            UserIdNumber = parseInt(localStorageData);
+            setUserId(UserIdNumber);
+            GetLoggedInUserDataById(userId);
+        }
+    }, []);
+
+    useEffect(() => {
+        const storedUserFname = sessionStorage.getItem('FirstName');
+        const storedUserLname = sessionStorage.getItem('LastName');
+        if (storedUserFname !== null && storedUserLname !== null) {
+            setProfileData({
+                profileName: (storedUserFname + " " + storedUserLname),
+                profileDate: '1993-01-01',
+                profileAddressLine1: profileData.profileAddressLine1,
+                profileAddressLine2: 'Stockton Ca, 95212.'
+            })
+        }
+    }, [userId])
 
 
     const handleEditClick = () => {
