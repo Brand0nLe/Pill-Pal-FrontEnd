@@ -4,6 +4,7 @@
 min-height: 75vh;
 }
 
+
 .table-parent th {
   background: #C4AFAC;
   border: 3px solid;
@@ -12,7 +13,6 @@ min-height: 75vh;
   text-align: center;
   white-space: nowrap;
   font-family: PoppinsRegular;
-  width: 100%;
 }
 
 .table-parent tr {
