@@ -24,27 +24,29 @@ export default function DashboardPage() {
     });
 
     useEffect(() => {
-        let localStorageData: string = '1';
-        let UserIdNumber: number = 1;
-        const storedUserId = sessionStorage.getItem('UserId');
-        if (storedUserId !== null) {
-            localStorageData = storedUserId;
-            UserIdNumber = parseInt(localStorageData);
-            setUserId(UserIdNumber);
-            GetLoggedInUserDataById(userId);
+        const storedUserIdString: string | null = sessionStorage.getItem('UserId');
+        if (storedUserIdString != null) {
+            const storedUserIdInt = parseInt(storedUserIdString);
+            setUserId(storedUserIdInt);
+            console.log(userId);
         }
     }, []);
 
     useEffect(() => {
         const storedUserFname = sessionStorage.getItem('FirstName');
         const storedUserLname = sessionStorage.getItem('LastName');
-        if (storedUserFname !== null && storedUserLname !== null) {
-            setProfileData({
-                profileName: (storedUserFname + " " + storedUserLname),
-                profileDate: '1993-01-01',
-                profileAddressLine1: profileData.profileAddressLine1,
-                profileAddressLine2: 'Stockton Ca, 95212.'
+        if (userId != 0){
+            GetLoggedInUserDataById(userId).then(result => {
+                console.log(result);
             })
+            if (storedUserFname !== null && storedUserLname !== null) {
+                setProfileData({
+                    profileName: (storedUserFname + " " + storedUserLname),
+                    profileDate: '1993-01-01',
+                    profileAddressLine1: profileData.profileAddressLine1,
+                    profileAddressLine2: 'Stockton Ca, 95212.'
+                })
+            }
         }
     }, [userId])
 

@@ -57,8 +57,7 @@ async function GetNewId(){
 async function GetLoggedInUserDataById(UserId: number){
     let res = await fetch(`https://pillpalapi.azurewebsites.net/User/IdSearch/${UserId}`)
     let data = await res.json();
-    userData = data;
-    console.log(userData);
+    return data;
 }
 
 async function GetPublishedBlogItems() {
