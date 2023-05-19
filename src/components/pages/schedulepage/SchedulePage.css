@@ -84,10 +84,13 @@ form.add-form-schedules-page {
 }
 
 .my-btn {
-  font-family: PoppinsRegular;
-  background: rgba(242, 193, 188, 0.5) !important;
+  font-family: PoppinsRegular!important;
+  font-size: 20px;
+  background:#C4AFAC !important;
   border-radius: 6px;
   box-shadow: 0 2px 5px black;
+  width: 300px;
+  height: 100px;
 }
 
 .my-btn:hover {
