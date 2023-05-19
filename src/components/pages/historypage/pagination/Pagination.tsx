@@ -86,7 +86,7 @@ const rows: Row[] = [
     { id: 64, date: 1994, medname: "Alprazolam", medstrength: "0.25mg", doctor: "Daniel Wilson", directions: "Take 1 tablet by mouth 3 times daily as needed." },
     { id: 65, date: 1993, medname: "Levothyroxine", medstrength: "25mcg", doctor: "James Thompson", directions: "Take 1 tablet by mouth daily on an empty stomach." },
     { id: 66, date: 1993, medname: "Lisinopril", medstrength: "2.5mg", doctor: "Sophia Adams", directions: "Take 1 tablet by mouth daily." },
-    { id: 67, date: new Date(1993, 0, 13), medname: "Lisinopril", medstrength: "10mg", doctor: "Sophia Adams", directions: "Take 1 tablet by mouth daily." },
+    { id: 67, date: 1993, medname: "Lisinopril", medstrength: "10mg", doctor: "Sophia Adams", directions: "Take 1 tablet by mouth daily." },
 ];
 
 const columns = [
