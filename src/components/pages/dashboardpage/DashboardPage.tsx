@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button';
 import './DashboardPage.css';
@@ -21,18 +21,34 @@ export default function DashboardPage() {
     });
 
 
-    const handleEditClick = () => {
+    useEffect(() => {
+        const savedProfileData = localStorage.getItem('profileData');
+        if (savedProfileData) {
+          setProfileData(JSON.parse(savedProfileData));
+        }
+      }, []);
+    
+      
+      useEffect(() => {
+        localStorage.setItem('profileData', JSON.stringify(profileData));
+      }, [profileData]);
+    
+      const handleEditClick = () => {
         setIsEditing(true);
-    };
-
-    const handleSaveClick = () => {
+      };
+    
+      const handleSaveClick = () => {
         setIsEditing(false);
-    };
-
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      };
+    
+      const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
-        setProfileData({ ...profileData, [name]: value });
-    };
+        setProfileData((prevProfileData) => ({
+          ...prevProfileData,
+          [name]: value,
+        }));
+      };
+      
 
 
     return (
@@ -44,14 +60,15 @@ export default function DashboardPage() {
             <Container>
 
                 < Row className='justify-content-md-center mt-5' >
-                    < Col xs={12} md={6}>
                         <div className="profile-area">
 
+                    
                             <div className="profile-picture-container">
 
                                 <img id='profile-picture' src={defaultProfilePicture} alt="" />
 
                             </div>
+                                
                             <div className="profile-info">
                                 {isEditing ? (
                                     <>
@@ -79,7 +96,7 @@ export default function DashboardPage() {
                                             value={profileData.profileAddressLine2}
                                             onChange={handleInputChange}
                                         />
-                                        < Button onClick={handleSaveClick} >Save</Button>
+                                        < button className='save-btn' onClick={handleSaveClick} >Save</button>
                                         {/* <CommonButton onClick={handleSaveClick}>Save</CommonButton> */}
                                     </>
                                 ) : (
@@ -88,8 +105,7 @@ export default function DashboardPage() {
                                         <p className='profileDate'>{profileData.profileDate}</p>
                                         <p className='profileAddressLine1'>{profileData.profileAddressLine1}</p>
                                         <p className='profileAddressLine2'>{profileData.profileAddressLine2}</p>
-                                        < Button onClick={handleEditClick} >Edit Profile</Button>
-                                        {/* <CommonButton onClick={handleEditClick}>Edit</CommonButton> */}
+                                        < button className='save-btn' onClick={handleEditClick} >Edit Profile</button>
                                     </>
                                 )}
 
@@ -98,7 +114,6 @@ export default function DashboardPage() {
                             <img src={defaultMedCardFront} alt="" id="medCardFront" />
                             <img src={defaultMedCardBack} alt="" id="medCardBack" />
                         </div>
-                    </Col>
                     < div className='tables-area'>
 
                         <table id='allergies' className='my-tbl'>

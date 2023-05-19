@@ -1,6 +1,6 @@
 @import '../../assets/fonts/Fonts.css';
 
-body {
+html, body {
   min-height: 100vh;
 }
 
@@ -92,14 +92,27 @@ tbody {
 
 
 .profile-area {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  width: 100%;
   align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
-
 .profile-area img {
-  width: 363px;
+  width: 20vw!important;
 }
 
+.profile-picture-container img {
+  max-height: 268px;
+}
 
+.save-btn {
+  font-family: PoppinsRegular;
+  background: rgba(242, 193, 188, 0.5);
+  border-radius: 6px;
+  box-shadow: 0 2px 5px black;
+  font-size: 1.2vw;
+}
+.save-btn:hover {
+  background-color: #C4AFAC;
+}
