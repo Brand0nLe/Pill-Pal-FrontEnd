@@ -13,7 +13,12 @@ export default function Card(props: CardProps) {
         <div className='card-parent'>
             <div className="card-bg">
                 <div className="card-body">
-                    <img id='' src={defaultProfilePicture} alt="" />
+                    <img 
+                    id='' 
+                    src={defaultProfilePicture} 
+                    alt="" 
+                    
+                    />
                     <p>{props.name}</p>
 
                     <button>
