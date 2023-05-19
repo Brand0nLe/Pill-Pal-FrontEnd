@@ -44,12 +44,18 @@ async function GetLoggedInUserData(username: string){
 }
 
 async function GetIdByUserData(username: string){
-    let res= await fetch(`https://pillpalapi.azurewebsites.net/User/IdUserSearch/${username}`)
+    let res = await fetch(`https://pillpalapi.azurewebsites.net/User/IdUserSearch/${username}`)
     return res;
 }
 
+async function GetNewId(){
+    let res = await fetch(`https://pillpalapi.azurewebsites.net/User/HighestId`)
+    let data = await res.json();
+    return data;
+}
+
 async function GetLoggedInUserDataById(UserId: number){
-    let res= await fetch(`https://pillpalapi.azurewebsites.net/User/IdSearch/${UserId}`)
+    let res = await fetch(`https://pillpalapi.azurewebsites.net/User/IdSearch/${UserId}`)
     let data = await res.json();
     userData = data;
     console.log(userData);
@@ -115,5 +121,5 @@ async function updateBlogItem(blogItem: string) {
 }
 
 
-export {createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem, GetLoggedInUserDataById, GetIdByUserData};
+export {createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem, GetLoggedInUserDataById, GetIdByUserData, GetNewId};
 

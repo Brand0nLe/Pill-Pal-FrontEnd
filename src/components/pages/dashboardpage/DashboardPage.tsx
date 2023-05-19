@@ -8,6 +8,8 @@ import defaultMedCardFront from '../../assets/images/Med-card-template.webp';
 import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg';
 import NavBar from '../../navbarheader/NavBarHeader';
 import Footer from '../../footer/Footer';
+import { createAccount, login, GetLoggedInUserData, GetLoggedInUserDataById, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
+
 
 
 export default function DashboardPage() {
@@ -29,6 +31,7 @@ export default function DashboardPage() {
             localStorageData = storedUserId;
             UserIdNumber = parseInt(localStorageData);
             setUserId(UserIdNumber);
+            GetLoggedInUserDataById(userId);
         }
     }, []);
 
