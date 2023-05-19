@@ -16,3 +16,7 @@
     font-size: 2rem;
     display: flex;
 }
+.active {
+    font-weight: bold;
+  }
+  
