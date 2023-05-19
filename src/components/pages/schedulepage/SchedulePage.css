@@ -71,9 +71,16 @@ form.add-form-schedules-page {
   width: 100%;
 }
 
+
+.add-medication-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .my-btn {
   font-family: PoppinsRegular;
-  background: rgba(242, 193, 188, 0.5);
+  background: rgba(242, 193, 188, 0.5)!important;
   border-radius: 6px;
   box-shadow: 0 2px 5px black;
 }

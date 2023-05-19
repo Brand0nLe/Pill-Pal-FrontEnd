@@ -67,9 +67,11 @@ const SchedulePage = () => {
         <Row>
           <Col lg={6}>
             <MedsList myDate={currentDate} onDateChange={handleDateChange} />
-            <Button className="my-btn" onClick={handleAddMedication}>
-              Add Medication
-            </Button>
+            <div className="add-medication-btn-container"> {/* Added wrapper div */}
+              <Button className="my-btn" onClick={handleAddMedication}>
+                Add Medication
+              </Button>
+            </div>
             <Modal show={showForm} onHide={() => setShowForm(false)} centered>
               <Modal.Header closeButton>
                 <Modal.Title>Add Medication</Modal.Title>
@@ -174,10 +176,6 @@ const SchedulePage = () => {
               </div>
             </div>
           </Col>
-
-
-
-
         </Row>
       </Container>
       <Footer />
