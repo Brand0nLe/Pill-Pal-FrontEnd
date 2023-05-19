@@ -1,18 +1,23 @@
 @import '../../assets/fonts/Fonts.css';
 
-.schedule-container{
-min-height: 75vh;
+.schedule-container {
+  min-height: 75vh;
 }
 
+
+.table-parent {
+  display: flex;
+  justify-content: center;
+}
 
 .table-parent th {
   background: #C4AFAC;
   border: 3px solid;
   border-color: black;
-  padding: 10%;
   text-align: center;
-  white-space: nowrap;
   font-family: PoppinsRegular;
+  width: 100%;
+  padding: 20px;
 }
 
 .table-parent tr {
@@ -80,7 +85,7 @@ form.add-form-schedules-page {
 
 .my-btn {
   font-family: PoppinsRegular;
-  background: rgba(242, 193, 188, 0.5)!important;
+  background: rgba(242, 193, 188, 0.5) !important;
   border-radius: 6px;
   box-shadow: 0 2px 5px black;
 }
@@ -88,5 +93,3 @@ form.add-form-schedules-page {
 .my-btn:hover {
   background-color: #C4AFAC;
 }
-
-
