@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { createAccount, login, GetLoggedInUserData, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem, GetNewId } from '../../services/DataService';
 import Footer from '../../footer/Footer';
+import '../registrationpage/RegistrationPage.css';
 
 
 
