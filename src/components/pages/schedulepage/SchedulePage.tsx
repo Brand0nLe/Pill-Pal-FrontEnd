@@ -30,10 +30,6 @@ const SchedulePage = () => {
     }
   }, []);
 
-  const saveMedicationsToLocalStorage = (medications: any) => {
-    localStorage.setItem("medications", JSON.stringify(medications));
-  };
-
   const handleDisableClick = (id: string) => {
     setMedications((prevMedications) =>
       prevMedications.filter((medication) => medication.id !== id)
@@ -67,16 +63,11 @@ const SchedulePage = () => {
 
     const updatedMedications = [...medications, ...newMedications];
     setMedications(updatedMedications);
-    saveMedicationsToLocalStorage(updatedMedications);
-
-
+    localStorage.setItem("medications", JSON.stringify(updatedMedications));
 
     form.reset();
     setShowForm(false);
   };
-  useEffect(() => {
-    saveMedicationsToLocalStorage(medications);
-  }, [medications]);
 
   const handleAddMedicationClick = () => {
     setShowForm(true);
