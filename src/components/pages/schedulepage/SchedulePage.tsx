@@ -19,7 +19,7 @@ const SchedulePage = () => {
   const [medications, setMedications] = useState([
     {
       id: Date.now(),
-      time: "",
+      time: [""],
       name: "",
       dose: "",
       instructions: "",
@@ -36,15 +36,19 @@ const SchedulePage = () => {
     setShowForm(true);
   };
 
+
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
 
+    const timeString = formData.get("time") as string;
+    const times = timeString.split(',').map(time => time.trim());
+
     const newMedication = {
       id: Date.now(),
-      time: formData.get("time") as string,
+      time: times,
       name: formData.get("name") as string,
       dose: formData.get("dose") as string,
       instructions: formData.get("instructions") as string,
@@ -90,7 +94,10 @@ const SchedulePage = () => {
                   </Form.Group>
                   <Form.Group controlId="time">
                     <Form.Label>Time</Form.Label>
-                    <Form.Control type="text" name="time" placeholder="Time" required />
+                    <Form.Control type="text" name="time" placeholder="8:00AM, 1:00PM, 3:30PM" required />
+                    <Form.Text className="text-muted">
+                      Please enter the times separated by commas. For example: 8:00, 12:00, 16:00
+                    </Form.Text>
                   </Form.Group>
                   <Form.Group controlId="instructions">
                     <Form.Label>Instructions</Form.Label>
@@ -157,19 +164,20 @@ const SchedulePage = () => {
                   </thead>
                   <tbody>
                     {medications.map(medication => (
-                      <tr key={medication.id}>
-                        <td>{medication.time}</td>
-                        <td>{medication.name}</td>
-                        <td>{medication.dose}</td>
-                        <td>{medication.instructions}    </td>
-                        <td>
-
-                          <DisabledByDefaultOutlined onClick={() => handleDisableClick(medication.id)} />
-                        </td>
-                        <td>
-                          <CheckBoxOutlined />
-                        </td>
-                      </tr>
+                      medication.time.map((time, index) => (
+                        <tr key={medication.id + index}>
+                          <td>{time}</td>
+                          <td>{medication.name}</td>
+                          <td>{medication.dose}</td>
+                          <td>{medication.instructions}</td>
+                          <td>
+                            <DisabledByDefaultOutlined onClick={() => handleDisableClick(medication.id)} />
+                          </td>
+                          <td>
+                            <CheckBoxOutlined />
+                          </td>
+                        </tr>
+                      ))
                     ))}
                   </tbody>
                 </table>
