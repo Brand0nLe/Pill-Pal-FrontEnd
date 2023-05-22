@@ -1,41 +1,33 @@
 import React, { useState } from "react";
-import Calendar from "react-calendar";
 import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
 import { DisabledByDefaultOutlined, CheckBoxOutlined } from "@mui/icons-material";
 import NavBar from "../../navbarheader/NavBarHeader";
 import "./calendar/Calendar.css";
 import "./SchedulePage.css";
-import Footer from '../../footer/Footer';
+import Footer from "../../footer/Footer";
 import MedsList from "./medlist/MedList";
 
-
+const getTimeAsDate = (timeString: string) => {
+  const [hours, minutes] = timeString.split(":");
+  const date = new Date();
+  date.setHours(parseInt(hours), parseInt(minutes));
+  return date;
+};
 
 const SchedulePage = () => {
-
   const [currentDate, setCurrentDate] = useState(new Date());
   const currentDayOfWeek = currentDate.toLocaleDateString("en-US", { weekday: "long" });
 
   const [showForm, setShowForm] = useState(false);
-  const [medications, setMedications] = useState([
-    {
-      id: Date.now(),
-      time: [""],
-      name: "",
-      dose: "",
-      instructions: "",
-    },
-  ]);
+  const [medications, setMedications] = useState<
+    { id: string; time: string[]; name: string; dose: string; instructions: string }[]
+  >([]);
 
-  const handleDisableClick = (id: number) => {
+  const handleDisableClick = (id: string) => {
     setMedications((prevMedications) =>
       prevMedications.filter((medication) => medication.id !== id)
     );
   };
-
-  const handleAddMedication = () => {
-    setShowForm(true);
-  };
-
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -44,25 +36,43 @@ const SchedulePage = () => {
     const formData = new FormData(form);
 
     const timeString = formData.get("time") as string;
-    const times = timeString.split(',').map(time => time.trim());
+    const times = timeString.split(",").map((time) => time.trim());
 
-    const newMedication = {
-      id: Date.now(),
-      time: times,
+    const timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/i;
+    if (!times.every((time) => timeRegex.test(time))) {
+      alert(
+        "Please enter time in the correct format: HH:mm (24-hour format). For example: 08:00, 13:00, 15:30. Double check to make sure you did not forget any commas."
+      );
+      return;
+    }
+
+    const newMedications = times.map((time, index) => ({
+      id: `${Date.now()}-${index}`,
+      time: [time],
       name: formData.get("name") as string,
       dose: formData.get("dose") as string,
       instructions: formData.get("instructions") as string,
-    };
+    }));
 
-    setMedications((prevMedications) => [...prevMedications, newMedication]);
+    setMedications((prevMedications) => [...prevMedications, ...newMedications]);
 
     form.reset();
     setShowForm(false);
   };
 
+  const handleAddMedicationClick = () => {
+    setShowForm(true);
+  };
+
   const handleDateChange = (date: Date) => {
     setCurrentDate(date);
   };
+
+  const sortedMedications = [...medications].sort((a, b) => {
+    const aFirstTime = getTimeAsDate(a.time[0]).getTime();
+    const bFirstTime = getTimeAsDate(b.time[0]).getTime();
+    return aFirstTime - bFirstTime;
+  });
 
   return (
     <div className="schedule-parent">
@@ -71,11 +81,12 @@ const SchedulePage = () => {
         <Row>
           <Col lg={6}>
             <MedsList myDate={currentDate} onDateChange={handleDateChange} />
-            <div className="add-medication-btn-container"> {/* Added wrapper div */}
-              <button className="my-btn" onClick={handleAddMedication}>
+            <div className="add-medication-btn-container">
+              <button className="my-btn" onClick={handleAddMedicationClick}>
                 Add Medication
               </button>
             </div>
+
             <Modal show={showForm} onHide={() => setShowForm(false)} centered>
               <Modal.Header closeButton>
                 <Modal.Title>Add Medication</Modal.Title>
@@ -94,9 +105,9 @@ const SchedulePage = () => {
                   </Form.Group>
                   <Form.Group controlId="time">
                     <Form.Label>Time</Form.Label>
-                    <Form.Control type="text" name="time" placeholder="8:00AM, 1:00PM, 3:30PM" required />
+                    <Form.Control type="text" name="time" placeholder="08:00, 13:00, 15:30" required />
                     <Form.Text className="text-muted">
-                      Please enter the times separated by commas. For example: 8:00, 12:00, 16:00
+                      Please enter the times separated by commas in the format hh:mm. For example: 08:00, 13:00, 15:30
                     </Form.Text>
                   </Form.Group>
                   <Form.Group controlId="instructions">
@@ -149,40 +160,50 @@ const SchedulePage = () => {
               <Modal.Footer>
 
               </Modal.Footer>
-            </Modal>
+              </Modal>
           </Col>
 
-
           <Col lg={6}>
-            <div className="table-parent">
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>{currentDayOfWeek} {currentDate.toLocaleDateString()}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {medications.map(medication => (
-                      medication.time.map((time, index) => (
-                        <tr key={medication.id + index}>
-                          <td>{time}</td>
-                          <td>{medication.name}</td>
-                          <td>{medication.dose}</td>
-                          <td>{medication.instructions}</td>
-                          <td>
-                            <DisabledByDefaultOutlined onClick={() => handleDisableClick(medication.id)} />
-                          </td>
-                          <td>
-                            <CheckBoxOutlined />
-                          </td>
-                        </tr>
-                      ))
-                    ))}
-                  </tbody>
-                </table>
+            {medications.length > 0 ? (
+              <div className="table-parent">
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>
+                          {currentDayOfWeek} {currentDate.toLocaleDateString()}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {sortedMedications.map((medication) =>
+                        medication.time.map((time, index) => (
+                          <tr key={medication.id + index}>
+                            <td>
+                              {new Date(getTimeAsDate(time)).toLocaleTimeString("en-US", {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </td>
+                            <td>{medication.name}</td>
+                            <td>{medication.dose}</td>
+                            <td>{medication.instructions}</td>
+                            <td>
+                              <DisabledByDefaultOutlined onClick={() => handleDisableClick(medication.id)} />
+                            </td>
+                            <td>
+                              <CheckBoxOutlined />
+                            </td>
+                          </tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div>No medications found! Please click the button to start adding meds!</div>
+            )}
           </Col>
         </Row>
       </Container>
