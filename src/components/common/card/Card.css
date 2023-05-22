@@ -59,3 +59,24 @@ align-items: center;
     background: #a30c0f;
 
 }
+
+@media (max-width: 525px) {
+    .card-body button {
+        display: none;
+    }
+    .card-bg {
+        background: transparent;
+        margin: 0; padding: 0;
+        border: 0px;
+    }
+    .card-body {
+        background-color: transparent;
+        text-align: center;
+    }
+    .card-body img {
+        width: 33vw;
+    }
+    .card-parent {
+        margin: 0;
+    }
+}

@@ -41,3 +41,19 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 525px) {
+  .admin-container {
+    flex-direction: column;
+  }
+  .three-wide {
+    flex-direction: column;
+  }
+  .add-btn img {
+    width: 100%;
+  }
+}

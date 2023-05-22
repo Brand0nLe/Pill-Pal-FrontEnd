@@ -4,7 +4,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button';
 import './DashboardPage.css';
 import defaultProfilePicture from '../../assets/images/default-profile-picture.png';
-import defaultMedCardFront from '../../assets/images/Med-card-template.png';
+import defaultMedCardFront from '../../assets/images/med-card-template.png';
 import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg';
 import NavBar from '../../navbarheader/NavBarHeader';
 import Footer from '../../footer/Footer';
