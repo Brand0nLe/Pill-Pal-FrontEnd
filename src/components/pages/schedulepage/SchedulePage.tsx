@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
 import { DisabledByDefaultOutlined, CheckBoxOutlined } from "@mui/icons-material";
 import NavBar from "../../navbarheader/NavBarHeader";
@@ -22,6 +22,17 @@ const SchedulePage = () => {
   const [medications, setMedications] = useState<
     { id: string; time: string[]; name: string; dose: string; instructions: string }[]
   >([]);
+
+  useEffect(() => {
+    const storedMedications = localStorage.getItem("medications");
+    if (storedMedications) {
+      setMedications(JSON.parse(storedMedications));
+    }
+  }, []);
+
+  const saveMedicationsToLocalStorage = (medications: any) => {
+    localStorage.setItem("medications", JSON.stringify(medications));
+  };
 
   const handleDisableClick = (id: string) => {
     setMedications((prevMedications) =>
@@ -54,11 +65,18 @@ const SchedulePage = () => {
       instructions: formData.get("instructions") as string,
     }));
 
-    setMedications((prevMedications) => [...prevMedications, ...newMedications]);
+    const updatedMedications = [...medications, ...newMedications];
+    setMedications(updatedMedications);
+    saveMedicationsToLocalStorage(updatedMedications);
+
+
 
     form.reset();
     setShowForm(false);
   };
+  useEffect(() => {
+    saveMedicationsToLocalStorage(medications);
+  }, [medications]);
 
   const handleAddMedicationClick = () => {
     setShowForm(true);
