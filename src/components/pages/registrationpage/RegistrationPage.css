@@ -1,6 +1,11 @@
 @import '../../assets/fonts/Fonts.css';
 
-
+html, body {
+  min-height: 100vh;
+}
+.registration-parent{
+  min-height: 100vh;
+}
 
 .registration-form {
   max-width: 400px;
