@@ -1,10 +1,6 @@
 @import '../../assets/fonts/Fonts.css';
 
-body,
-html {
-  background-color: #F7F0E8;
-  min-height: 100vh;
-}
+
 
 .registration-form {
   max-width: 400px;
@@ -56,27 +52,4 @@ html {
   margin-top: 80px;
 }
 
-.spacing {
-  margin-bottom: 200px;
-}
 
-/* Design */
-.elliptical-shape {
-  width: 100%;
-  height: 140px;
-  background-color: #f2c1bc;
-  position: relative;
-  transform: skewY(-5deg);
-}
-
-.elliptical-shape::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: -100px;
-  left: -100px;
-  border-radius: 50%;
-  background-color: #fff;
-  transform: skewY(0deg);
-}

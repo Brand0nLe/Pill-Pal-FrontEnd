@@ -102,7 +102,6 @@ function LoginPage() {
         </div>
 
       </Container>
-      <br></br>
       <Footer />
 
     </div>

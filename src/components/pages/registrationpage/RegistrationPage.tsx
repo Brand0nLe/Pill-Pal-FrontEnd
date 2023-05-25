@@ -149,7 +149,7 @@ function RegistrationPage() {
                 </Button>
 
                 <div className="text-center mt-3">
-                  <Row className='spacing'>
+                  <Row>
                     <p>
                       Already have an account? <Link to="/login">Login</Link>
                     </p>
