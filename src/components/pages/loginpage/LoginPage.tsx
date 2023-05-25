@@ -11,8 +11,7 @@ import Footer from '../../footer/Footer';
 
 
 
-// Define Material UI theme
-// const theme = createTheme();
+
 
 function LoginPage() {
   let navigate = useNavigate();
