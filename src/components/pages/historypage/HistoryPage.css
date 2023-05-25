@@ -5,9 +5,13 @@ html, body {
   min-height: 100vh;
 }
 
+.history-parent {
+  min-height: 100vh;
+}
+
 .parent-bg{
   background-color: #F7F0E8;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .history-table thead th {
