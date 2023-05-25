@@ -7,7 +7,6 @@ import defaultProfilePicture from '../../assets/images/default-profile-picture.p
 import defaultMedCardFront from '../../assets/images/Med-card-template.png';
 import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg';
 import NavBar from '../../navbarheader/NavBarHeader';
-import Footer from '../../footer/Footer';
 import { createAccount, login, GetLoggedInUserData, GetLoggedInUserDataById, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
 
 
@@ -257,7 +256,6 @@ export default function DashboardPage() {
                     </div>
                 </Row>
             </Container>
-            <Footer />
 
         </div>
 

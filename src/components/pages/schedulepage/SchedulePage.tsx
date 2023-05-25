@@ -4,7 +4,6 @@ import { DisabledByDefaultOutlined, CheckBoxOutlined } from "@mui/icons-material
 import NavBar from "../../navbarheader/NavBarHeader";
 import "./calendar/Calendar.css";
 import "./SchedulePage.css";
-import Footer from "../../footer/Footer";
 import MedsList from "./medlist/MedList";
 
 const getTimeAsDate = (timeString: string) => {
@@ -216,7 +215,6 @@ const SchedulePage = () => {
           </Col>
         </Row>
       </Container>
-      <Footer />
     </div>
   );
 };

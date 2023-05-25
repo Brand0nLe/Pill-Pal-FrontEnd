@@ -1,7 +1,6 @@
 import './DependentsPage.css'
 import NavBar from '../../navbarheader/NavBarHeader';
 import Card from '../../common/card/Card';
-import Footer from '../../footer/Footer';
 import React, { useState, useEffect } from 'react';
 import { Col, Container } from 'react-bootstrap';
 import AddNewBtn from '../../assets/images/add new dependent button.png'
@@ -48,7 +47,6 @@ export default function DependentsPage() {
           ))}
         </Col>
       </Container>
-      <Footer />
 
     </div>
   );
