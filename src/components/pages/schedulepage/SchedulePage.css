@@ -1,6 +1,7 @@
 @import '../../assets/fonts/Fonts.css';
 
-html, body {
+html,
+body {
   min-height: 100vh;
 }
 
@@ -21,7 +22,6 @@ html, body {
   text-align: center;
   font-family: PoppinsRegular;
   min-width: 100%;
-  max-width: 5000px;
   padding: 20px;
 }
 
@@ -32,6 +32,7 @@ html, body {
   padding: 3%;
   margin-top: 10px;
   width: 100%;
+  height: 50px;
   font-family: PoppinsRegular;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.375);
   border: 3px solid;
@@ -88,9 +89,9 @@ form.add-form-schedules-page {
 }
 
 .my-btn {
-  font-family: PoppinsRegular!important;
+  font-family: PoppinsRegular !important;
   font-size: 20px;
-  background:#C4AFAC !important;
+  background: #C4AFAC !important;
   border-radius: 6px;
   box-shadow: 0 2px 5px black;
   width: 300px;
@@ -101,7 +102,7 @@ form.add-form-schedules-page {
   background-color: #C4AFAC;
 }
 
-.form-save-btn{
-  background-color: #C4AFAC!important;
-  outline-color: black!important;
+.form-save-btn {
+  background-color: #C4AFAC !important;
+  outline-color: black !important;
 }
