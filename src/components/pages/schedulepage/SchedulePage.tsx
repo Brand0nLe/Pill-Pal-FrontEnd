@@ -210,7 +210,7 @@ const SchedulePage = () => {
                 </div>
               </div>
             ) : (
-              <div>No medications found! Please click the button to start adding meds!</div>
+              <div>No medications found! Please click the "Add Medication" button to start adding meds!</div>
             )}
           </Col>
         </Row>
