@@ -6,7 +6,7 @@
 }
 
 .login-parent{
-  
+  min-height: 100vh;
 }
 
 .login-form {

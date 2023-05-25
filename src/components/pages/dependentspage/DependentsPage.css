@@ -1,6 +1,12 @@
 @import '../../assets/fonts/Fonts.css';
 
 
+
+html, body {
+  min-height: 100vh;
+}
+
+
 ::placeholder {
   font-family: PoppinsLight;
   color: black;

@@ -1,6 +1,10 @@
 @import '../../assets/fonts/Fonts.css';
 
-.schedule-container {
+html, body {
+  min-height: 100vh;
+}
+
+.schedule-parent {
   min-height: 100vh;
 }
 
