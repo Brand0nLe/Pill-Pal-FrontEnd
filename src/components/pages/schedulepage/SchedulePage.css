@@ -21,7 +21,6 @@ body {
   border-color: black;
   text-align: center;
   font-family: PoppinsRegular;
-  min-width: 100%;
   padding: 20px;
 }
 
@@ -31,7 +30,7 @@ body {
   text-align: center;
   padding: 3%;
   margin-top: 10px;
-  width: 100%;
+  width: 440px;
   height: 50px;
   font-family: PoppinsRegular;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.375);
