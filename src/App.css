@@ -41,7 +41,7 @@
 
 
 body, html{
-  min-height: 100vh!important;
+  background-color: #F7E8E5;
   font-family: PoppinsExtraLight;
 }
 

@@ -9,7 +9,6 @@ import {
 // import { AddCircleIcon } from '@mui/icons-material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import NavBar from '../../navbarheader/NavBarHeader';
-import Footer from '../../footer/Footer';
 import card1 from '../../assets/images/Med-card-template.png';
 import card2 from '../../assets/images/Med-card-two-template.jpg';
 
@@ -542,7 +541,6 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
         <div className='bottomspace'></div>
 
       </Container>
-      <Footer />
 
     </div>
   )

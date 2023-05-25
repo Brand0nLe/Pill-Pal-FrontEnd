@@ -1,12 +1,12 @@
 @import '../../assets/fonts/Fonts.css';
 
-body, html{
-  background-color: #F7F0E8;
-  min-height: 100%!important;
-}
 
 .borderRadius {
   border-radius: 0% !important;
+}
+
+.login-parent{
+  min-height: 100vh;
 }
 
 .login-form {
@@ -79,3 +79,4 @@ body, html{
   background-color: #fff;
   transform: skewY(0deg);
 }
+

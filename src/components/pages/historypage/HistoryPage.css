@@ -1,7 +1,11 @@
 @import '../../assets/fonts/Fonts.css';
 
-.parent-bg,
-html {
+
+html, body {
+  min-height: 100vh;
+}
+
+.parent-bg{
   background-color: #F7F0E8;
   min-height: 100%;
 }

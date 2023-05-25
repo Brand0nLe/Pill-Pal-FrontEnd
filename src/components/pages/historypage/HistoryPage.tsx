@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TableWithPagination from './pagination/Pagination';
 import './HistoryPage.css';
 import NavBar from '../../navbarheader/NavBarHeader';
-import Footer from '../../footer/Footer';
 
 
 
@@ -22,7 +21,7 @@ const HistoryPage: any = () => {
                 </>
 
             </Container>
-            <Footer />
+
 
         </div>
 

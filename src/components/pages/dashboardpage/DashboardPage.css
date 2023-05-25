@@ -4,6 +4,10 @@ html, body {
   min-height: 100vh;
 }
 
+.dashboard-parent{
+      min-height: 100vh;
+
+}
 
 .my-tbl {
   border-collapse: collapse;
@@ -88,8 +92,6 @@ tbody {
   font-family: PoppinsMedium;
   font-size: 24px;
 }
-
-
 
 .profile-area {
   width: 100%;

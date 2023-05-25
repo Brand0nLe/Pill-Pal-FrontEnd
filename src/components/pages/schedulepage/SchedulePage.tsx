@@ -4,7 +4,6 @@ import { DisabledByDefaultOutlined, CheckBoxOutlined } from "@mui/icons-material
 import NavBar from "../../navbarheader/NavBarHeader";
 import "./calendar/Calendar.css";
 import "./SchedulePage.css";
-import Footer from "../../footer/Footer";
 import MedsList from "./medlist/MedList";
 
 const getTimeAsDate = (timeString: string) => {
@@ -159,11 +158,11 @@ const SchedulePage = () => {
                     <Form.Label>Additional Notes</Form.Label>
                     <Form.Control as="textarea" name="AdditionalNotes" placeholder="e.g. What meds you cannot take at the same time, what foods or drinks to avoid, taking the medication at a specific time of the day, or any other information that the user wants to put here, they can" />
                   </Form.Group>
-                  <Button className='my-btn' type="submit">Save Med</Button>
+                  <button className='form-save-btn' type="submit">Save Med</button>
 
-                  <Button variant="secondary" onClick={() => setShowForm(false)}>
+                  <button onClick={() => setShowForm(false)}>
                     Close
-                  </Button>
+                  </button>
                 </Form>
               </Modal.Body>
               <Modal.Footer>
@@ -211,12 +210,11 @@ const SchedulePage = () => {
                 </div>
               </div>
             ) : (
-              <div>No medications found! Please click the button to start adding meds!</div>
+              <div>No medications found! Please click the "Add Medication" button to start adding meds!</div>
             )}
           </Col>
         </Row>
       </Container>
-      <Footer />
     </div>
   );
 };
