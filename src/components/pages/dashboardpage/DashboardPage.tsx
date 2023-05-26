@@ -256,6 +256,7 @@ export default function DashboardPage() {
                     </div>
                 </Row>
             </Container>
+            <div className='bottomspace'></div>
 
         </div>
 
