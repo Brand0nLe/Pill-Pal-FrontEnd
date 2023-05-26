@@ -10,7 +10,7 @@
 
 .dependents-parent {
   position: relative;
-
+  min-height: 100vh;
 }
 
 .dependents-divide {
