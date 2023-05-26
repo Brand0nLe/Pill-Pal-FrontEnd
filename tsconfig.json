@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "paths": {
-      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
-    },
     "target": "es5",
     "lib": [
       "dom",
@@ -21,7 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve"
   },
   "include": [
     "src"

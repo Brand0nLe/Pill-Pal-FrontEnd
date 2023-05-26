@@ -150,7 +150,7 @@ function RegistrationPage() {
                 <div className="text-center mt-3">
                   <Row>
                     <p>
-                      Already have an account? <Link to="/login">Login</Link>
+                      Already have an account? <Link to="/newaccount">Login</Link>
                     </p>
                   </Row>
                 </div>
