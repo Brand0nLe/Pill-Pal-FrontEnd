@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Modal, Button, Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button';
 import './DashboardPage.css';
 import defaultProfilePicture from '../../assets/images/default-profile-picture.png';
@@ -74,6 +74,25 @@ export default function DashboardPage() {
             [name]: value,
         }));
     };
+
+
+
+
+    const [showModal, setShowModal] = useState(false);
+    const [modalContent, setModalContent] = useState('');
+
+    const openModal = (content: string) => {
+        setModalContent(content);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
+
+
+
+
 
     return (
         <div className='dashboard-parent'>
@@ -246,17 +265,191 @@ export default function DashboardPage() {
                         </table>
                     </div>
                 </Row>
+
+
+
+
                 <Row className='d-lg-none justify-content-center mt-5'>
                     <Col xs={12} sm={10} md={8} className='d-flex flex-column'>
-                        <button className='my-btn-2 mb-3' style={{ width: '100%' }}>Allergies/Diagnosis</button>
-                        <button className='my-btn-2 mb-3' style={{ width: '100%' }}>Insurance</button>
-                        <button className='my-btn-2 mb-3' style={{ width: '100%' }}>Doctors</button>
-                        <button className='my-btn-2 mb-3' style={{ width: '100%' }}>Pharmacy</button>
-                        <button className='my-btn-2' style={{ width: '100%' }}>Current Medications</button>
+                        <button
+                            className='my-btn-2 mb-3'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    `
+      <table id='allergies' className='my-tbl'>
+        <thead>
+          <tr>
+            <th>Allergies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Peanuts</td>
+          </tr>
+          <tr>
+            <td>Shellfish</td>
+          </tr>
+          <tr>
+            <td>Dust mites</td>
+          </tr>
+        </tbody>
+      </table>
+      `
+                                )
+                            }
+                        >
+                            Allergies/Diagnosis
+                        </button>
+
+                        <button
+                            className='my-btn-2 mb-3'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    `
+      <div>
+        <img src={defaultMedCardFront} alt="" id="medCardFront" />
+        <img src={defaultMedCardBack} alt="" id="medCardBack" />
+      </div>
+      `
+                                )
+                            }
+                        >
+                            Insurance
+                        </button>
+
+                        <button
+                            className='my-btn-2 mb-3'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    `
+      <table id='doctorContact' className='my-tbl'>
+        <thead>
+          <tr>
+            <th>Doctor's Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Harpreet Singh, M.D.</td>
+          </tr>
+          <tr>
+            <td>(209) 954-3370</td>
+          </tr>
+          <tr>
+            <td>Stockton Medical Plaza 1</td>
+          </tr>
+          <tr>
+            <td>2505 West Hammer Lane</td>
+          </tr>
+          <tr>
+            <td>Stockton, CA 95209</td>
+          </tr>
+        </tbody>
+      </table>
+      `
+                                )
+                            }
+                        >
+                            Doctors
+                        </button>
+
+                        <button
+                            className='my-btn-2 mb-3'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    `
+      <table id='pharmacyHours' className='my-tbl'>
+        <thead>
+          <tr>
+            <th>Pharmacy Hours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CVS Pharmacy</td>
+          </tr>
+          <tr>
+            <td>(209) 951-6544</td>
+          </tr>
+          <tr>
+            <td>6632 Pacific Ave.</td>
+          </tr>
+          <tr>
+            <td>Stockton, CA 95209</td>
+          </tr>
+          <tr>
+            <td>Mon-Fri 8AM-8PM | Sat-Sun 10AM-6PM | Lunch 12:30-1PM every day</td>
+          </tr>
+        </tbody>
+      </table>
+      `
+                                )
+                            }
+                        >
+                            Pharmacy
+                        </button>
+
+                        <button
+                            className='my-btn-2'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    `
+      <table id='pharmacyHours' className='horizontal-tbl'>
+        <thead>
+          <tr>
+            <th>Current Active Meds</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Losartan 25 mg</th>
+            <td>Take 1 tablet everyday.</td>
+            <td>Harpreet Singh</td>
+          </tr>
+          <tr>
+            <th>Alprazolam 1 mg</th>
+            <td>Take 1 tablet daily as needed.</td>
+            <td>Harpreet Singh</td>
+          </tr>
+        </tbody>
+      </table>
+      `
+                                )
+                            }
+                        >
+                            Current Medications
+                        </button>
+
                     </Col>
                 </Row>
             </Container>
+
             <div className='bottomspace'></div>
+            <Modal show={showModal} onHide={closeModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal Title</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {modalContent}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={closeModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
+
+
+
+
+
+
+
     );
 }
