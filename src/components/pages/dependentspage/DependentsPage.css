@@ -32,11 +32,15 @@
 .add-btn {
   font-family: PoppinsRegular;
   background: transparent;
+  transition-duration: 100ms;
 
   border: transparent;
   margin: 25%;
 }
-
+.add-btn:hover{
+  scale: 1.2;
+  transition-duration: 100ms;
+}
 .three-wide {
   display: flex;
   flex-wrap: wrap;
@@ -48,12 +52,18 @@
 
 @media (max-width: 525px) {
   .admin-container {
-    flex-direction: column;
+    border-bottom: 50px solid #F5D8D2;
+    border-right: 0;
+    max-height: 5vw !important;
   }
   .three-wide {
     flex-direction: column;
   }
   .add-btn img {
     width: 100%;
+  }
+  .dependents-divide input {
+    width: auto;
+    height: 24px;
   }
 }
