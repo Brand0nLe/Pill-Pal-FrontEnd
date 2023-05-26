@@ -43,7 +43,7 @@ function RegistrationPage() {
         console.log(newId);
         sessionStorage.setItem("UserId", newId);
         // await GetLoggedInUserData(Username);
-        navigate("/firsttimeuserpage");
+        navigate("/newaccount");
       } else console.log("User creation failed");
       console.log(userData);
     } else alert("Passwords did not match");
@@ -150,7 +150,7 @@ function RegistrationPage() {
                 <div className="text-center mt-3">
                   <Row>
                     <p>
-                      Already have an account? <Link to="/newaccount">Login</Link>
+                      Already have an account? <Link to="/login">Login</Link>
                     </p>
                   </Row>
                 </div>
