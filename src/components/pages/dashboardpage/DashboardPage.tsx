@@ -80,8 +80,10 @@ export default function DashboardPage() {
 
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState('');
+    const [modalTitle, setModalTitle] = useState('');
 
-    const openModal = (content: string) => {
+    const openModal = (title: string, content: string) => {
+        setModalTitle(title);
         setModalContent(content);
         setShowModal(true);
     };
@@ -271,30 +273,33 @@ export default function DashboardPage() {
 
                 <Row className='d-lg-none justify-content-center mt-5'>
                     <Col xs={12} sm={10} md={8} className='d-flex flex-column'>
+
+
+
                         <button
                             className='my-btn-2 mb-3'
                             style={{ width: '100%' }}
                             onClick={() =>
                                 openModal(
+                                    'Allergies/Diagnosis',
                                     `
-      <table id='allergies' className='my-tbl'>
-        <thead>
-          <tr>
-            <th>Allergies</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Peanuts</td>
-          </tr>
-          <tr>
-            <td>Shellfish</td>
-          </tr>
-          <tr>
-            <td>Dust mites</td>
-          </tr>
-        </tbody>
-      </table>
+        <table id='allergies' className='my-tbl'>
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Peanuts</td>
+            </tr>
+            <tr>
+              <td>Shellfish</td>
+            </tr>
+            <tr>
+              <td>Dust mites</td>
+            </tr>
+          </tbody>
+        </table>
       `
                                 )
                             }
@@ -307,11 +312,12 @@ export default function DashboardPage() {
                             style={{ width: '100%' }}
                             onClick={() =>
                                 openModal(
+                                    'Insurance',
                                     `
-      <div>
-        <img src={defaultMedCardFront} alt="" id="medCardFront" />
-        <img src={defaultMedCardBack} alt="" id="medCardBack" />
-      </div>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <img src="${defaultMedCardFront}" alt="" id="medCardFront" style="max-width: 100%;" />
+          <img src="${defaultMedCardBack}" alt="" id="medCardBack" style="max-width: 100%;" />
+        </div>
       `
                                 )
                             }
@@ -324,31 +330,31 @@ export default function DashboardPage() {
                             style={{ width: '100%' }}
                             onClick={() =>
                                 openModal(
+                                    "Doctor's Contact",
                                     `
-      <table id='doctorContact' className='my-tbl'>
-        <thead>
-          <tr>
-            <th>Doctor's Contact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Harpreet Singh, M.D.</td>
-          </tr>
-          <tr>
-            <td>(209) 954-3370</td>
-          </tr>
-          <tr>
-            <td>Stockton Medical Plaza 1</td>
-          </tr>
-          <tr>
-            <td>2505 West Hammer Lane</td>
-          </tr>
-          <tr>
-            <td>Stockton, CA 95209</td>
-          </tr>
-        </tbody>
-      </table>
+        <table id='doctorContact' className='my-tbl'>
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Harpreet Singh, M.D.</td>
+            </tr>
+            <tr>
+              <td>(209) 954-3370</td>
+            </tr>
+            <tr>
+              <td>Stockton Medical Plaza 1</td>
+            </tr>
+            <tr>
+              <td>2505 West Hammer Lane</td>
+            </tr>
+            <tr>
+              <td>Stockton, CA 95209</td>
+            </tr>
+          </tbody>
+        </table>
       `
                                 )
                             }
@@ -361,31 +367,31 @@ export default function DashboardPage() {
                             style={{ width: '100%' }}
                             onClick={() =>
                                 openModal(
+                                    'Pharmacy',
                                     `
-      <table id='pharmacyHours' className='my-tbl'>
-        <thead>
-          <tr>
-            <th>Pharmacy Hours</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>CVS Pharmacy</td>
-          </tr>
-          <tr>
-            <td>(209) 951-6544</td>
-          </tr>
-          <tr>
-            <td>6632 Pacific Ave.</td>
-          </tr>
-          <tr>
-            <td>Stockton, CA 95209</td>
-          </tr>
-          <tr>
-            <td>Mon-Fri 8AM-8PM | Sat-Sun 10AM-6PM | Lunch 12:30-1PM every day</td>
-          </tr>
-        </tbody>
-      </table>
+        <table id='pharmacyHours' className='my-tbl'>
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CVS Pharmacy</td>
+            </tr>
+            <tr>
+              <td>(209) 951-6544</td>
+            </tr>
+            <tr>
+              <td>6632 Pacific Ave.</td>
+            </tr>
+            <tr>
+              <td>Stockton, CA 95209</td>
+            </tr>
+            <tr>
+              <td>Mon-Fri 8AM-8PM | Sat-Sun 10AM-6PM | Lunch 12:30-1PM every day</td>
+            </tr>
+          </tbody>
+        </table>
       `
                                 )
                             }
@@ -398,32 +404,38 @@ export default function DashboardPage() {
                             style={{ width: '100%' }}
                             onClick={() =>
                                 openModal(
+                                    'Current Medications',
                                     `
-      <table id='pharmacyHours' className='horizontal-tbl'>
-        <thead>
-          <tr>
-            <th>Current Active Meds</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Losartan 25 mg</th>
-            <td>Take 1 tablet everyday.</td>
-            <td>Harpreet Singh</td>
-          </tr>
-          <tr>
-            <th>Alprazolam 1 mg</th>
-            <td>Take 1 tablet daily as needed.</td>
-            <td>Harpreet Singh</td>
-          </tr>
-        </tbody>
-      </table>
+        <table id='pharmacyHours' className='horizontal-tbl'>
+          <thead>
+            <tr>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Losartan 25 mg</th>
+              <td>Take 1 tablet everyday.</td>
+              <td>Harpreet Singh</td>
+            </tr>
+            <tr>
+              <th>Alprazolam 1 mg</th>
+              <td>Take 1 tablet daily as needed.</td>
+              <td>Harpreet Singh</td>
+            </tr>
+          </tbody>
+        </table>
       `
                                 )
                             }
                         >
                             Current Medications
                         </button>
+
+
+
+
+
 
                     </Col>
                 </Row>
@@ -432,10 +444,10 @@ export default function DashboardPage() {
             <div className='bottomspace'></div>
             <Modal show={showModal} onHide={closeModal}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal Title</Modal.Title>
+                    <Modal.Title>{modalTitle}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {modalContent}
+                    <div dangerouslySetInnerHTML={{ __html: modalContent }}></div>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={closeModal}>
