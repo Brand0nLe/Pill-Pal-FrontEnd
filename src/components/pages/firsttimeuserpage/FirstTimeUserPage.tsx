@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import './FirstTimeUserPage.css'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './FirstTimeUserPage.css';
 import {
   Row,
   Container,
@@ -138,9 +139,9 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
     setNewDiagnosis(value);
   };
 
-  const handleSaveProfile = () => {
-    DependentsPageProps.onSaveProfile(doctorContact, pharmacyHours, name, birthDate, address1, address2);
-  };
+  // const handleSaveProfile = () => {
+  //   DependentsPageProps.onSaveProfile(doctorContact, pharmacyHours, name, birthDate, address1, address2);
+  // };
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -180,7 +181,7 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
 
 
         < Row className='justify-content-md-center mt-5' >
-        <Col xs={12} sm={6} md={4} lg={12}>
+          <Col xs={12} sm={6} md={4} lg={12}>
             <div className="profile-area">
 
               <div className="profile-picture-container">
@@ -222,12 +223,14 @@ export default function FirstTimeUserPage(DependentsPageProps: any) {
                   value={address2}
                   onChange={handleAddress2Change} />
 
-                <Button className='my-btn' onClick={handleSaveProfile}>
-                  Save Profile
-                </Button>
+                <Link to="/dashboardpage">
+                  <button className='my-btn'>
+                    Save Profile
+                  </button>
+                </Link>
               </div>
               <img src={card1} alt="" id="medCardFront" />
-                    <img src={card2} alt="" id="medCardBack" />
+              <img src={card2} alt="" id="medCardBack" />
             </div>
           </Col>
           < div className='tables-area'>

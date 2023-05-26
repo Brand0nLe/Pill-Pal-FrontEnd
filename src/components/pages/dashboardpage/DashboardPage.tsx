@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Modal, Button, Col, Container, Row } from 'react-bootstrap';
 import CommonButton from '../../common/button/Button';
 import './DashboardPage.css';
 import defaultProfilePicture from '../../assets/images/default-profile-picture.png';
@@ -8,8 +7,6 @@ import defaultMedCardFront from '../../assets/images/Med-card-template.png';
 import defaultMedCardBack from '../../assets/images/Med-card-two-template.jpg';
 import NavBar from '../../navbarheader/NavBarHeader';
 import { createAccount, login, GetLoggedInUserData, GetLoggedInUserDataById, GetPublishedBlogItems, checkToken, loggedInData, addBlogItem, getBlogItemsByUserId, updateBlogItem } from '../../services/DataService';
-
-
 
 export default function DashboardPage() {
 
@@ -34,7 +31,7 @@ export default function DashboardPage() {
     useEffect(() => {
         const storedUserFname = sessionStorage.getItem('FirstName');
         const storedUserLname = sessionStorage.getItem('LastName');
-        if (userId != 0){
+        if (userId != 0) {
             GetLoggedInUserDataById(userId).then(result => {
                 console.log(result);
             })
@@ -53,96 +50,111 @@ export default function DashboardPage() {
     useEffect(() => {
         const savedProfileData = localStorage.getItem('profileData');
         if (savedProfileData) {
-          setProfileData(JSON.parse(savedProfileData));
+            setProfileData(JSON.parse(savedProfileData));
         }
-      }, []);
-    
-      
-      useEffect(() => {
+    }, []);
+
+
+    useEffect(() => {
         localStorage.setItem('profileData', JSON.stringify(profileData));
-      }, [profileData]);
-    
-      const handleEditClick = () => {
+    }, [profileData]);
+
+    const handleEditClick = () => {
         setIsEditing(true);
-      };
-    
-      const handleSaveClick = () => {
+    };
+
+    const handleSaveClick = () => {
         setIsEditing(false);
-      };
-    
-      const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    };
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setProfileData((prevProfileData) => ({
-          ...prevProfileData,
-          [name]: value,
+            ...prevProfileData,
+            [name]: value,
         }));
-      };
-      
+    };
+
+
+
+
+    const [showModal, setShowModal] = useState(false);
+    const [modalContent, setModalContent] = useState('');
+    const [modalTitle, setModalTitle] = useState('');
+
+    const openModal = (title: string, content: string) => {
+        setModalTitle(title);
+        setModalContent(content);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
+
+
+
 
 
     return (
-
-        < div className='dashboard-parent'>
-
+        <div className='dashboard-parent'>
             <NavBar />
-
             <Container>
-
-                < Row className='justify-content-md-center mt-5' >
-                        <div className="profile-area">
-
-                    
-                            <div className="profile-picture-container">
-
-                                <img id='profile-picture' src={defaultProfilePicture} alt="" />
-
-                            </div>
-                                
-                            <div className="profile-info">
-                                {isEditing ? (
-                                    <>
-                                        <input
-                                            type="text"
-                                            name="profileName"
-                                            value={profileData.profileName}
-                                            onChange={handleInputChange}
-                                        />
-                                        <input
-                                            type="date"
-                                            name="profileDate"
-                                            value={profileData.profileDate}
-                                            onChange={handleInputChange}
-                                        />
-                                        <input
-                                            type="text"
-                                            name="profileAddressLine1"
-                                            value={profileData.profileAddressLine1}
-                                            onChange={handleInputChange}
-                                        />
-                                        <input
-                                            type="text"
-                                            name="profileAddressLine2"
-                                            value={profileData.profileAddressLine2}
-                                            onChange={handleInputChange}
-                                        />
-                                        < button className='save-btn' onClick={handleSaveClick} >Save</button>
-                                        {/* <CommonButton onClick={handleSaveClick}>Save</CommonButton> */}
-                                    </>
-                                ) : (
-                                    <>
-                                        <h3 className='profileName'>{profileData.profileName}</h3>
-                                        <p className='profileDate'>{profileData.profileDate}</p>
-                                        <p className='profileAddressLine1'>{profileData.profileAddressLine1}</p>
-                                        <p className='profileAddressLine2'>{profileData.profileAddressLine2}</p>
-                                        < button className='save-btn' onClick={handleEditClick} >Edit Profile</button>
-                                    </>
-                                )}
+                <Row className='justify-content-lg-center mt-5 d-none d-lg-flex'>
+                    <div className="profile-area">
 
 
-                            </div>
-                            <img src={defaultMedCardFront} alt="" id="medCardFront" />
-                            <img src={defaultMedCardBack} alt="" id="medCardBack" />
+                        <div className="profile-picture-container">
+
+                            <img id='profile-picture' src={defaultProfilePicture} alt="" />
+
                         </div>
+
+                        <div className="profile-info">
+                            {isEditing ? (
+                                <>
+                                    <input
+                                        type="text"
+                                        name="profileName"
+                                        value={profileData.profileName}
+                                        onChange={handleInputChange}
+                                    />
+                                    <input
+                                        type="date"
+                                        name="profileDate"
+                                        value={profileData.profileDate}
+                                        onChange={handleInputChange}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="profileAddressLine1"
+                                        value={profileData.profileAddressLine1}
+                                        onChange={handleInputChange}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="profileAddressLine2"
+                                        value={profileData.profileAddressLine2}
+                                        onChange={handleInputChange}
+                                    />
+                                    < button className='save-btn' onClick={handleSaveClick} >Save</button>
+                                    {/* <CommonButton onClick={handleSaveClick}>Save</CommonButton> */}
+                                </>
+                            ) : (
+                                <>
+                                    <h3 className='profileName'>{profileData.profileName}</h3>
+                                    <p className='profileDate'>{profileData.profileDate}</p>
+                                    <p className='profileAddressLine1'>{profileData.profileAddressLine1}</p>
+                                    <p className='profileAddressLine2'>{profileData.profileAddressLine2}</p>
+                                    < button className='save-btn' onClick={handleEditClick} >Edit Profile</button>
+                                </>
+                            )}
+
+
+                        </div>
+                        <img src={defaultMedCardFront} alt="" id="medCardFront" />
+                        <img src={defaultMedCardBack} alt="" id="medCardBack" />
+                    </div>
                     < div className='tables-area'>
 
                         <table id='allergies' className='my-tbl'>
@@ -255,9 +267,201 @@ export default function DashboardPage() {
                         </table>
                     </div>
                 </Row>
+
+
+
+
+                <Row className='d-lg-none justify-content-center mt-5'>
+                    <Col xs={12} sm={10} md={8} className='d-flex flex-column'>
+
+
+
+                        <button
+                            className='my-btn-2 mb-3'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    'Allergies/Diagnosis',
+                                    `
+        <table id='allergies' className='my-tbl'>
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Peanuts</td>
+            </tr>
+            <tr>
+              <td>Shellfish</td>
+            </tr>
+            <tr>
+              <td>Dust mites</td>
+            </tr>
+          </tbody>
+        </table>
+      `
+                                )
+                            }
+                        >
+                            Allergies/Diagnosis
+                        </button>
+
+                        <button
+                            className='my-btn-2 mb-3'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    'Insurance',
+                                    `
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <img src="${defaultMedCardFront}" alt="" id="medCardFront" style="max-width: 100%;" />
+          <img src="${defaultMedCardBack}" alt="" id="medCardBack" style="max-width: 100%;" />
+        </div>
+      `
+                                )
+                            }
+                        >
+                            Insurance
+                        </button>
+
+                        <button
+                            className='my-btn-2 mb-3'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    "Doctor's Contact",
+                                    `
+        <table id='doctorContact' className='my-tbl'>
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Harpreet Singh, M.D.</td>
+            </tr>
+            <tr>
+              <td>(209) 954-3370</td>
+            </tr>
+            <tr>
+              <td>Stockton Medical Plaza 1</td>
+            </tr>
+            <tr>
+              <td>2505 West Hammer Lane</td>
+            </tr>
+            <tr>
+              <td>Stockton, CA 95209</td>
+            </tr>
+          </tbody>
+        </table>
+      `
+                                )
+                            }
+                        >
+                            Doctors
+                        </button>
+
+                        <button
+                            className='my-btn-2 mb-3'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    'Pharmacy',
+                                    `
+        <table id='pharmacyHours' className='my-tbl'>
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CVS Pharmacy</td>
+            </tr>
+            <tr>
+              <td>(209) 951-6544</td>
+            </tr>
+            <tr>
+              <td>6632 Pacific Ave.</td>
+            </tr>
+            <tr>
+              <td>Stockton, CA 95209</td>
+            </tr>
+            <tr>
+              <td>Mon-Fri 8AM-8PM | Sat-Sun 10AM-6PM | Lunch 12:30-1PM every day</td>
+            </tr>
+          </tbody>
+        </table>
+      `
+                                )
+                            }
+                        >
+                            Pharmacy
+                        </button>
+
+                        <button
+                            className='my-btn-2'
+                            style={{ width: '100%' }}
+                            onClick={() =>
+                                openModal(
+                                    'Current Medications',
+                                    `
+        <table id='pharmacyHours' className='horizontal-tbl'>
+          <thead>
+            <tr>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Losartan 25 mg</th>
+              <td>Take 1 tablet everyday.</td>
+              <td>Harpreet Singh</td>
+            </tr>
+            <tr>
+              <th>Alprazolam 1 mg</th>
+              <td>Take 1 tablet daily as needed.</td>
+              <td>Harpreet Singh</td>
+            </tr>
+          </tbody>
+        </table>
+      `
+                                )
+                            }
+                        >
+                            Current Medications
+                        </button>
+
+
+
+
+
+
+                    </Col>
+                </Row>
             </Container>
 
+            <div className='bottomspace'></div>
+            <Modal show={showModal} onHide={closeModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{modalTitle}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div dangerouslySetInnerHTML={{ __html: modalContent }}></div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={closeModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
+
+
+
+
+
+
 
     );
 }

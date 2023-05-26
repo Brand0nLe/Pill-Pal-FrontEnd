@@ -13,10 +13,26 @@
 .NavFont {
     font-family: PoppinsLight;
     color: black;
-    font-size: 2rem;
     display: flex;
 }
 .active {
     font-weight: bold;
+  }
+  
+
+  .NavFont {
+    font-size: 26px;
+  }
+  
+  @media (max-width: 768px) {
+    .NavFont {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .NavFont {
+      font-size: 14px;
+    }
   }
   

@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import {
-    TableContainer,
-    Table,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
-    Paper,
-    TablePagination,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Paper,
+  TablePagination
 } from "@mui/material";
 
 interface Row {
-    date: any;
-    medname: string;
-    medstrength: any;
-    doctor: string;
-    directions: string;
-    [key: string]: any;
+  date: any;
+  medname: string;
+  medstrength: any;
+  doctor: string;
+  directions: string;
+  [key: string]: any;
 }
 
 const rows: Row[] = [
@@ -94,68 +94,78 @@ const columns = [
     { id: "medname", label: "Medication", minWidth: 50 },
     { id: "medstrength", label: "Strength", minWidth: 50 },
     { id: "doctor", label: "Prescribing Doctor", minWidth: 100 },
-    { id: "directions", label: "Directions for Use", minWidth: 100 },
-    // add more columns here
-];
-
-const TableWithPagination = () => {
+    { id: "directions", label: "Directions for Use", minWidth: 100 }
+  ];
+  
+  const TableWithPagination = () => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(15);
-
+  
     const handleChangePage = (event: unknown, newPage: number) => {
-        setPage(newPage);
+      setPage(newPage);
     };
-
-    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRowsPerPage(+event.target.value);
-        setPage(0);
+  
+    const handleChangeRowsPerPage = (
+      event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+      setRowsPerPage(+event.target.value);
+      setPage(0);
     };
-
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
-
+  
+    const emptyRows =
+      rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  
     return (
-        <TableContainer component={Paper}>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        {columns.map((column) => (
-                            <TableCell key={column.id} align="left" style={{ minWidth: column.minWidth }}>
-                                {column.label}
-                            </TableCell>
-                        ))}
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {(rowsPerPage > 0
-                        ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        : rows
-                    ).map((row) => (
-                        <TableRow key={row.id}>
-                            {columns.map((column) => (
-                                <TableCell key={column.id} align="left">
-                                    {row[column.id]}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    ))}
-                    {emptyRows > 0 && (
-                        <TableRow style={{ height: 53 * emptyRows }}>
-                            <TableCell colSpan={6} />
-                        </TableRow>
-                    )}
-                </TableBody>
-            </Table>
-            <TablePagination
-                rowsPerPageOptions={[15, 20, 30, 40, 50]}
-                component="div"
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-        </TableContainer>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align="left"
+                  style={{ minWidth: column.minWidth }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {(rowsPerPage > 0
+              ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              : rows
+            ).map((row) => (
+              <TableRow key={row.id}>
+                <TableCell>{row.date}</TableCell>
+                <TableCell>{row.medname}</TableCell>
+                <TableCell>{row.medstrength}</TableCell>
+                <TableCell className="hide-below-430">
+                  {row.doctor}
+                </TableCell>
+                <TableCell className="hide-below-430">
+                  {row.directions}
+                </TableCell>
+              </TableRow>
+            ))}
+            {emptyRows > 0 && (
+              <TableRow style={{ height: 53 * emptyRows }}>
+                <TableCell colSpan={columns.length} />
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+        <TablePagination
+          rowsPerPageOptions={[15, 20, 30, 40, 50]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </TableContainer>
     );
-};
-
-export default TableWithPagination;
+  };
+  
+  export default TableWithPagination;

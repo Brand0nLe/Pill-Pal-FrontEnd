@@ -18,7 +18,7 @@ const AppRoutes = () => {
       <Route path="/dashboardpage" element={<DashboardPage />} />
       <Route path="/schedulepage" element={<SchedulePage />} />
       <Route path="/historypage" element={<HistoryPage />} />
-      <Route path="/firsttimeuserpage" element={<FirstTimeUserPage />} />
+      <Route path="/newaccount" element={<FirstTimeUserPage />} />
       <Route path="/" element={<LoginPage />} />
     </Routes>
   );

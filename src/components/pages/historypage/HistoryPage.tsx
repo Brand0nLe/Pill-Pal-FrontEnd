@@ -20,6 +20,7 @@ const HistoryPage: any = () => {
 
             </Container>
 
+            <div className='bottomspace'></div>
 
         </div>
 
