@@ -33,6 +33,11 @@ const SchedulePage = () => {
     setMedications((prevMedications) =>
       prevMedications.filter((medication) => medication.id !== id)
     );
+  
+    localStorage.setItem(
+      "medications",
+      JSON.stringify(medications.filter((medication) => medication.id !== id))
+    );
   };
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
