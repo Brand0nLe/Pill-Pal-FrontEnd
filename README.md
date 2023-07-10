@@ -12,6 +12,8 @@ This is a final project for CodeStack Academy, where I worked as the "Product Ma
 
 ## About the Project
 
+If you're interested in this project please keep an eye out and I will be working on this starting September after I have finished the project I'm working on for my internship. Thank you!
+
 [Check out the current progress hosted on azure.](https://pill-pal.azurewebsites.net/)
 
 Pill Pal is an app that aims to provide users with a place to store medical information such as medication history, insurance details, allergies, doctor's contacts, and pharmacy contacts. While the current version of the app is not fully functional as initially planned, it serves as a prototype developed for the assignment within the given timeframe and project constraints.
